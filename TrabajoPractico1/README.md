@@ -18,5 +18,5 @@ A continuación se deja el enlace a las consignas correspondientes del TP1:
 
 
 A continuación se deja el enlace a los wireframes:
-[Wireframes]()
+[Wireframes](https://www.figma.com/file/BadcjPTMxz8lQJvso2MHXh/Institucional?node-id=0%3A1)
 
