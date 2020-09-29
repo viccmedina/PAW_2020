@@ -20,3 +20,7 @@ A continuación se deja el enlace a las consignas correspondientes del TP1:
 A continuación se deja el enlace a los wireframes:
 [Wireframes](https://www.figma.com/file/BadcjPTMxz8lQJvso2MHXh/Institucional?node-id=0%3A1)
 
+
+
+A continuacion se deja el SiteMap del sitio:
+![WhatsApp Image 2020-09-28 at 8 45 02 PM](https://user-images.githubusercontent.com/54343876/94499692-bddc7100-01d3-11eb-9bb4-10e31c066d4e.jpeg)
