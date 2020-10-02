@@ -11,21 +11,22 @@
 </head>
 <body>
     <header>
-        <img src="" alt="Logo empresarial">
-        <h1>Enterprise Name</h1>
+        <h1> <img src="" alt="Logo empresarial">Enterprise Name</h1>
+
+        <nav>
+            <a href="/index.html" title="">Home</a>
+            <a href="/turnos.html" title="">Trunos</a>
+            <a href="/nuevo_turno.html" title="">Nuevo Turno</a>
+            <a href="/estudios.html" title="">Estudios</a>
+            <a href="/obras_sociales.html" title="">Obras Sociales</a>
+            <a href="/especialidades.html" title="">Especialidades</a>
+            <a href="/noticias.html" title="">Noticias</a>
+            <a href="/institucional.html" title="">Institucional</a>
+        </nav>
     </header>
 
 
-    <nav>
-        <a href="/index.html" title="">Home</a>
-        <a href="/turnos.html" title="">Trunos</a>
-        <a href="/nuevo_turno.html" title="">Nuevo Turno</a>
-        <a href="/estudios.html" title="">Estudios</a>
-        <a href="/obras_sociales.html" title="">Obras Sociales</a>
-        <a href="/especialidades.html" title="">Especialidades</a>
-        <a href="/noticias.html" title="">Noticias</a>
-        <a href="/institucional.html" title="">Institucional</a>
-    </nav>
+
 
     <!--no se si en mi seccion deberia poner una imagen u otra cosa. (alguien tiene info de covid aca)-->
     <aside>
@@ -37,38 +38,42 @@
 
             <input type="text" name="buscarEstudio">
             <button type="button">Buscar</button><br>
-            <p><strong>Ingresá los 18 caracteres alfanuméricos de seguimiento , omitiendo puntos y espacios.</strong></p>
+            <p>Ingresá los 18 caracteres alfanuméricos de seguimiento , omitiendo puntos y espacios.</p>
         </form>
 
         <h4>Resultados de su busqueda:</h4>
 
         <table style="width:50%">
             <!--head de la tabla-->
-            <tr>
-                <th>Fecha</th>
-                <th>Lugar</th>
-                <th>Historia</th>
-                <th>Estado</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Lugar</th>
+                    <th scope="col">Historia</th>
+                    <th scope="col">Estado</th>
+                </tr>
+            </thead>
             <!-- body de la tabla-->
-            <tr>
-                <td>14/12/2020</td>
-                <td>Laboratorio</td>
-                <td>Realizando analisis</td>
-                <td>En proceso</td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td>14/12/2020</td>
+                    <td>Laboratorio</td>
+                    <td>Realizando analisis</td>
+                    <td>En proceso</td>
+                </tr>
+            </tbody>
             <!-- estos datos van de ejemplo-->
-        </table> <br>
+        </table>
     </main>
 
 
     <footer>
         <!-- Href a google maps? -->
         <address>
-            Tel : XXX-XXX-XXX
+            <p>Tel : XXX-XXX-XXX </p>
             <img src="location.jpg" alt="Location Logo" width="500" height="600">
-            Email : <a href="mailto:webmaster@example.com">CosmeFulanito</a>.<br>
-            Calle no se me ocurre al 1983, Luján
+            <P>Email : <a href="mailto:webmaster@example.com">CosmeFulanito</a>.</P>
+           <p> Calle no se me ocurre al 1983, Luján</p>
         </address>
         <ul>
             <li><a href="#"><<img src="" alt="Whatsapp"></a></li>

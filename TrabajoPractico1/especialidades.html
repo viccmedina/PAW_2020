@@ -11,21 +11,21 @@
 
 <body>
     <header>
-            <img src="" alt="Logo empresarial">
-            <h1>Enterprise Name</h1>
+        <h1> <img src="" alt="Logo empresarial"> Enterprise Name </h1>
 
+            <nav>
+                <a href="/index.html" title="">Home</a>
+                <a href="/turnos.html" title="">Trunos</a>
+                <a href="/nuevo_turno.html" title="">Nuevo Turno</a>
+                <a href="/estudios.html" title="">Estudios</a>
+                <a href="/obras_sociales.html" title="">Obras Sociales</a>
+                <a href="/especialidades.html" title="">Especialidades</a>
+                <a href="/noticias.html" title="">Noticias</a>
+                <a href="/institucional.html" title="">Institucional</a>
+            </nav>
     </header>
+    <!--nav deberia estar en el header del body?-->
 
-    <nav>
-        <a href="/index.html" title="">Home</a>
-        <a href="/turnos.html" title="">Trunos</a>
-        <a href="/nuevo_turno.html" title="">Nuevo Turno</a>
-        <a href="/estudios.html" title="">Estudios</a>
-        <a href="/obras_sociales.html" title="">Obras Sociales</a>
-        <a href="/especialidades.html" title="">Especialidades</a>
-        <a href="/noticias.html" title="">Noticias</a>
-        <a href="/institucional.html" title="">Institucional</a>
-    </nav>
 
     <!--no se si en mi seccion deberia poner una imagen u otra cosa. (alguien tiene info de covid aca)-->
     <aside>
@@ -36,18 +36,18 @@
     <main>
         <form action="">
             <label for="buscar">Buscar</label><br>
-            <input type="text" name="buscar" placeholder="Ingrese la especialidad que desea buscar."><br>
+            <input type="text" name="buscar" id="buscar" placeholder="Ingrese la especialidad que desea buscar."><br>
             <button type="button">Buscar</button>
         </form>
-            <h4>Resultado:</h4>
-
+        <!-- resultados de ejemplo-->
+            <p>Resultado:</p>
 
                     <details>
                         <summary>resultado 1</summary>
                         <p>
                             resumen de resultado 1.
                         </p>
-                        <a href="#"><h4>ver mas...</h4></a>
+                        <a href="#">ver mas...</a>
                     </details>
 
                     <details>
@@ -55,7 +55,7 @@
                         <p>
                             resumen de resultado 2
                         </p>
-                        <a href="#"><h4>ver mas...</h4></a>
+                        <a href="#">ver mas...</a>
                     </details>
 
                     <details>
@@ -63,7 +63,7 @@
                         <p>
                             resumen de resultado 3
                         </p>
-                        <a href="#"><h4>ver mas...</h4></a>
+                        <a href="#">ver mas...</a>
                     </details>
 
     </main>
@@ -72,16 +72,16 @@
     <footer>
         <!-- Href a google maps? -->
         <address>
-            Tel : XXX-XXX-XXX
+            <P>Tel : XXX-XXX-XXX </P>
             <img src="location.jpg" alt="Location Logo" width="500" height="600">
-            Email : <a href="mailto:webmaster@example.com">CosmeFulanito</a>.<br>
-            Calle no se me ocurre al 1983, Luján
+            <P>Email : <a href="mailto:webmaster@example.com">CosmeFulanito</a>.</P>
+            <P>Calle no se me ocurre al 1983, Luján</P>
         </address>
 
         <ul>
-            <li><a href="#"><<img src="" alt="Whatsapp"></a></li>
-            <li><a href="#"><<img src="" alt="FaceBook"></a></li>
-            <li><a href="#"><<img src="" alt="Instagram"></a></li>
+            <li><a href="#"><img src="" alt="Whatsapp"></a></li>
+            <li><a href="#"><img src="" alt="FaceBook"></a></li>
+            <li><a href="#"><img src="" alt="Instagram"></a></li>
         </ul>
     </footer>
 </body>
