@@ -9,29 +9,22 @@
 	<!-- 
 		Representa al logo de la empresa junto con el nombre.
 	 -->
-	<header>
-		<img src="" alt="Logo empresarial">
-  		<h1>Enterprise Name</h1>
-	</header>
+		<header>
+      <h1><img src="/imagenes/logo.jpg" alt="Enterprise Logo" width="500" height="600"> Enterprise Name</h1>
+      <nav>
+        <ul>
+          <li><a href="/index.html" title="">Home</a></li>
+          <li><a href="/turnos.html" title="">Turnos</a></li>
+          <li><a href="/estudios.html" title="">Estudios</a></li>
+          <li><a href="/obras_sociales.html" title="">Obras Sociales</a></li>
+          <li><a href="/especialidades.html" title="">Especialidades</a></li>
+          <li><a href="/noticias.html" title="">Noticias</a></li>
+          <li><a href="/institucional.html" title="">Institucional</a></li>
+        </ul>
+      </nav>
+    </header>
 
-	<!--
-		Representa la barra de navegación que permitirá al usuario
-		navegar por el sitio.
-	-->
-	<nav>
-		<ul>
-			<li><a href="#" title="">Home</a></li>
-			<li><a href="#" title="">Trunos</a></li>
-			<li><a href="#" title="">Nuevo Turno</a></li>
-			<li><a href="#" title="">Estudios</a></li>
-			<li><a href="#" title="">Obras Sociales</a></li>
-			<li><a href="#" title="">Especialidades</a></li>
-			<li><a href="#" title="">Noticias</a></li>
-			<li><a href="#" title="">Nosotros</a></li>
-		</ul>
-	</nav>
-
-	<a href="#">Home</a>
+	
 	
 	<!--
 		Contenido relevante para el usuario.
@@ -45,23 +38,31 @@
 		Contenido principal del sitio. Contendrá el formulario para la solicitud de nuevos turnos.
 	-->
 	<main>
-		<form>  
-			<label for="apenomb">Apellido y Nombre</label><br>
-			<input type="text" name="apenomb" required placeholder="Peréz Juan"><br>
-			<label for="email">Email:</label><br>
-			<input type="email" name="email" placeholder="ejemplo@ejemplo.com.ar">
-			<label for="tel">Teléfono Celular:</label><br>
-			<input type="tel" name="tel" required placeholder="232315232425">
-			<label for="fecha_nac">Fecha Nacimiento:</label><br>
-			<input type="date" name="fecha_nac">
-			<label for="edad">Edad:</label><br>
-			<input type="number" name="edad" placeholder="46">
-			<label for="fecha_turno">Fecha Turno:</label><br>
-			<input type="date" name="fecha_turno" required>
-			<label for="hora_turno">Hora Turno:</label><br>
-			<input type="time" name="hora_turno" required>
+			<header>
+          		<h1>Nuevo Turno </h1>
+      		</header>
+		<form method="POST" name="nuevo_turno" autocomplete="on">  
+			<fieldset>
+				<label for="apenomb">Apellido y Nombre</label><br>
+				<input type="text" name="apenomb" required placeholder="Peréz Juan" autofocus tabindex="1"><br>
+				<label for="email">Email:</label><br>
+				<input type="email" name="email" placeholder="ejemplo@ejemplo.com.ar" tabindex="2">
+				<label for="tel">Teléfono Celular:</label><br>
+				<input type="tel" name="tel" required placeholder="232315232425" tabindex="3">
+				<label for="fecha_nac">Fecha Nacimiento:</label><br>
+				<input type="date" name="fecha_nac" tabindex="4">
+				<label for="edad">Edad:</label><br>
+				<input type="number" name="edad" placeholder="46" tabindex="5">	
+			</fieldset>
+			<fieldset>
+				<label for="fecha_turno">Fecha Turno:</label><br>
+				<input type="date" name="fecha_turno" required tabindex="6">
+				<label for="hora_turno">Hora Turno:</label><br>
+				<input type="time" name="hora_turno" required tabindex="7">	
+			</fieldset>
+			
 	
-			<input type="submit" value="Limpiar">
+			<input type="reset" value="Limpiar">
 			<input type="submit" value="Solicitar">
 		</form>
 		
@@ -72,23 +73,20 @@
 		Pie de página del sitio.
 	-->
 
-	<footer>
-		<!-- 
-			Utilizado para representar la información de contacto en la
-			esquina superior derecha .
-		-->
-		<address>
-	        <p>Tel : XXX-XXX-XXX></p>
-	        <img src="#" alt="Location Logo" width="500" height="600"> 
-	        <p>Email :</p> <a href="mailto:webmaster@example.com">CosmeFulanito</a>.<br>
-	        <p>Calle no se me ocurre al 1983, Luján</p>
-      	</address> 
-		
-		<ul>
-			<li><a href="#"><img src="" alt="Whatsapp"></a></li>
-			<li><a href="#"><img src="" alt="FaceBook"></a></li>
-			<li><a href="#"><img src="" alt="Instagram"></a></li>
-		</ul>
-	</footer>
+    <footer>
+      <img src="/imagenes/location.jpg" alt="Location Logo" width="500" height="600"> 
+      <address>
+        <p>Tel : XXX-XXX-XXX</p>
+        <p>Email : <a href="mailto:webmaster@example.com">webmaster@example.com</a></p>
+        <p>Calle no se me ocurre al 1983, Luján</p>
+      </address> 
+
+      <ul>
+        <li><a href="https://www.instagram.com">Instagram</a></li>
+        <li><a href="https://www.facebook.com">Facebook</a></li>
+        <li><a href="https://www.whatsapp.com">Whatsapp</a></li>
+      </ul>
+
+    </footer>
 </body>
 </html>
