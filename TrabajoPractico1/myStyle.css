@@ -28,7 +28,8 @@ body>footer{
 }
 
 .social_media{
-    display: none;
+    /*display: none;*/
+    float: right;
 }
 
 main>section{
