@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset = " UTF-8 " >
+	<meta charset = "utf-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Institución</title>
+	<title>Enterprise Name - Nuevo Turno</title>
 </head>
 <body>
 	<!-- 
@@ -31,7 +31,7 @@
 		En este caso enlace hacia información sobre cuidados de COVID-19.
 	-->
 	<aside>
-		<a href="#"><img src="" alt="Información COVID-19"></a>	
+		<a href="#"><img src="/imagenes/covid.jpg" alt="Información COVID-19"></a>	
 	</aside>
 
 	<!--
@@ -39,26 +39,28 @@
 	-->
 	<main>
 			<header>
-          		<h1>Nuevo Turno </h1>
+          		<h1>Nuevo Turno</h1>
       		</header>
 		<form method="POST" name="nuevo_turno" autocomplete="on">  
 			<fieldset>
+				<legend>Información Personal</legend>
 				<label for="apenomb">Apellido y Nombre</label><br>
-				<input type="text" name="apenomb" required placeholder="Peréz Juan" autofocus tabindex="1"><br>
-				<label for="email">Email:</label><br>
-				<input type="email" name="email" placeholder="ejemplo@ejemplo.com.ar" tabindex="2">
+				<input type="text" id="apenomb" required placeholder="Peréz Juan" autofocus tabindex="1"><br>
+				<label for="email">Email</label><br>
+				<input type="email" id="email" placeholder="ejemplo@ejemplo.com.ar" tabindex="2"><br>
 				<label for="tel">Teléfono Celular:</label><br>
-				<input type="tel" name="tel" required placeholder="232315232425" tabindex="3">
+				<input type="tel" id="tel" required placeholder="232315232425" tabindex="3"><br>
 				<label for="fecha_nac">Fecha Nacimiento:</label><br>
-				<input type="date" name="fecha_nac" tabindex="4">
+				<input type="date" id="fecha_nac" tabindex="4"><br>
 				<label for="edad">Edad:</label><br>
-				<input type="number" name="edad" placeholder="46" tabindex="5">	
+				<input type="number" id="edad" placeholder="46" tabindex="5">	
 			</fieldset>
 			<fieldset>
+				<legend>Información del Turno</legend>
 				<label for="fecha_turno">Fecha Turno:</label><br>
-				<input type="date" name="fecha_turno" required tabindex="6">
+				<input type="date" id="fecha_turno" required tabindex="6"><br>
 				<label for="hora_turno">Hora Turno:</label><br>
-				<input type="time" name="hora_turno" required tabindex="7">	
+				<input type="time" id="hora_turno" required tabindex="7">	
 			</fieldset>
 			
 	
