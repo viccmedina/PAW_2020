@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Enterprise Name - Especialidades</title>
+  <meta name="description" content="especialidades"/>
     <!-- etiqueta indispensable para el diseño responsive-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -10,40 +11,37 @@
 <body>
     <header>
         <h1> <img src="/imagenes/logo.jpg" alt="Logo empresarial"> Enterprise Name </h1>
-
-            <nav>
-                <a href="/index.html" title="">Home</a>
-                <a href="/turnos.html" title="">Trunos</a>
-                <a href="/nuevo_turno.html" title="">Nuevo Turno</a>
-                <a href="/estudios.html" title="">Estudios</a>
-                <a href="/obras_sociales.html" title="">Obras Sociales</a>
-                <a href="/especialidades.html" title="">Especialidades</a>
-                <a href="/noticias.html" title="">Noticias</a>
-                <a href="/institucional.html" title="">Institucional</a>
-            </nav>
+        <nav>
+            <ul>
+                <li><a href="/index.html" title="">Home</a></li>
+                <li><a href="/turnos.html" title="">Turnos</a></li>
+                <li><a href="/estudios.html" title="">Estudios</a></li>
+                <li><a href="/obras_sociales.html" title="">Obras Sociales</a></li>
+                <li><a href="/especialidades.html" title="">Especialidades</a></li>
+                <li><a href="/noticias.html" title="">Noticias</a></li>
+                <li><a href="/institucional.html" title="">Institucional</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!--no se si en mi seccion deberia poner una imagen u otra cosa. (alguien tiene info de covid aca)-->
     <aside>
-        <a href="#"><img src="" alt="Información COVID-19"></a>
+        <img src="/imagenes/covid.jpg" alt="Información COVID-19">
     </aside>
 
 
     <main>
         <header>
-
-        </header
-
-        <h1>Especialidades</h1>
-
+            <h1>Especialidades</h1>
+        </header>
 
         <!--
            lo que va en esta parte es discutible ya que se puede  usar un
             datalist donde se le muestre al cliente los resultados en tiempo real.
         -->
-        <form action="/especialidades.html" method="get" name="">
+        <form action="/especialidades.html" method="get" name="consultaEspecialidades">
             <label for="buscar">Buscar
-                <input type="search" name="buscar" id="buscar" placeholder="Ingrese la especialidad que desea buscar.">
+                <input type="search" name="buscar" id="buscar"  autofocus placeholder="Ingrese la especialidad que desea buscar." required>
             </label>
             <input type="submit" value="Buscar">
         </form>
@@ -74,14 +72,19 @@
             <a href="#">ver mas...</a>
         </details>
 
+
+        <aside>
+            <img  src ="/imagenes/publicidad.jpg" alt = "Publicidad">
+        </aside>
     </main>
 
 
     <footer>
         <!-- Href a google maps? -->
+        <img src="/imagenes/location.jpg" alt="Location Logo" width="500" height="600">
         <address>
             <P>Tel : XXX-XXX-XXX </P>
-            <img src="location.jpg" alt="Location Logo" width="500" height="600">
+
             <P>Email : <a href="mailto:webmaster@example.com">webmaster@example.com</a>.</P>
             <P>Calle no se me ocurre al 1983, Luján</P>
         </address>
