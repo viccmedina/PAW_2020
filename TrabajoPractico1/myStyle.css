@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700;900&display=swap');
+
+html{
+    font-family: 'Roboto', sans-serif;
+}
 
 body>header{
-    width: 100%;
     height: 10%;
     border: solid blue;
 }
@@ -9,8 +13,9 @@ nav>ul>li{
     display: none;
 }
 
+/* MAIN */
+
 main>header{
-    width: 100%;
     height: 10%;
 
     background: #C4C4C4;
@@ -18,71 +23,110 @@ main>header{
     border: solid red;
 }
 
-body>footer{
-    width: 100%;
-    height: 10%;
-
-    background: #C4C4C4;
-    border: solid #000000;
-
-}
-
-.social_media{
-    /*display: none;*/
-    float: right;
-}
-
-main>section{
-    width: 100%;
-    height: 88%;
-
-    border: solid green;
-}
-
-body>main{
-    width: 100%;
-    height: 592px;
-
-    background: white;
-}
-
-main>section{
-    height: calc(100% - 125px);
-    width: calc(100% - 60px);
-    margin: 25px;
-    background: lightgrey;
-}
-
 main>header>h1{
     line-height: 60px;
     text-align: center;
 }
 
-body{ 
-    font-family: Roboto;
+/* MAIN - SECTION - HEADER */
+
+section>header{
+    margin-left: 230px;
+    margin-bottom: 10px;
+}
+
+section>header>h2{
+    display: inline-block;
+    margin-left: 860px;
+}
+
+section>header a{
+    background: #3C3838;
+    box-shadow: 0px 7px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: white;
+    padding: 4px 5px 6px 5px;
+}
+
+/* MAIN - SECTION - HEADER */
+
+main>section{
+    height: 100%;
+    min-height: 462px;
+    max-height: 462px;
+    margin: 25px 25px;
+    padding: 10px;
+    background: lightgrey;
+    border: solid green;
+}
+
+details>summary{
+    width: 630px;
+    background: turquoise;
+    display: inline-block;
+    margin-top: 30px;
+    padding: 25px;
+    margin: 10px 10px 1px 10px;
+}
+
+details{
+    background: rgb(109,98,98);
 }
 
 section>ol{
     background: rgb(109,98,98);
     width: 50%;
-    height: calc(100% - 43px);
+    min-height: 420px;
+    max-height: 420px;
+
+    min-width: 700px;
+    max-width: 700px;
+    /*height: calc(100% - 43px);*/
     
 }
 
-section li{
+section>ol>li{
     background: lightgrey;
     width: 40%;
     height: 10%;
-    
-    
 }
 
-section>header{
-    
-}
+
 details>summary~*{
     position: relative;
     left: 1000px;
+    background:rgb(109,98,98);
 }
+
+/* END MAIN */
+
+/* FOOTER */
+
+body>footer{
+    height: 10%;
+
+    background: #C4C4C4;
+    border: solid #000000;
+}
+
+footer ul{ /* Redes Sociales */
+    display: inline-block;
+    margin-left: 78%;
+}
+
+footer address{
+    display: inline-block;
+}
+
+footer img{
+    display: inline-block;
+    margin: auto;
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+    display: none;
+}
+
+/* END FOOTER */
 
 
