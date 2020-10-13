@@ -61,19 +61,6 @@ main>section{
     border: solid green;
 }
 
-details>summary{
-    width: 630px;
-    background: turquoise;
-    display: inline-block;
-    margin-top: 30px;
-    padding: 25px;
-    margin: 10px 10px 1px 10px;
-}
-
-details{
-    background: rgb(109,98,98);
-}
-
 section>ol{
     background: rgb(109,98,98);
     width: 50%;
@@ -86,22 +73,34 @@ section>ol{
     
 }
 
-section>ol>li{
-    background: lightgrey;
-    width: 40%;
-    height: 10%;
-}
-
-
-details>summary~*{
+details[open] {
     position: relative;
-    left: 1000px;
+    left: 620px;
+    margin-left: 100px;
     background:rgb(109,98,98);
-    border: solid black;
+    border: solid red;
+    width: 735px;
+    height: 415px;
 }
 
-details{
-    border: solid black;
+
+details[open]>summary{
+    position: relative;
+    left: -723px;
+    bottom: 3px;
+}
+
+
+details>summary{
+    position: relative;
+    width: 629px;
+    background: turquoise;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 25px;
 }
 
 /* END MAIN */
