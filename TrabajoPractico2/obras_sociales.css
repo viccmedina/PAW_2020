@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700;900&display=swap');
+
+html{
+    font-family: 'Roboto', sans-serif;
+}
+
+body>header{
+    height: 10%;
+    border: solid blue;
+}
+
+nav>ul>li{
+    display: none;
+}
+
+/* MAIN */
+
+main>header{
+    height: 10%;
+
+    background: #C4C4C4;
+
+    border: solid red;
+}
+
+main>header>h1{
+    line-height: 60px;
+    text-align: center;
+}
+
+/* MAIN -  */
+
+main>form{
+    border: 3px solid green;
+}
+
+main>h1{
+    border: 3px solid violet;
+}
+
+main>ul{
+    border: 3px solid yellow;
+}
+
+/* END MAIN -  */
+
+/* END MAIN */
+
+/* FOOTER */
+
+body>footer{
+    height: 10%;
+
+    background: #C4C4C4;
+    border: solid #000000;
+}
+
+footer ul{ /* Redes Sociales */
+    display: inline-block;
+    margin-left: 78%;
+}
+
+footer address{
+    display: inline-block;
+}
+
+footer img{
+    display: inline-block;
+    margin: auto;
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+    display: none;
+}
+
+/* END FOOTER */
+
+
