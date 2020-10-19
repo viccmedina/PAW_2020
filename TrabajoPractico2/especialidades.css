@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700;900&display=swap');
-@import url(reset.css);
+@import "reset.css";
 
 html{
     font-family: 'Roboto', sans-serif;
@@ -9,7 +9,94 @@ html{
     padding: 0;
 }
 
+
+/*box-sizing se usa para mejorar la experiencia de uso de grids.*/
+* {
+    box-sizing: border-box;
+}
+body{
+    display: grid;
+    grid-template-areas: "header header header"
+                             "main    main    main"
+                             "aside  aside   aside";
+
+    grid-template-columns: 10vw 80vw 10vw;
+    align-items:center;
+    justify-content: center;
+}
+
+
+/*--------------------------header--------------------------------------*/
 body>header{
+    grid-area: header;
+    margin-bottom: 1vh;
+
+}
+
+body>header>h1{
+    border: solid;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    background-color: #C4C4C4;
+
+}
+
+body>header>nav{
+    display: inline-block;
+    display: none;
+}
+body>header>nav>ul>li{
+    display: inline-block;
+}
+
+/*--------------------------main--------------------------------------*/
+body>aside{
+    grid-area: aside;
+    border: solid;
+}
+
+body>main{
+    grid-area: main;
+
+    display: grid;
+    grid-template-areas: "header header header"
+                         "borde section borde";
+    grid-template-columns: 10vw 80vw 10vw;
+
+}
+body>main>header{
+    grid-area: header;
+
+}
+
+body>main>header>h1{
+    border: solid;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    background-color: #C4C4C4;
+    text-align: center;
+}
+
+body>main>section{
+    display: grid;
+    justify-content: center;
+    grid-area: section;
+}
+
+@media (min-width: 900px) {
+
+    body{
+        display: grid;
+        grid-template-areas: "header header header"
+                         "aside   main   main";
+
+        grid-template-columns: 10vw 80vw 10vw;
+        align-items:center;
+    }
+
+}
+
+/*body>header{
     background: #C4C4C4;
     padding: 10px;
 
@@ -49,5 +136,5 @@ main>header>h1{
 body>main{
 
     display: inline-block;
-}
+}*/
 
