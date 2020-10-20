@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700;900&display=swap');
+@import "reset.css";
+
+html{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* esto es algo que ya se hace en el reset*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*box-sizing se usa para mejorar la experiencia de uso de grids.*/
+* {
+    box-sizing: border-box;
+}
+
+/*separo el body en un grid*/
+body{
+    display: grid;
+    grid-template-areas: "header header header"
+                          "main   main    main"
+                          "aside  aside   aside";
+
+    grid-template-columns: 10vw 80vw 10vw;
+    align-items:center;
+    justify-content: center;
+}
+
+body>header{
+    grid-area: header;
+    margin-bottom: 1vh;
+}
+
+body>header>nav{
+    display: none;
+}
+
+body>header{
+    border: solid;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    background-color: #C4C4C4;
+}
+
+/***************************main**********************************/
+body>aside{
+    grid-area: aside;
+    border: solid;
+}
+
+body>main{
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+
+}
+
+body>main>header{
+}
+
+body>main>header>h1{
+    border: solid;
+    flex: 1 auto auto;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    background-color: #C4C4C4;
+    text-align: center;
+    width: 100vw;
+}
+
+body>main>section{
+    display: grid;
+    justify-content: center;
+}
+
+@media (min-width: 900px) {
+
+    body{
+        display: grid;
+        grid-template-areas: "header header header"
+                         "aside   main   main";
+
+        grid-template-columns: 10vw 80vw 10vw;
+        align-items:center;
+    }
+
+}
