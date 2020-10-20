@@ -123,9 +123,14 @@ main li{ /* Estilizo las tarjetas */
         position: absolute;
         display: block;
         border: 1px solid black;
-        margin: 1rem;
+        margin-top: calc(6.7vh + 0.8rem);
+        width: calc(100vw - 1.8rem*2 - 2px);
         padding: 1.8rem;
         text-align: center;
+    }
+
+    main>header>h2{
+        margin-bottom: 6rem;
     }
 
     main ul{
