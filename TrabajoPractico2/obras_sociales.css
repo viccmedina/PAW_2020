@@ -108,10 +108,6 @@ fieldset{
     padding: 0.5rem;
 }
 
-fieldset{
-
-}
-
 main>h1{ /* Extilizo el titulo de el resultado de la busqueda */
     clear: both;
     text-align: center;
@@ -125,6 +121,7 @@ article{ /* Estilizo los resultados de la busqueda */
 
     display:flex;
     justify-content: space-between;
+    margin-bottom: 0.3rem;
 }
 
 aside{ /* Estilizo la publicidad */
@@ -150,4 +147,50 @@ aside{ /* Estilizo la publicidad */
     :root{
         font-size: 15px;
     }    
+
+    main{
+        display: grid;
+        grid-template-areas:
+        "header header"
+        "aside form"
+        "aside resultados"
+        "footer footer";
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: 10% 30% 50% 10% ;
+    }
+
+    main>header{
+        grid-area: header;
+    }
+
+    main>form{
+        grid-area: form;
+    }
+    main>h1, main>ul{
+        grid-area: resultados;
+    }
+    main>aside{
+        grid-area: aside;
+        height: 50vh;
+    }
+    main>footer{
+        grid-area: footer;
+    }
+
+    input[type="submit"]{
+        float:none;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    main>h1{
+        clear: none;
+        margin-top: 0px;
+    }
+    
+    article{
+        margin-top: 2rem;
+    }
+
 }
