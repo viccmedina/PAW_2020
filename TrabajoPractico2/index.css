@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700;900&display=swap');
+
+:root{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    --body-header-color: lightgrey;
+    --topbar-color: lightgrey;
+    --details-color: lightgrey;
+    --footer-color: lightgrey;
+    --menu-color: darkgrey;
+    --menu-buttons-color:  #A58E8E;
+
+    --tarjetas-color: darkgrey;
+
+    --padding: 1.5rem;
+
+    --body-header-height: 9vh;
+    --menu-width: 60vw;
+    line-height: 1.5em;
+}
+
+/* Begin block -> Estilizo el logo y nombre de la empresa*/
+
+body>header{
+    background-color: var(--body-header-color);
+    height: var(--body-header-height);
+
+    position: sticky;
+    top: 0;
+}
+
+body>header>h1>img{
+    margin-top: 1vh;
+    float:left;
+    border-radius: 50%;
+    width: 7vh;
+    height: 7vh;
+}
+
+body>header>h1{
+    line-height: 9vh;
+}
+
+/* End block -> Estilizo el logo y nombre de la empresa*/
+
+main>header>h2{ /* Estilizo la ubicación actual en el sitio */
+    text-align: center;
+    padding: 1.9vh;
+    background-color: var(--topbar-color);
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+nav{ /* Oculto el nav cuando no esta abierto */
+    display: none;
+}
+
+/* Begin block -> Muestro el nav cuando tenga el atributo open */
+
+nav[open=""]{
+    display: block;
+    position: absolute;
+    background-color: var(--menu-color);
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: var(--menu-width);
+}
+
+nav[open=""] ul{
+    margin-top: var(--body-header-height);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav[open=""] li{
+    width: var(--menu-width);
+    padding: 1rem;
+    text-align: end;
+    background-color: var(--menu-buttons-color);
+    margin-bottom: 0.5rem;
+    
+}
+
+/* End block -> Muestro el nav cuando tenga el atributo open */
+
+body > footer{ /* Footer de la pagina */
+    padding: 0.3rem;
+    display: flex;
+    background-color: var(--footer-color);
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Begin block -> Estilizo elementos especificos de la pagina de Index */
+
+aside{ /* Oculto la publicidad como en los wireframes */
+    display: none;
+}
+
+main li{ /* Estilizo las tarjetas */
+    background: var(--tarjetas-color);
+    margin-bottom: 0.4rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* End block -> Estilizo elementos especificos de la pagina de Index */
+
+@media (min-width: 600px){
+    :root{
+        font-size: 30px;
+    }    
+
+}
+
+@media (min-width: 1000px){
+    :root{
+        font-size: 15px;
+    }    
+
+    aside{ /* Estilizo la publicidad */
+        position: absolute;
+        display: block;
+        border: 1px solid black;
+        margin: 1rem;
+        padding: 1.8rem;
+        text-align: center;
+    }
+
+    main ul{
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 0.1rem;
+    }
+
+    main li{ /* Estilizo las tarjetas */
+        background: var(--tarjetas-color);
+        padding: 1.5rem;
+        flex-grow: 3;
+        flex-shrink: 1;
+        text-align: center;
+        margin-right: 0.1rem;
+        margin-left: 0.1rem;
+        height: 25vh;
+    }
+
+    li>p{
+        margin-top: 10vh;
+        font-size: 1.5rem;
+    }
+}
