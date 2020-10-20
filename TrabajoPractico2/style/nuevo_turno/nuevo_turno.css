@@ -1,0 +1,36 @@
+aside{ /* Oculto la publicidad como en los wireframes */
+    display: none;
+}
+
+fieldset{
+    margin: 0.3rem 0.3rem;
+    padding: 0.4rem;
+}
+
+fieldset>input{
+    margin-bottom: 0.4rem;
+}
+
+input[type="submit"], input[type="reset"]{
+    float: right;
+    margin-bottom: 0.4rem;
+}
+
+footer{
+    clear: both;
+}
+
+@media (min-width: 1000px){
+    aside{ /* Estilizo la publicidad */
+        position: absolute;
+        display: block;
+        border: 1px solid black;
+        margin-top: calc(6.7vh + 0.8rem);
+        width: calc(100vw - 1.8rem*2 - 2px);
+        padding: 1.8rem;
+        text-align: center;
+    }
+    main>header>h1{
+        margin-bottom: 6rem;
+    }
+}

@@ -2,17 +2,13 @@
     --article-background: darkgrey;
 }
 
-input[type="submit"]{ /* Estilizo button de "Buscar" */
-    height: 47px;
-    width: 79px;
-    border-radius: 8px;
-    background-color: #5CB85C;
-    color: white; 
+input[type="submit"]{ /* Reubico el button de "Buscar" */
     float: right;
 }
 
 fieldset{
-    border: solid 1px grey;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
     margin-bottom: 1rem;
     padding: 0.5rem;
 }

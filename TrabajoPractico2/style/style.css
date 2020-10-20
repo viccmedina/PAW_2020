@@ -87,6 +87,26 @@ body > footer{ /* Footer de la pagina */
     align-items: center;
 }
 
+input[type="submit"]{ /* Estilizo el botton de submit */
+    height: 47px;
+    width: 79px;
+    border-radius: 8px;
+    background-color: #5CB85C;
+    color: white; 
+}
+
+input[type="reset"]{ /* Estilizo el botton de limpiar */
+    height: 47px;
+    width: 79px;
+    border-radius: 8px;
+    background-color: #D9534F;
+    color: white; 
+}
+
+fieldset{ /**/
+    border: solid 1px grey;
+}
+
 @media (min-width: 600px){
     :root{
         font-size: 30px;

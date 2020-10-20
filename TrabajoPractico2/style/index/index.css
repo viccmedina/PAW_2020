@@ -24,7 +24,7 @@ main li{ /* Estilizo las tarjetas */
         text-align: center;
     }
 
-    main>header>h2{
+    main>header>h1{
         margin-bottom: 6rem;
     }
 
