@@ -4,36 +4,73 @@ aside{
     text-align: center;
     padding: 1rem;
     margin: 0.5rem 0.5rem;
+    background-color: var(--body-header-color);
 }
 
 form>label{
-    margin-left: 40vw;
+    margin-left: 9vw;
 }
 
-input[type="submit"]{
-    float: right;
+/*input[type="submit"]{
+
+}*/
+section>form>label>input{
+    border-radius: 6px;
+    width: 45vw;
+    height:5vh;
 }
 
+section{
+    background-color: var(--body-header-color);
+    height: 60vh;
+}
+
+section>article{
+    background-color: #8B8989;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    margin-right: 0.2rem;
+    margin-left: 0.2rem;
+    padding: 0.5rem;
+}
+section>h2{
+    margin-top: 1rem;
+    font-weight: bold;
+}
 @media(min-width: 1000px){
     
     body>aside{
         display: inline-block;
-        width: 25vw;
-        height: 75vh;
+        width: 12vw;
+        height: 73vh;
+        margin: 1.2rem 0.6rem;
     }
 
     section{
         position: absolute;
         display: inline-block;
-        margin-left: 30vw;
+        margin-left: 25vw;
+        background-color: white;
     }
 
     input[type="submit"]{
-        float: none;
+
     }
 
     form>label{
-        margin-left: 10vw;
+        margin-left: 0vw;
+    }
+    form{
+          margin-top: 1rem;
+    }
+    main{
+        height: 4vh;
     }
 
+    section>article{
+        margin-bottom: 2rem;
+        height: 12vh;
+        padding: 0.5rem;
+        margin-left: 0vw;
+    }
 }
