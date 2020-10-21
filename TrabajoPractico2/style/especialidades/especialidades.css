@@ -1,0 +1,39 @@
+aside{
+    width: calc(100vw - 2rem - 0.5rem);
+    border: 1px red solid;
+    text-align: center;
+    padding: 1rem;
+    margin: 0.5rem 0.5rem;
+}
+
+form>label{
+    margin-left: 40vw;
+}
+
+input[type="submit"]{
+    float: right;
+}
+
+@media(min-width: 1000px){
+    
+    body>aside{
+        display: inline-block;
+        width: 25vw;
+        height: 75vh;
+    }
+
+    section{
+        position: absolute;
+        display: inline-block;
+        margin-left: 30vw;
+    }
+
+    input[type="submit"]{
+        float: none;
+    }
+
+    form>label{
+        margin-left: 10vw;
+    }
+
+}
