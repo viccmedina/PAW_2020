@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700;900&display=swap');
+@import "reset.css";
+
+
+
+body>header{
+    height: 10vh;
+    background-color: #C4C4C4;
+    display: flex;
+    align-items: center;
+}
+
+body>header>h1{
+    display: flex;
+    align-items: center;
+}
+
+body>header>nav{
+    display: none;
+}
+
+
+
+
+/*-----------main------------------*/
+body>main{
+    display: grid;
+    grid-template-areas: "header"
+                         "section"
+                         "aside";
+}
+
+@media (min-width: 900px) {
+
+    body>main{
+        display: grid;
+        grid-template-areas: "header header"
+                            "aside  section";
+        grid-template-columns: 10vw 90vw ;
+
+    }
+
+    body>main>aside{
+        /*position: relative;
+        width: 15vw;
+        height: 30vh;
+        top: 40px;*/
+        grid-area: aside;
+        background-color: brown;
+
+    }
+}
+
+body>main>header{
+    height: 7vh;
+    background-color: #C4C4C4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1vh;
+    margin-top:1vh ;
+    grid-area: header;
+}
+
+body>main>aside{
+    /*position: relative;
+    width: 15vw;
+    height: 30vh;
+    top: 40px;*/
+    grid-area: aside;
+    background-color: brown;
+}
+
+body>main>section>form{
+    grid-area: section;
+    display: flex;
+    justify-content: center;
+    padding-top: 2vh;
+}
+
+
+/*----------footer--------------------*/
+body>footer{
+    height: 10vh;
+    background-color: #C4C4C4;
+}
