@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estudios</title>
+
+    <meta name="description" content="estudios"/>
+    <!-- etiqueta indispensable para el diseño responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="style/style.css"/>
+    <link rel="stylesheet" type="text/css" href="style/estudios/estudios.css"/>
+
+</head>
+<body>
+    <header>
+        <h1> <img src="imagenes/logo.png" alt="Logo empresarial" width="50" height="50">Enterprise Name</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html" title="">Home</a></li>
+                <li><a href="/turnos.html" title="">Turnos</a></li>
+                <li><a href="/estudios.html" title="">Estudios</a></li>
+                <li><a href="/obras_sociales.html" title="">Obras Sociales</a></li>
+                <li><a href="/especialidades.html" title="">Especialidades</a></li>
+                <li><a href="/noticias.html" title="">Noticias</a></li>
+                <li><a href="/institucional.html" title="">Institucional</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+    <!--no se si en mi seccion deberia poner una imagen u otra cosa. (alguien tiene info de covid aca)-->
+
+
+
+    <main>
+        <header>
+            <h1>Estudios</h1>
+        </header>
+
+        <section>
+        <form action="/estudios.html" method="get" name="consultaEstudios">
+
+            <input type="search" name="buscarEstudio" autofocus required>
+            <input type="submit" value="Buscar">
+            <p>Ingresá los 18 caracteres alfanuméricos de seguimiento , omitiendo puntos y espacios.</p>
+        </form>
+
+        <p>Resultados de su busqueda:</p>
+
+        <table>
+            <!--head de la tabla-->
+            <thead>
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Lugar</th>
+                    <th scope="col">Historia</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Descargar</th>
+                </tr>
+            </thead>
+            <!-- body de la tabla-->
+            <tbody>
+                <tr>
+                    <td>14/12/2020</td>
+                    <td>Laboratorio</td>
+                    <td>Realizando analisis</td>
+                    <td>En proceso</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>14/12/2020</td>
+                    <td>Laboratorio</td>
+                    <td>Concluido</td>
+                    <td>Terminado</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>14/12/2020</td>
+                    <td>Laboratorio</td>
+                    <td>Concluido</td>
+                    <td>Terminado</td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <!-- estos datos van de ejemplo-->
+        </table>
+
+        </section>
+    </main>
+
+    <aside>
+        <img  src ="/imagenes/publicidad.jpg" alt = "Publicidad">
+    </aside>
+    <footer>
+        <!-- Href a google maps? -->
+        <address>
+            <p>Tel : XXX-XXX-XXX </p>
+
+            <P>Email : <a href="mailto:webmaster@example.com">webmaster@example.com</a>.</P>
+           <p> Calle no se me ocurre al 1983, Luján</p>
+        </address>
+        <ul>
+            <li><a href="https://www.instagram.com">Instagram</a></li>
+            <li><a href="https://www.facebook.com">Facebook</a></li>
+            <li><a href="https://www.whatsapp.com">Whatsapp</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
