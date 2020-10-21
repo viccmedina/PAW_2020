@@ -21,8 +21,8 @@ html{
 body{
     display: grid;
     grid-template-areas: "header header header"
-                          "main   main    main"
-                          "aside  aside   aside";
+                          "main   main main"
+                          "aside  aside aside";
 
     grid-template-columns: 10vw 80vw 10vw;
     align-items:center;
@@ -32,6 +32,7 @@ body{
 body>header{
     grid-area: header;
     margin-bottom: 1vh;
+    width: 100vw;
 }
 
 body>header>nav{
@@ -80,8 +81,9 @@ body>main>section{
 
     body{
         display: grid;
-        grid-template-areas: "header header header"
-                         "aside   main   main";
+        grid-template-areas: "header header"
+                             "main   main "
+                             "aside   main ";
 
         grid-template-columns: 10vw 80vw 10vw;
         align-items:center;
