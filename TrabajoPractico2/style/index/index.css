@@ -16,10 +16,6 @@ main li{ /* Estilizo las tarjetas */
 @media (min-width: 1000px){
     :root{
         --margin-for-aside: 33vh;
-
-        --header-margin-top: 1vh;
-        --header-padding: 1.9vh;
-        --header-text-size: 1rem;
     }
     main>header>h1{
         margin-bottom: var(--margin-for-aside);
@@ -40,9 +36,9 @@ main li{ /* Estilizo las tarjetas */
         border: var(--border-size) solid black;
 
         height: var(--asside-height);
-        margin-top: calc(var(--header-margin-top)
-                        + var(--header-padding)*2 
-                        + var(--header-text-size) 
+        margin-top: calc(var(--main-header-margin-top)
+                        + var(--main-header-padding)*2 
+                        + var(--main-header-text-size) 
                         + var(--margin)/2);
         width: calc(100vw - var(--padding)*2 - var(--border-size)*2);
         
