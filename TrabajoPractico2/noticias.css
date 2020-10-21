@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700;900&display=swap');
+
+html{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+body{
+    background-color: grey;
+
+}
+body header{
+    width: 100vw;
+    height: 25vh;
+    border: solid blue;
+    display: flex;
+
+}
+
+
+h1{
+    width: 50vw;
+   
+
+}
+
+nav{
+    width: 50vw;
+}
+
+
+nav ul {
+    padding-left: 35vw;
+}
+
+
+
+li{
+    display: flex;
+}
+
+/* MAIN */
+
+main{
+    width: 80vw;
+    height: 150vh;
+    flex-wrap: wrap;
+    border: solid blue;
+    position: relative;
+    right: -20vw;
+}
+
+
+
+main header{
+    background: #C4C4C4;
+    border: solid red;
+    position: relative;
+    top: -0.3vw;
+    left: -20.4vw;
+    height: 10vh;
+    justify-content: center;
+}
+
+
+
+
+main ul{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 75vw;
+    flex-wrap: wrap;
+}
+
+
+article{
+
+    /*display: inline-block;
+    flex-wrap: wrap;*/
+    display: flex;
+    flex-wrap: wrap;
+    height: 50vh;
+    width: 35vw;
+    padding-left: 1vw;
+    
+}
+
+article img{
+    display: flex;
+    float: left;
+}
+
+.titulo{
+    display: inline-block;
+    box-sizing: border-box;
+    padding-left: 5vw;
+    text-align: right;
+    color: white;
+}
+
+
+
+
+.description{
+    /*display: inline-block;
+    box-sizing: border-box;*/
+    width: 30vw;
+    height: 30vh;
+    float: right; 
+}
+
+
+
+
+
+.aside{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 20vw;
+    position: relative;
+    top:-130vh;
+}
+
+.aside img{
+     width: 20vw;
+     height: 90vh;
+     background: #C4C4C4;
+}
+
+
+
+
+
+/* FOOTER */
+
+footer{
+    position: relative;
+    top : -93.7vh;
+    height: 32vh;
+    width: 100vw;
+    background: #C4C4C4;
+    border: solid #000000;
+}
+
+footer ul{ /* Redes Sociales */
+    display: inline-block;
+    margin-left: 78%;
+}
+
+footer address{
+    display: inline-block;
+}
+
+footer img{
+    display: inline-block;
+    margin: auto;
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+    display: none;
+}
+
+/* END FOOTER */
+
+
