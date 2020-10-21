@@ -4,15 +4,32 @@
 :root{
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
+    line-height: 1.5em;
+    
+    /* Begin -> Body header variables */
     --body-header-color: lightgrey;
-    --topbar-color: lightgrey;
-    --footer-color: lightgrey;
+    --body-header-height: 9vh;
+    /* End -> Body header variables */
+
+    /* Begin -> Main header variables */
+    --main-header-color: lightgrey;
+    --main-header-margin-top: 1vh;
+    --main-header-margin-bottom: 1vh;
+    --main-header-padding: 1.9vh;
+    --main-header-text-size: 1rem;
+    /* End -> Main header variables */
+
+    /* Begin -> Menu variables */
     --menu-color: darkgrey;
     --menu-buttons-color:  #A58E8E;
     --menu-width: 60vw;
-    --body-header-height: 9vh;
-    
-    line-height: 1.5em;
+    /* End -> Menu variables */
+
+    /* Begin -> Footer variables */
+    --footer-color: lightgrey;
+    --footer-padding: 0.3rem;
+    --footer-height: 6vh;
+    /* End -> Footer variables */
 }
 
 /* Begin block -> Estilizo el logo y nombre de la empresa*/
@@ -42,10 +59,10 @@ body>header>h1{
 
 main>header>h1{ /* Estilizo la ubicación actual en el sitio */
     text-align: center;
-    padding: 1.9vh;
-    background-color: var(--topbar-color);
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+    padding: var(--main-header-padding);
+    background-color: var(--main-header-color);
+    margin-top: var(--main-header-margin-top);
+    margin-bottom: var(--main-header-margin-bottom);
 }
 
 nav{ /* Oculto el nav cuando no esta abierto */
@@ -82,11 +99,12 @@ nav[open=""] li{
 /* End block -> Muestro el nav cuando tenga el atributo open */
 
 body > footer{ /* Footer de la pagina */
-    padding: 0.3rem;
+    padding: var(--footer-padding);
     display: flex;
     background-color: var(--footer-color);
     justify-content: space-between;
     align-items: center;
+    height: var(--footer-height);
 }
 
 input[type="submit"]{ /* Estilizo el botton de submit */
