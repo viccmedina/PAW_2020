@@ -102,9 +102,9 @@ details>div>p:nth-of-type(2){
     details>div{
         
         position: absolute;
-        left: 800px; /* esto esta dudoso */
+        left: 51.5vw; /* esto esta dudoso */
         top: 0px;
-        width: 47vw;
+        width: 46vw;
         background-color: var(--turno-detalle-color);
     
         height: var(--section-height);
