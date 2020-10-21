@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700;900&display=swap');
-/* quute el reset de aca pq rompia todo*/
+@import "/style/reset.css";
+
 :root{
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
@@ -22,6 +23,7 @@ body>header{
 
     position: sticky;
     top: 0;
+    z-index: 100; /* Sin esto el asside aparece sobre el menú */
 }
 
 body>header>h1>img{
@@ -118,4 +120,19 @@ fieldset{ /**/
     :root{
         font-size: 15px;
     }    
+    nav[open=""]{
+        top: auto;
+        width: 100vw;
+        height: auto;
+    }
+
+    nav[open=""] ul{
+        margin: 1rem 1rem;
+        justify-content: center;
+    }
+
+    nav[open=""] li{
+        text-align: center;
+
+    }
 }
