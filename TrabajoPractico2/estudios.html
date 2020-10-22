@@ -43,12 +43,14 @@
         <section>
         <form action="/estudios.html" method="get" name="consultaEstudios">
 
-            <input type="search" name="buscarEstudio" autofocus required>
+            <label for="buscar">Buscar
+                <input type="search" name="buscar" id="buscar"  autofocus placeholder="Ingrese el codigo de seguimiento." required>
+            </label>
             <input type="submit" value="Buscar">
             <p>Ingresá los 18 caracteres alfanuméricos de seguimiento , omitiendo puntos y espacios.</p>
         </form>
 
-        <p>Resultados de su busqueda:</p>
+        <p id="parrafo_section">Resultados de su busqueda:</p>
 
         <table>
             <!--head de la tabla-->

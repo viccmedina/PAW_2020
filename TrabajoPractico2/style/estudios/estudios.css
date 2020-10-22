@@ -1,6 +1,3 @@
-
-
-
 aside{
     border: 1px red solid;
     text-align: center;
@@ -10,30 +7,40 @@ aside{
     background-color: var(--body-header-color);
 }
 
-form{
-    margin-left: 18vw;
+/*-------section------------*/
+section{
+    background-color: var(--body-header-color);
+    height: 63.5vh;
 }
-form>input{
+
+
+/*--------form------------*/
+form{
+    margin-left: 9vw;
+
+
+}
+
+
+form>label>input{
     border-radius: 6px;
     width: 45vw;
     height:5vh;
 }
 
-section{
-    background-color: var(--body-header-color);
-    height: 60vh;
-    width: 100vw;
-}
 
-/*quitar luego los bordes de la tabla*/
+
+
+/*------table----------*/
 table{
     /*border: 1px solid black;*/
     font-size: 17px;
-    width: 100vw;
+    margin-left: 9vw;
+    width: 60vw;
 }
 th,td{
     /*border: 1px solid black;*/
-    text-align: left;
+    text-align: center;
     font-family: Roboto;
 }
 tr:nth-child(even) {
@@ -42,6 +49,15 @@ tr:nth-child(even) {
 
 thead{
     background-color: #A58E8E;
+}
+section>form>p{
+    font-size: 0.7rem;
+}
+
+
+#parrafo_section{
+    margin-left: 9vw;
+    margin-top: 3vh;
 }
 @media (min-width: 1000px) {
     body>aside{
@@ -53,10 +69,26 @@ thead{
     section{
         position: absolute;
         display: inline-block;
-        margin-left: 25vw;
+        margin-left: 20vw;
         background-color: white;
     }
     table{
         width: 60vw;
+    }
+
+    form{
+        padding: 1rem;
+        margin-top: 0.3rem;
+    }
+}
+
+@media(max-width: 400px){
+    table{
+        font-size: 12px;
+    }
+}
+@media(max-width: 500px){
+    table{
+        font-size: 15px;
     }
 }
