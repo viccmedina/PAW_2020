@@ -31,8 +31,12 @@ $menu = [
 ];
 
 
-// invocamos a la vista con la palabra reservada
-// primero declarar todas las variables, luego invocar
-require 'index.view.php';
+/*
+	Invocamos a la vista con la palabra reservada.
+	Primero declarar todas las variables, luego invocar.
+	__DIR__ es una constante mágica que nos da el directorio del archivo
+	que se esta ejecutando.
+*/ 
+require __DIR__ . '/../src/index.view.php';
 
 ?>

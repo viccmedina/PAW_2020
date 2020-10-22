@@ -42,8 +42,10 @@ Para servir el sitio de ejemplo, debemos contar con un servidor.
 Para esto ejecutamos el siguiente comando en la raíz de nuestro directorio de ejemplo:
 
 ``` bash
-php -S localhost:9090
+php -S localhost:9090 -t public/
 ```
+
+Con el parámetro * -t * le indicamos la raíz del repositorio.
 
 Si todo salio bien, debemos contar con una salida como la siguiente:
 ``` bash
