@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700;900&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700;900&display=swap');
 @import "/style/reset.css";
 
 :root{
@@ -28,7 +28,6 @@
     /* Begin -> Footer variables */
     --footer-color: lightgrey;
     --footer-padding: 0.3rem;
-    --footer-height: 6vh;
     /* End -> Footer variables */
 }
 
