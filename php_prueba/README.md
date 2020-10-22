@@ -45,7 +45,7 @@ Para esto ejecutamos el siguiente comando en la raíz de nuestro directorio de e
 php -S localhost:9090 -t public/
 ```
 
-Con el parámetro * -t * le indicamos la raíz del repositorio.
+Con el parámetro `-t ` le indicamos la raíz del repositorio.
 
 Si todo salio bien, debemos contar con una salida como la siguiente:
 ``` bash
@@ -60,7 +60,11 @@ Si tenemos problemas con el número de puerto, ya que el 9090 puede estar ocupad
 Si queremos ver el contenido de una variable nos basta con poner las siguientes línas de código:
 
 ``` php
-echp "<pre>":
+echp "<pre>";
 var_dump($my_vay);
 die;
 ```
+
+Para el caso de las peticiones hacia el servidor, podemos analzar la variable `_SERVER`.
+
+Para obtener específicamente la petición junto con la URI debemos tener en cuenta la variable `$_SERVER['REQUEST_URI']`

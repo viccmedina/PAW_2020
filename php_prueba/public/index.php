@@ -30,13 +30,32 @@ $menu = [
 	]
 ];
 
-
 /*
-	Invocamos a la vista con la palabra reservada.
-	Primero declarar todas las variables, luego invocar.
-	__DIR__ es una constante mágica que nos da el directorio del archivo
-	que se esta ejecutando.
-*/ 
-require __DIR__ . '/../src/index.view.php';
+	Para poder redireccionar al usuario hacia la sección que desea, debemos analizar
+	la variable $_SERVER['REQUEST_URI'] y parsearla con la función provista por PHP.
+	Le especificamos a dicha función que parte de la URL queremos que nos devuelva por
+	medio de la constante PHP_URL_PATH.
+*/
+
+$path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+if ($path == '/') {
+	/*
+		Invocamos a la vista con la palabra reservada.
+		Primero declarar todas las variables, luego invocar.
+		__DIR__ es una constante mágica que nos da el directorio del archivo
+		que se esta ejecutando.
+	*/ 
+	require __DIR__ . '/../src/index.view.php';
+
+} else if ($path == '/services') {
+	$main = "Página de Servicios";
+	require __DIR__ . '/../src/services.view.php';
+} else {
+	// deberíamos generar una vista para el 404 not found
+	echo "Page Not Found";
+}
+
+
+
 
 ?>
