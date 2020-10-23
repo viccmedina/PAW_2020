@@ -68,3 +68,20 @@ die;
 Para el caso de las peticiones hacia el servidor, podemos analzar la variable `_SERVER`.
 
 Para obtener específicamente la petición junto con la URI debemos tener en cuenta la variable `$_SERVER['REQUEST_URI']`
+
+## Composer
+
+El archivo `composer.json` debe estar ubicado en la raíz del proyecto. En el mismo debemos definir
+quienes son los participantes del grupo junto con sus roles y sobre todo, podemos especificar
+los paquetes o librerías de PHP que vamos a necesitar. Luego, estos requerimientos especificados 
+(es fundamental indicar la versión) serán instalados.
+
+Ejecutamos en la terminal el siguiente comando: 
+
+``` bash
+composer update
+```
+
+El cual, en la primera vez nos va a generar dos cosas:
+- Una carpeta `vendor`, donde se especifica el código de las librerias instaladas.
+- Un archivo llamado `composer.lock`, donde se especifica las librerias instaladas.

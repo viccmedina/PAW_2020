@@ -1,5 +1,14 @@
 <?php
 
+require __DIR__ . '/../vendor/autoload.php';
+/*
+$whoops = new \Whoops\Run;
+$whoops -> pushHandler(new \Whoops\Handler\PrettyPageHandler)
+$whoops -> register();
+
+//throw new Exception("Mensaje de error para el desarrollador");
+*/
+
 /*
 Con el attr htmlspecialchars sanitizamos los datos que vienen por medio de la petición
 GET. De esta manera, si nos mandan un link no se inserta como tal sino como un string.
@@ -27,6 +36,11 @@ $menu = [
 	[
 		"href" => "/services",
 		"name" => "Servicio"
+	],
+
+	[
+		"href" => "/contact",
+		"name" => "Contacto"
 	]
 ];
 
@@ -44,15 +58,25 @@ if ($path == '/') {
 		Primero declarar todas las variables, luego invocar.
 		__DIR__ es una constante mágica que nos da el directorio del archivo
 		que se esta ejecutando.
-	*/ 
+	*/
+	$titulo = "Inicio"; 
 	require __DIR__ . '/../src/index.view.php';
 
 } else if ($path == '/services') {
 	$main = "Página de Servicios";
 	require __DIR__ . '/../src/services.view.php';
+}  else if ($path == '/about') {
+	$titulo = "Sobre Nosotros";
+	$main = "Página Institucional";
+	require __DIR__ . '/../src/about.view.php';
+} else if ($path == '/contact') {
+	$titulo = "Contactos";
+	$main = "Formas de Contactos ";
+	require __DIR__ . '/../src/contact.view.php';
 } else {
 	// deberíamos generar una vista para el 404 not found
-	echo "Page Not Found";
+	http_response_code(404);
+	require __DIR__ . '/../src/not_found.view.php';
 }
 
 
