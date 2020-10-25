@@ -1,0 +1,37 @@
+{
+    "name": "paw/cursada-pilar",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/viccmedina/PAW_2020/blob/master/php_prueba/README.md",
+    "description": "tps unlu paw",
+    "keywords": ["PHP", "UNLU", "PAW"],
+    "authors": [
+        {
+            "name": "Agustín Normand"
+            
+        },
+        {
+            "name": "Dilan Bernabe"
+            
+        },
+        {
+            "name": "Esteban Iarza"
+            
+        },
+        {
+            "name": "Victoria Medina"
+            
+        }
+
+    ],
+    "require": {
+        "php": ">=7.2",
+        "filp/whoops": "~2"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "PAW\\": "src/"
+        }
+    }
+}
