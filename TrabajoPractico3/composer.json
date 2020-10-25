@@ -1,0 +1,22 @@
+{
+  "name": "paw/trabajopractico3",
+  "description": "Trabajo practico nro 3",
+  "keywords": ["php","mvc"],
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "dilan",
+      "email": "dilanbernbae043@gmail.com",
+      "role": "Creator/Developer"
+    }
+  ],
+  "require": {
+    "php" : ">=7.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Paw\\": "src/"
+    }
+  }
+}
