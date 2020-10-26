@@ -1,0 +1,42 @@
+{
+    "name" : "paw/tp3",
+    "description": "TP3- PHP",
+    "keywords": ["php","mvc"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bernabe Dilan",
+            "email": "dilanbernabe@gmail.com",
+            "role": "Desarrolador"
+        },
+        {
+            "name": "Iarza Esteban",
+            "email": "iarzaesteban94@gmail.com",
+            "role": "Desarrolador"
+        },
+        {
+            "name": "Larena Nicolas",
+            "email": "nic.lar.universidad@gmail.com",
+            "role": "Desarrolador"
+        },
+        {
+            "name": "Medina Victoria",
+            "email": "medina.vicc@gmail.com",
+            "role": "Desarroladora"
+        },{
+            "name": "Normand Agustin",
+            "email": "normandagustin@gmail.com",
+            "role": "Desarrolador"
+        }
+    ],
+
+    "require": {
+        "php": ">= 7.2.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Paw\\": "src/"
+        }
+    }
+}
