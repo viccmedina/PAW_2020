@@ -1,0 +1,39 @@
+Todo lo que no esté encerrado en <?php ?> el servidor lo manda como texto plano, en este caso, html.
+
+Variable de asignación alternativa: ??
+$nombre = $_GET['nombre'] ?? "PAW";
+Si 'nombre' es nulo o no existe, asigna PAW.
+
+Mezclar codigo HTML y PHP se hace consfuso de leer, se debe hacer sencillo.
+
+Si uso el tag "<?=" en ves de "<?php", puedo no poner los echo, y se imprimen por salida lo que abarque el tag
+
+Hay que tener cuidado con la seguridad cuando utilizamos las variables del $_GET, nos pueden inyectar codigo.
+Debemos usar htmlespecialchars > Sanitizar lo que venga del usuario > Reemplaza los "<>" por iconos que tienen la misma representación
+por lo que el navegador no los interpreta como HTML.
+
+No solo el codigo PHP se debe simplificar, sino que no se deben mezclar responsabilidades. 
+Separar presentación de la lógica (Control de las variables).
+
+Si en un archivo, usamos require, ese archivo contiene las variables del archivo que lo invoca.
+
+El menu (nav) puedo querer que sea dinamico -> Mostrar un menú diferente si el usuario esta logeado o no.
+-> Poder agregar paginas / o quitarlas desde un menu de adminsitración
+Array de arrays o en la gerga php -> Record set
+
+Debugear -> var_dump -> Para ver el contenido de una variable.
+Para simplificar -> echo <pre> y die;
+Pre es para ver texto preformateado
+Die, no continua ejecutando
+
+Front controller -> Plantea que para nuestra app, es importante tener un punto de acceso unico a todas las peticiones, 
+y que ese punto de acceso defina hacia adonde se dirigen las siguientes peticiones.
+Define dada una peticion, cual es el objeto controlador, modelo o vista que hay que ejecutar para atender la petición.
+Las app pueden crecer mejor.
+Los path no deben ser archivos completos, sino path genericos que se procesen en index.php
+Para evitar que se puedan acceder a las demás paginas, buscando los path de los archivos, index.php debe
+ser lo unico que esté publico.
+
+Preguntas:
+13:25 -> Porque a nombre le pone {}, si con $ solo anda igual?
+

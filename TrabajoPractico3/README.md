@@ -1,0 +1,1 @@
+La idea es pasar FROM-STATIC-TO-DINAMIC
