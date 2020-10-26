@@ -1,12 +1,9 @@
 <?php
-session_start();
-require __DIR__.'/vendor/autoload.php';
-use PAW\app\ViewController\Import;
-$whoops = new \Whoops\Run;
-$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-$whoops->register();
 
-Import::Header('index/index.css');
+require_once __DIR__.'/bootstrap.php';
+use PAW\app\ViewController\Import;
+
+Import::Header('noticias/noticias.css');
 
 ?>
 

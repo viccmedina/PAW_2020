@@ -2,9 +2,9 @@
 
 namespace PAW\core;
 
-use PAW\ViewController;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
+use PAW\app\ViewController\PageController;
 
 class Router{
 
@@ -21,9 +21,10 @@ class Router{
             return;
         }
         list($controlador, $metodo) = explode("@", $this->rutas[$ruta]);
-        $instanciaControlador = new $controlador;
+        $instanciaControlador = new PageController;
+        //$instanciaControlador = new $controlador();
         if ($logger){
-            $logger->debug("Usando la clase " .$instanciaControlador . " metodo " . $metodo);
+            $logger->debug("Usando la clase " .$controlador . " metodo " . $metodo);
         }
         $instanciaControlador->$metodo();
     }
