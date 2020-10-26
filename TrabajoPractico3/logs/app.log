@@ -1,5 +1,0 @@
-[2020-10-26T17:45:08.011342-03:00] mvc-app.INFO: Petición a: /contacts [] []
-[2020-10-26T17:46:18.192164-03:00] mvc-app.INFO: Petición a: /contacts [] []
-[2020-10-26T17:46:18.193362-03:00] mvc-app.INFO: Respuesta exitosa: 200 [] []
-[2020-10-26T17:46:23.220540-03:00] mvc-app.INFO: Petición a: /contactss [] []
-[2020-10-26T17:46:23.220917-03:00] mvc-app.INFO: Path not found: 404 [] []
