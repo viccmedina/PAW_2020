@@ -10,13 +10,9 @@
         <h1>
             <?= $title ?>
         </h1>
-        <nav>
-            <ul>
-                <?php foreach($this->menu as $item) : ?>
-                    <li><a href="<?= $item["href"]?>"><?= $item["name"]?></a></li>
-                <?php endforeach ;?>
-            </ul>
-        </nav>
+        <?php
+            require "parts/nav.view.php";
+        ?>
     </header>
 </body>
 </html>

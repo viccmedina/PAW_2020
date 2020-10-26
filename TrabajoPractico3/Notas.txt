@@ -50,6 +50,9 @@ En cuanto agrego más rutas, el if de index crece demasiado -> controlador
 Para cada petición, genera codigo especifico.
 Recibir las variables, generar las tareas que haya que hacer, impactar en los modelos, invocar a la vista.
 
+Separar las partes de una vista -> Permite construir una vista mas grande con las diferentes partes, y puedo
+reutilizar partes
+
 Preguntas:
 13:25 -> Porque a nombre le pone {}, si con $ solo anda igual?
 
