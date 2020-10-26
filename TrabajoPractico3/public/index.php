@@ -1,16 +1,10 @@
 <?php
 
-    require __DIR__ . '/../vendor/autoload.php';
+    require __DIR__ . '/../src/bootstrap.php';
 
     use Paw\App\Controllers\PageController;
     use Paw\App\Controllers\ErrorController;
-    use Monolog\Logger;
-    use Monolog\Handler\StreamHandler;
-
     $controller = new PageController;
-
-    $log = new Logger('mvc-app');
-    $log->pushHandler(new StreamHandler(__DIR__. '/../logs/app.log', Logger::DEBUG));
 
     $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
