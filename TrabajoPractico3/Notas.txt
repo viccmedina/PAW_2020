@@ -53,6 +53,8 @@ Recibir las variables, generar las tareas que haya que hacer, impactar en los mo
 Separar las partes de una vista -> Permite construir una vista mas grande con las diferentes partes, y puedo
 reutilizar partes
 
+Logger("nombre") -> Nombre identifica desde donde se generó el log.
+
 Preguntas:
 13:25 -> Porque a nombre le pone {}, si con $ solo anda igual?
 
