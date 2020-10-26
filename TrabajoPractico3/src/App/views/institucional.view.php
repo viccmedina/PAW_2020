@@ -14,18 +14,9 @@
 
     <header>
         <h1> <img src="imagenes/logo.png" alt="Logo empresarial"> Enterprise Name </h1>
-        <nav>
-            
-            <ul>
-                <li><a href="/index.html" title="">Home</a></li>
-                <li><a href="/turnos.html" title="">Turnos</a></li>
-                <li><a href="/estudios.html" title="">Estudios</a></li>
-                <li><a href="/obras_sociales.html" title="">Obras Sociales</a></li>
-                <li><a href="/especialidades.html" title="">Especialidades</a></li>
-                <li><a href="/noticias.html" title="">Noticias</a></li>
-                <li><a href="/institucional.html" title="">Institucional</a></li>
-            </ul>
-        </nav>
+        <?php
+        require 'parts/nav.view.php';
+        ?>
     </header>
 
         

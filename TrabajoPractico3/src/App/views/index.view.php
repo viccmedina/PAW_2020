@@ -3,28 +3,16 @@
 <head>
 	<meta charset = " UTF-8 " >
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="../style/style.css"/>
-	<link rel="stylesheet" type="text/css" href="../style/index/index.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../style/style.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../style/index/index.css"/>
 	<title>Enterprise Name - Home</title>
 </head>
 <body>
 	<header>
       <h1><img src="/imagenes/logo.png" alt="Enterprise Logo" width="50" height="50"> Enterprise Name</h1>
-      <nav>
-       <ul>
-           <!--
-         <li><a href="/index.html" title="">Home</a></li>
-         <li><a href="/turnos.html" title="">Turnos</a></li>
-         <li><a href="/estudios.html" title="">Estudios</a></li>
-         <li><a href="/obras_sociales.html" title="">Obras Sociales</a></li>
-         <li><a href="/especialidades.html" title="">Especialidades</a></li>
-         <li><a href="/noticias.html" title="">Noticias</a></li>
-         <li><a href="/institucional.html" title="">Institucional</a></li>-->
-          <?php foreach ($nav as $item) :?>
-           <li><a href="<?=$item['href']?>"><?= $item['name']?></a></li>
-           <?php endforeach;?>
-        </ul>
-      </nav>
+        <?php
+        require 'parts/nav.view.php';
+        ?>
     </header>
 	<aside>
 		<a href="#"><img src="" alt="Información COVID-19"></a>	

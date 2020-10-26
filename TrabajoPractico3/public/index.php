@@ -7,6 +7,12 @@
 //
 require __DIR__. "/../vendor/autoload.php";
 
+use Paw\App\Controllers\ErrorController;
+use Paw\App\Controllers\PageController;
+
+
+
+
 $whoops = new \Whoops\Run;
 $whoops ->pushHandler(new \Whoops\Handler\PrettyPageHandler);//esto significa que puedo generar mi propio handler.
 
@@ -20,7 +26,7 @@ $whoops->register();// con esto le estoy indicando que sobre escrib las funcione
 
 
 
-
+/*
 $nav = [
     [
         "href" => "/index.view.php",
@@ -51,7 +57,7 @@ $nav = [
         "name" => "Institucional",
     ],
 
-];
+];*/
 
 
 /*La variable $_SERVER me da mucha data sobre lo que llega del lado del cliente.*/
@@ -61,15 +67,26 @@ print_r($_SERVER);*/
 //esto del path lo empiezo a escribir en un php que sera route.
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
+$controller = new PageController;
+
 //throw new \Exception("Mensaje de error para desarrollador"); es un error que se puede mostrar. ponerle cosas a esto requeriria escribir mas codigo
 //la libreria que agregamos(whoops) nos permite hacer esto de forma un poco mas automatizada
 
 if ($path == "/") {
-    require __DIR__ . '/../src/index.view.php';
+   $controller->index();
 }elseif ($path == "/turnos") {
-    require __DIR__ . '/../src/turnos.view.php';
+    $controller->turnos();
+}elseif ($path == "/estudios") {
+    $controller->estudios();
+}elseif ($path == "/obras_sociales") {
+    $controller->obrasSociales();
+}elseif ($path == "/especialidades") {
+    $controller->especialidades();
+}elseif ($path == "/noticias") {
+    $controller->noticias();
+}elseif ($path == "/institucional") {
+    $controller->institucional();
 }else{
-
-    http_response_code(404);
-    require __DIR__ . '/../src/not-found.view.php';
+    $controllerError  = new ErrorController;
+    $controllerError->notfound();
 }
