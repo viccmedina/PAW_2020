@@ -46,6 +46,10 @@ Permite ponerle a los objetos los mismos nombres, pero los diferencio con los na
 Autoload reune todos mis espacios de nombres y mis objetos, y todos los espacios de nombres y objetos
 de las librerias que usemos
 
+En cuanto agrego más rutas, el if de index crece demasiado -> controlador
+Para cada petición, genera codigo especifico.
+Recibir las variables, generar las tareas que haya que hacer, impactar en los modelos, invocar a la vista.
+
 Preguntas:
 13:25 -> Porque a nombre le pone {}, si con $ solo anda igual?
 
