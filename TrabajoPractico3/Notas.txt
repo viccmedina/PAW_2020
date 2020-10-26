@@ -55,6 +55,11 @@ reutilizar partes
 
 Logger("nombre") -> Nombre identifica desde donde se generó el log.
 
+Dado un path, tenemos que asignarle un objeto controlador, y un metodo dentro de este. Routeador
+
+El metodo list asigna elementos de un array, a variables.
+El metodo explode, splitea un string
+
 Preguntas:
 13:25 -> Porque a nombre le pone {}, si con $ solo anda igual?
 

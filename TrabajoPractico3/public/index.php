@@ -1,31 +1,20 @@
 <?php
-
     require __DIR__ . '/../src/bootstrap.php';
 
-    use Paw\App\Controllers\PageController;
-    use Paw\App\Controllers\ErrorController;
-    $controller = new PageController;
+    use Paw\Core\Exceptions\RouteNotFoundException;
 
     $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
     $log->info("Petición a: {$path}");
 
-    if($path == '/'){
-        $controller->index();
-        $log->info("Respuesta exitosa: 200");
-    }else if ($path == '/services'){
-        $controller->services();
-        $log->info("Respuesta exitosa: 200");
-    }else if ($path == '/about'){
-        $controller->about();
-        $log->info("Respuesta exitosa: 200");
-    }else if ($path == '/contacts'){
-        $controller->about();
-        $log->info("Respuesta exitosa: 200");
-    }
-    else{
-        $constroller = new ErrorController;
-        $constroller->notFound();
-        $log->info("Path not found: 404");
+    try{
+        $router->direct($path);
+        $log->info("Status Code: 200 - {$path}");
+    } catch(RouteNotFoundException $e){
+        $router->direct('not_found');
+        $log->info("Status Code: 404 - Route Not Found", ["Path" => $path]);
+    } catch(Exception $e){
+        $router->direct('internal_error');
+        $log->error("Status Code: 500 - Internal Server Error", ["Error" => $e]);
     }
 ?>

@@ -24,7 +24,7 @@ class PageController{
                 "name" => "Servicios"
             ],
             [
-                "href" => "/contacts",
+                "href" => "/contact",
                 "name" => "Contactos"
             ],
         ];
