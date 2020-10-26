@@ -1,6 +1,9 @@
 <?php
+    if(session_id() == ''){
+        //session has not started
+        session_start();
+    }
     
-    //session_start();
     require __DIR__.'\vendor\autoload.php';
     use Monolog\Handler\StreamHandler;
     use Monolog\Logger;

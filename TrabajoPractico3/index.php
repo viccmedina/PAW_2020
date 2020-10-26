@@ -1,9 +1,8 @@
 <?php
-    
+
     require __DIR__ . '\bootstrap.php';
     use PAW\app\ViewController\Import;
     use PAW\core\Router;
-
     $ruta = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
     $logger->debug("Creando instancia de PAW/Router");
     $router = new Router();
