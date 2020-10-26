@@ -1,5 +1,5 @@
 {
-    "name": "paw/cursada-pilar",
+    "name": "paw/cursada_pilar",
     "type": "library",
     "license": "MIT",
     "homepage": "https://github.com/viccmedina/PAW_2020/blob/master/php_prueba/README.md",
@@ -21,17 +21,22 @@
         {
             "name": "Victoria Medina"
             
+        },
+        {
+            "name": "Nicolás Larena"
+            
         }
 
     ],
     "require": {
         "php": ">=7.2",
-        "filp/whoops": "~2"
+        "filp/whoops": "~2",
+        "monolog/monolog": "^2.1"
     },
 
     "autoload": {
         "psr-4": {
-            "PAW\\": "src/"
+            "Paw\\": "src/"
         }
     }
 }

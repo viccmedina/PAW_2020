@@ -12,7 +12,7 @@ class PageController {
 	
 	// constructor de la clase
 	public function __construct(){
-		$this->viewDir = __DIR__ . '/../';
+		$this->viewDir = __DIR__ . '/../views/';
 		/*
 			Generamo el contenido del menú dinámico.
 			Será un array de array (arrayset) donde definimos cada sección de nuestro sitio.

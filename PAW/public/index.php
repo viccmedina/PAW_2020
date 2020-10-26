@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-//use Paw\App\Controllers\PageController;
+use Paw\App\Controllers\PageController;
 
 use Paw\App\Controllers\ErrorController;
 
@@ -21,7 +21,7 @@ $_GET[] -> nos permite tomar los datos que se mandan por las request. En este ca
 */
 $titulo = htmlspecialchars($_GET["nombre"] ?? "PAW");
 
-//$controller = new PageController;
+$controller = new PageController;
 
 
 
