@@ -1,53 +1,32 @@
 <?php
 
-$menu = [
-	[
-		"href" => "/home",
-		"name" => "Home", 
-	],
-	[
-		"href" => "/turnos",
-		"name" => "Turnos", 
-	],
-	[
-		"href" => "/estudios",
-		"name" => "Estudios", 
-	]
-	,
-	[
-		"href" => "/obrasSociales",
-		"name" => "Obras Sociales", 
-	],
-	[
-		"href" => "/especialidades",
-		"name" => "Especialidaes", 
-	]
-	,
-	[
-		"href" => "/noticias",
-		"name" => "Noticias", 
-	],
-	[
-		"href" => "/institucional",
-		"name" => "Intitucional", 
-	],
-];
+require __DIR__ . '/../vendor/autoload.php';
+
+use Paw\App\Controllers\PageController; 
+
+$whoops = new \Whoops\Run;
+
+$whoops -> pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops -> register();
+
+$controller = new PageController();
+
 
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+
+
+
 if ($path == '/'){
-	$titulo = "Enterprise Name";
-	$nav = home;
-	require __DIR__ . '/../src/index-view.php';
+	$controler-> index();
 }
 if ($path == '/home'){
-	$titulo = "Enterprise Name";
-	$nav = home;
-	require __DIR__ . '/../src/index-view.php';
+	$controler-> index();
 }else if ($path == '/turnos'){
-	$titulo = "Enterprise Name";
-	$nav = Turnos;
-	require __DIR__ . '/../src/index-view-turnos.php';
+	$controler -> turnos();
 }else {
-	echo "Page not found beibii";
+	http_response_code(404);
+	$titulo = "Enterprise Name";
+	$nav = "PAGE NOT FOUND";
+	require __DIR__ . '/../src/not-found-view.php';
 }
 

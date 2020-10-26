@@ -11,10 +11,14 @@
 
   <body>
     <header>
-      <h1><img src="/imagenes/logo.png" alt="Enterprise Logo" width="50" height="50"> Enterprise Name</h1>
+      <h1><img src="/imagenes/logo.png" alt="Enterprise Logo" width="50" height="50">
+        <?=
+          $titulo
+        ?>   
+      </h1>
       <nav>
         <ul>
-        <?php foreach($menu as $item) : ?>
+        <?php foreach($this->menu as $item) : ?>
 					  <li><a href="<?= $item["href"] ?>" > <?= $item["name"] ?></a></li>
 			<?php endforeach; ?>
         </ul>
