@@ -1,4 +1,7 @@
 <?php
+
+    require __DIR__ . '/../vendor/autoload.php';
+
     $menu = 
     [
         [
@@ -20,6 +23,12 @@
     ];
 
     $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+
+    $whoops = new \Whoops\Run;
+    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+    $whoops->register();
+
+    throw new \Exception("Mensaje de error para el desarrollador");
 
     if($path == '/'){
         $titulo = htmlspecialchars($_GET['nombre'] ?? "PAW");

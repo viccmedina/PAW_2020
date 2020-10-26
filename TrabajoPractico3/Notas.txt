@@ -34,6 +34,18 @@ Los path no deben ser archivos completos, sino path genericos que se procesen en
 Para evitar que se puedan acceder a las demás paginas, buscando los path de los archivos, index.php debe
 ser lo unico que esté publico.
 
+Composer lock tiene las versiones que se instalaron en el proyecto. Composer install primero busca instalar las versiones del composer.lock
+para recrear el mismo entorno en todos lados, si ese archivo no está, instala las del composer.json
+Nada que pueda ser generado automaticamente, no se debe versionar en git. Por eso vendor no está en git.
+
+whops muestra una pagina de error más agradable de la que muestra php
+
+Autoload -> Cargá de forma automatica todos los objetos y clases que haya en el proyecto. Muy relacionado con 
+los namespaces -> Todos los path para llegar a un objeto
+Permite ponerle a los objetos los mismos nombres, pero los diferencio con los namespaces
+Autoload reune todos mis espacios de nombres y mis objetos, y todos los espacios de nombres y objetos
+de las librerias que usemos
+
 Preguntas:
 13:25 -> Porque a nombre le pone {}, si con $ solo anda igual?
 
