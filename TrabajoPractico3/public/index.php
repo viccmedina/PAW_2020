@@ -9,55 +9,18 @@ require __DIR__. "/../vendor/autoload.php";
 
 use Paw\App\Controllers\ErrorController;
 use Paw\App\Controllers\PageController;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
-
+$log = new Logger('mvc-app');//ese nombre es un identificador ya que monolog nos permite tener varios logger para difertes cosas.
+$log->pushHandler(new StreamHandler(__DIR__.'/../logs/app.log',Logger::DEBUG));
 
 
 $whoops = new \Whoops\Run;
 $whoops ->pushHandler(new \Whoops\Handler\PrettyPageHandler);//esto significa que puedo generar mi propio handler.
 
 $whoops->register();// con esto le estoy indicando que sobre escrib las funciones de errores de php y que pase el a manejar los errores
-//throw new \Exception("Mensaje de error para desarrollador"); 
-
-
-/*esto seria un nav generado de forma dinamica, este nav que es una especie de lista sera pasado a
-  la vista y en la vista este objeto sera recorrido listando en un LI de la lista cada uno de estos elementos.*/
-
-
-
-
-/*
-$nav = [
-    [
-        "href" => "/index.view.php",
-        "name" => "Home",
-    ],
-    [
-        "href" => "/turnos",
-        "name" => "Turnos",
-    ],
-    [
-        "href" => "/estudios.html",
-        "name" => "Eestudios",
-    ],
-    [
-        "href" => "/obras_sociales.html",
-        "name" => "Obras Sociales",
-    ],
-    [
-        "href" => "/especialidades",
-        "name" => "Especialidades",
-    ],
-    [
-        "href" => "/noticias",
-        "name" => "Noticias",
-    ],
-    [
-        "href" => "/institucional",
-        "name" => "Institucional",
-    ],
-
-];*/
+//throw new \Exception("Mensaje de error para desarrollador");
 
 
 /*La variable $_SERVER me da mucha data sobre lo que llega del lado del cliente.*/
@@ -67,6 +30,9 @@ print_r($_SERVER);*/
 //esto del path lo empiezo a escribir en un php que sera route.
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
+$log->info("Peticion a: {$path}"); //estoy loggeando algo con respecto al path que recibi de parte del usuario.
+
+
 $controller = new PageController;
 
 //throw new \Exception("Mensaje de error para desarrollador"); es un error que se puede mostrar. ponerle cosas a esto requeriria escribir mas codigo
@@ -74,19 +40,28 @@ $controller = new PageController;
 
 if ($path == "/") {
    $controller->index();
+
+   $log->info('reespuesta exitosa: 200');
 }elseif ($path == "/turnos") {
     $controller->turnos();
+    $log->info('reespuesta exitosa: 200');
 }elseif ($path == "/estudios") {
     $controller->estudios();
+    $log->info('reespuesta exitosa: 200');
 }elseif ($path == "/obras_sociales") {
     $controller->obrasSociales();
+    $log->info('reespuesta exitosa: 200');
 }elseif ($path == "/especialidades") {
     $controller->especialidades();
+    $log->info('reespuesta exitosa: 200');
 }elseif ($path == "/noticias") {
     $controller->noticias();
+    $log->info('reespuesta exitosa: 200');
 }elseif ($path == "/institucional") {
     $controller->institucional();
+    $log->info('reespuesta exitosa: 200');
 }else{
     $controllerError  = new ErrorController;
     $controllerError->notfound();
+    $log->info('Path not found: 404');
 }
