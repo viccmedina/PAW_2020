@@ -64,6 +64,8 @@ Un modelo, en MVC, se divide en dos capas. Modelo de acceso a datos, y modelo qu
 
 Los paths parecen un tema menor en el archivo de configuración pero son importantes.
 
+Investigar los traits, no anoté nada aca. ->Razgos, similar a herencia multiple
+
 Preguntas:
 
 

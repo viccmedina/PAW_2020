@@ -7,9 +7,9 @@
 
     use Paw\Core\Config;
     use Paw\Core;
-use Paw\Core\Request;
+    use Paw\Core\Request;
 
-$dotenv = Dotenv::createUnsafeImmutable(__DIR__ . '/../');
+    $dotenv = Dotenv::createUnsafeImmutable(__DIR__ . '/../');
     $dotenv->load();
 
     $config = new Config;
@@ -28,6 +28,7 @@ $dotenv = Dotenv::createUnsafeImmutable(__DIR__ . '/../');
     use Paw\Core\Router;
     
     $router = new Router;
+    $router->setLogger($log);
     $router->get('/', 'PageController@index');
     $router->get('/about', 'PageController@about');
     $router->get('/services', 'PageController@services');
