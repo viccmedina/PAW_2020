@@ -65,5 +65,9 @@ Un modelo, en MVC, se divide en dos capas. Modelo de acceso a datos, y modelo qu
 Los paths parecen un tema menor en el archivo de configuración pero son importantes.
 
 Preguntas:
-13:25 -> Porque a nombre le pone {}, si con $ solo anda igual?
+
+
+echo "<pre>";
+var_dump();
+die;
 

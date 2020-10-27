@@ -6,8 +6,10 @@
     use Dotenv\Dotenv;
 
     use Paw\Core\Config;
+    use Paw\Core;
+use Paw\Core\Request;
 
-    $dotenv = Dotenv::createUnsafeImmutable(__DIR__ . '/../');
+$dotenv = Dotenv::createUnsafeImmutable(__DIR__ . '/../');
     $dotenv->load();
 
     $config = new Config;
@@ -21,6 +23,8 @@
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
     $whoops->register();
 
+    $request = new Request;
+
     use Paw\Core\Router;
     
     $router = new Router;
@@ -29,5 +33,4 @@
     $router->get('/services', 'PageController@services');
     $router->get('/contact', 'PageController@contact');
     $router->post('/contact', 'PageController@contactProcess');
-    $router->get('not_found', 'ErrorController@notFound');
-    $router->get('internal_error', 'ErrorController@internalError');
+
