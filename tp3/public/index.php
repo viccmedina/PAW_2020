@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use Paw\App\Controllers\PageController; 
+use Paw\App\Controllers\PageController;
 
 $whoops = new \Whoops\Run;
 
