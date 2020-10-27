@@ -58,7 +58,7 @@ class PageController{
         require $this->viewDir . 'estudios.view.php';
     }
     
-    public function obrasSociales(){
+    public function obras_sociales(){
         require $this->viewDir . 'obras_sociales.view.php';
     }
     

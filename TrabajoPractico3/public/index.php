@@ -7,20 +7,46 @@
 //
 require __DIR__. "/../src/bootstrap.php";
 
-use Paw\App\Controllers\ErrorController;
-use Paw\App\Controllers\PageController;
+/*use Paw\App\Controllers\ErrorController;
+use Paw\App\Controllers\PageController;*/
+use Paw\Core\Router;//con este router voy a generalizar el control de la rutas.
+use Paw\Core\Exceptions\RouteNotFoundException;
 
 /*La variable $_SERVER me da mucha data sobre lo que llega del lado del cliente.*/
 /*echo "<pre>";
 print_r($_SERVER);*/ 
 
 //esto del path lo empiezo a escribir en un php que sera route.
-$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);// este path es el que me pasa el cliente desde el navegador
+
 
 $log->info("Peticion a: {$path}"); //estoy loggeando algo con respecto al path que recibi de parte del usuario.
 
+$router = new Router;
+$router->loadRoutes('/','PageController@index');
+$router->loadRoutes('/turnos','PageController@turnos');
+$router->loadRoutes('/estudios','PageController@estudios');
+$router->loadRoutes('/obras_sociales','PageController@obras_sociales');
+$router->loadRoutes('/especialidades','PageController@especialidades');
+$router->loadRoutes('/noticias','PageController@noticias');
+$router->loadRoutes('/institucional','PageController@institucional');
+$router->loadRoutes('not_found','ErrorController@notFound');
+$router->loadRoutes('internal_error','ErrorController@nInternalError');
 
-$controller = new PageController;
+
+try {
+    $router->direct($path);
+}catch (RouteNotFoundException $e) {
+    $router->direct('not_found');
+    $log->info('Status Code: 404 - Route not found',["Path"=>$path]); //un 404 puede ser problema del usuario
+}catch ( Exception $e){
+    $router->direct('internal_error');
+    $log->error('Status Code: 500 - internal server error',["Error"=>$e]); // un erorr 500 siempre es problema nuestro
+}
+
+
+
+/*$controller = new PageController;
 
 //throw new \Exception("Mensaje de error para desarrollador"); es un error que se puede mostrar. ponerle cosas a esto requeriria escribir mas codigo
 //la libreria que agregamos(whoops) nos permite hacer esto de forma un poco mas automatizada
@@ -51,4 +77,4 @@ if ($path == "/") {
     $controllerError  = new ErrorController;
     $controllerError->notfound();
     $log->info('Path not found: 404');
-}
+}*/
