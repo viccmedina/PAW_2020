@@ -47,9 +47,15 @@ class PageController{
         require $this->viewsDir . 'services.view.php';
     }
 
-    public function contact(){
+    public function contact($procesado = false){
         $title = "Contacto";
         $main = "Formas de contacto";
         require $this->viewsDir . 'contact.view.php';
+    }
+
+    public function contactProcess(){
+        $formulario = $_POST;   
+        //Hacer algo con estos datos.
+        $this->contact(true);
     }
 }

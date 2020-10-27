@@ -4,11 +4,12 @@
     use Paw\Core\Exceptions\RouteNotFoundException;
 
     $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+    $method = $_SERVER['REQUEST_METHOD'];
 
-    $log->info("Petición a: {$path}");
+    $log->info("Petición a: {$method} {$path}");
 
     try{
-        $router->direct($path);
+        $router->direct($path, $method);
         $log->info("Status Code: 200 - {$path}");
     } catch(RouteNotFoundException $e){
         $router->direct('not_found');

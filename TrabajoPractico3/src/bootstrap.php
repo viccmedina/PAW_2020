@@ -15,9 +15,10 @@
     use Paw\Core\Router;
     
     $router = new Router;
-    $router->loadRoutes('/', 'PageController@index');
-    $router->loadRoutes('/about', 'PageController@about');
-    $router->loadRoutes('/services', 'PageController@services');
-    $router->loadRoutes('/contact', 'PageController@contact');
-    $router->loadRoutes('not_found', 'ErrorController@notFound');
-    $router->loadRoutes('internal_error', 'ErrorController@internalError');
+    $router->get('/', 'PageController@index');
+    $router->get('/about', 'PageController@about');
+    $router->get('/services', 'PageController@services');
+    $router->get('/contact', 'PageController@contact');
+    $router->post('/contact', 'PageController@contactProcess');
+    $router->get('not_found', 'ErrorController@notFound');
+    $router->get('internal_error', 'ErrorController@internalError');
