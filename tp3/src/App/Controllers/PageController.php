@@ -8,7 +8,7 @@ class PageController{
     public string $viewsDir;
 
     public function __construct(){
-        $this->viewsDir = __DIR__"/../../";
+        $this->viewsDir = __DIR__ . "/../../";
         $this->menu = [
             [
                 "href" => "/home",
@@ -44,16 +44,24 @@ class PageController{
     }
 
 
-    public function index{
+    public function index(){
         $titulo = "Enterprise Name";
         $nav = "Home";
         require $this->viewsDir. 'index-view.php';
     }
 
 
-    public function turnos{
+    public function turnos(){
         $titulo = "Enterprise Name";
         $nav = "Turnos";
         require $this->viewsDir. 'index-view-turnos.php';
     }
+
+    public function notFoundPage(){
+        http_response_code(404);
+        $titulo = "Enterprise Name";
+        $nav = "PAGE NOT FOUND";
+        require $this->viewsDir. 'not-found-view.php';
+    }
+
 }
