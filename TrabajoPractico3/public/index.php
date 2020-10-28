@@ -22,20 +22,11 @@ $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);// este path es el que 
 
 $log->info("Peticion a: {$path}"); //estoy loggeando algo con respecto al path que recibi de parte del usuario.
 
-$router = new Router;
-$router->loadRoutes('/','PageController@index');
-$router->loadRoutes('/turnos','PageController@turnos');
-$router->loadRoutes('/estudios','PageController@estudios');
-$router->loadRoutes('/obras_sociales','PageController@obras_sociales');
-$router->loadRoutes('/especialidades','PageController@especialidades');
-$router->loadRoutes('/noticias','PageController@noticias');
-$router->loadRoutes('/institucional','PageController@institucional');
-$router->loadRoutes('not_found','ErrorController@notFound');
-$router->loadRoutes('internal_error','ErrorController@nInternalError');
 
 
 try {
     $router->direct($path);
+    $log->info("Status code : 200 - {$path}");
 }catch (RouteNotFoundException $e) {
     $router->direct('not_found');
     $log->info('Status Code: 404 - Route not found',["Path"=>$path]); //un 404 puede ser problema del usuario
