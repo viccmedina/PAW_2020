@@ -21,10 +21,10 @@ try{
 	$router->direct($path);	
 }catch(RouteNotFoundException $e){ 
 	$router->direct('not_found');
-	$log->info("Status code 404 - Route not found", ["Path" -> $path]);
+	$log->info("Status code 404 - Route not found", ["Path" => $path]);
 }catch(Exception $e){
 	$router->direct('internal_error');
-	$log->error("Status code: 500 - Internal server Error", ["Error" -> $e]);
+	$log->error("Status code: 500 - Internal server Error", ["Error" => $e]);
 }
 
 
