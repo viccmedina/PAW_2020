@@ -14,6 +14,15 @@
         <?php
         require 'parts/nav.view.php';
         ?>
+
+
+        <?php if ($procesado):?>
+            <div class="notificaicon">
+
+                su peticion fue procesada con exito.<br>
+                nos pondremos en contacto con usted a la brevedad.
+            </div>
+        <?php endif; ?>
     </header>
 
 	<aside>
@@ -24,8 +33,11 @@
 			<header>
           		<h1>Nuevo Turno</h1>
       		</header>
-			<form method="POST" name="nuevo_turno" autocomplete="on">  
+            <!--para probar lo que se estaba haciendo en el video le tuve que poner get a proposito-->
+			<form  action="/nuevo_turno"  method="POST" name="nuevo_turno" autocomplete="on">
 			<fieldset>
+                <!--Para los que son campos requeridos se le puede agregar el asterisco con css: https://stackoverrun.com/es/q/2978327 -->
+
 				<label for="apenomb">Apellido y Nombre</label><br>
 				<input type="text" name="apenomb" required placeholder="Peréz Juan" autofocus tabindex="1"><br>
 				<label for="email">Email:</label><br>

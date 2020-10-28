@@ -23,12 +23,14 @@ $whoops->register();// con esto le estoy indicando que sobre escrib las funcione
 
 
 $router = new Router;
-$router->loadRoutes('/','PageController@index');
-$router->loadRoutes('/turnos','PageController@turnos');
-$router->loadRoutes('/estudios','PageController@estudios');
-$router->loadRoutes('/obras_sociales','PageController@obras_sociales');
-$router->loadRoutes('/especialidades','PageController@especialidades');
-$router->loadRoutes('/noticias','PageController@noticias');
-$router->loadRoutes('/institucional','PageController@institucional');
-$router->loadRoutes('not_found','ErrorController@notFound');
-$router->loadRoutes('internal_error','ErrorController@nInternalError');
+$router->get('/','PageController@index');
+$router->get('/turnos','PageController@turnos');
+$router->get('/nuevo_turno','PageController@nuevo_turno');
+$router->post('/nuevo_turno','PageController@nuevo_turno_proccess');
+$router->get('/estudios','PageController@estudios');
+$router->get('/obras_sociales','PageController@obras_sociales');
+$router->get('/especialidades','PageController@especialidades');
+$router->get('/noticias','PageController@noticias');
+$router->get('/institucional','PageController@institucional');
+$router->get('not_found','ErrorController@notFound');
+$router->get('internal_error','ErrorController@nInternalError');

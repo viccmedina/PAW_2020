@@ -19,6 +19,10 @@ class PageController{
                 "name" => "Turnos",
             ],
             [
+                "href" => "/nuevo_turno",
+                "name" => "Nuevo turno",
+            ],
+            [
                 "href" => "/estudios",
                 "name" => "Eestudios",
             ],
@@ -53,7 +57,18 @@ class PageController{
     public function turnos(){
         require $this->viewDir.'turnos.view.php';
     }
-    
+    public function nuevo_turno($procesado = false){
+
+
+        require $this->viewDir.'nuevo_turno.view.php';
+    }
+
+    public function nuevo_turno_proccess(){
+        $formulario = $_POST; // cuando paso a hacer esto estoy asignando a formulario todos los datos de la persona que llegaron por la vista.
+        $this->nuevo_turno(true);
+
+    }
+
     public function estudios(){
         require $this->viewDir . 'estudios.view.php';
     }

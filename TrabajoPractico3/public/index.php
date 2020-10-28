@@ -9,7 +9,7 @@ require __DIR__. "/../src/bootstrap.php";
 
 /*use Paw\App\Controllers\ErrorController;
 use Paw\App\Controllers\PageController;*/
-use Paw\Core\Router;//con este router voy a generalizar el control de la rutas.
+//con este router voy a generalizar el control de la rutas.
 use Paw\Core\Exceptions\RouteNotFoundException;
 
 /*La variable $_SERVER me da mucha data sobre lo que llega del lado del cliente.*/
@@ -18,14 +18,14 @@ print_r($_SERVER);*/
 
 //esto del path lo empiezo a escribir en un php que sera route.
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);// este path es el que me pasa el cliente desde el navegador
+$method = $_SERVER['REQUEST_METHOD']; //esperamos que venga get o post
 
-
-$log->info("Peticion a: {$path}"); //estoy loggeando algo con respecto al path que recibi de parte del usuario.
+$log->info("Peticion a: {$method}{$path}"); //estoy loggeando algo con respecto al path que recibi de parte del usuario.
 
 
 
 try {
-    $router->direct($path);
+    $router->direct($path,$method);
     $log->info("Status code : 200 - {$path}");
 }catch (RouteNotFoundException $e) {
     $router->direct('not_found');
