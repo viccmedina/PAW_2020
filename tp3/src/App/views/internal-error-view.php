@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOT FOUND PAGE</title>
+    <title>Internal Error Server</title>
 </head>
 <body>
 <header>
@@ -11,15 +11,11 @@
         <?=
 		    $titulo
 	    ?></h1>
-      <nav>
-        <ul>
-        <?php foreach($this->menu as $item) : ?>
-					  <li><a href="<?= $item["href"] ?>" > <?= $item["name"] ?></a></li>
-            <?php endforeach; ?>
-            
-        </ul>
-        <?= $nav ?> 
-      </nav>
+      <?php 
+			require 'parts/nav-view.php';
+			
+		
+		?>
     </header>
 </body>
 </html>

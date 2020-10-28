@@ -1,39 +1,30 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../src/bootstrap.php';
 
-use Paw\App\Controllers\PageController;
-use Monolog\Logger;
+use Paw\Core\Router;
+use Paw\Core\Exceptions\RouteNotFoundException;
 
-use Monolog\Handler\StreamHandler;
-
-$log = new Logger('mvc-app');
-$log ->pushHandler(new StreamHandler(__DIR__ . '/../log/app.log', Logger::DEBUG));
-
-$whoops = new \Whoops\Run;
-
-$whoops -> pushHandler(new \Whoops\Handler\PrettyPageHandler);
-$whoops -> register();
-
-$controller = new PageController;
 
 
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $log -> info("Peticion a:  {$path}");
 
+$router = new Router;
 
-if ($path == '/'){
-	$controller-> index();
-	$log-> info("Respuesta existosa 200OK");
+$router->loadRouter('/','PageController@index');
+$router->loadRouter('/home','PageController@index');
+$router->loadRouter('/turnos','PageController@turnos');
+$router->loadRouter('not_found','ErrorController@notFound');
+$router->loadRouter('internal_error','ErrorController@internalError');
+try{
+	$router->direct($path);	
+}catch(RouteNotFoundException $e){ 
+	$router->direct('not_found');
+	$log->info("Status code 404 - Route not found", ["Path" -> $path]);
+}catch(Exception $e){
+	$router->direct('internal_error');
+	$log->error("Status code: 500 - Internal server Error", ["Error" -> $e]);
 }
-if ($path == '/home'){
-	$controller-> index();
-	$log-> info("Respuesta existosa 200OK");
-}else if ($path == '/turnos'){
-	$controller -> turnos();
-	$log-> info("Respuesta existosa 200OK");
-}else {
-	$controller -> notFoundPage();
-	$log-> info("Path not found 404");
-}
+
 
