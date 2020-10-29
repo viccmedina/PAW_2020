@@ -9,16 +9,29 @@ require __DIR__. "/../vendor/autoload.php";
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
-use Paw\Core\Router;
 use Dotenv\Dotenv;
+
+
+use Paw\Core\Router;
+use Paw\Core\Config;
+
+
+
+
 
 $dotenv = Dotenv::createUnsafeImmutable(__DIR__.'/../');
 $dotenv->load();//luego de que se ejecuto esto las variables de .env pasan a estar disponibles
 
-getenv("LOG_LEVEL");
-$_ENV["LOG_ENV"];//puede ser menos eficiente que la funcion.
+$config = new Config;
+
+        //getenv("LOG_LEVEL");
+//$_ENV["LOG_ENV"];//puede ser menos eficiente que la funcion.
 $log = new Logger('mvc-app');//ese nombre es un identificador ya que monolog nos permite tener varios logger para difertes cosas.
-$log->pushHandler(new StreamHandler(getenv("LOG_PATH"),getenv("LOG_LEVEL")));
+$handler = new StreamHandler($config->get("LOG_PATH"));
+$handler->setLevel($config->get("LOG_LEVEL"));
+
+
+$log->pushHandler($handler);
 
 
 $whoops = new \Whoops\Run;
