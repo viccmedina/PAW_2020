@@ -24,7 +24,7 @@ class ErrorController{
                 "name" => "Servicios"
             ],
             [
-                "href" => "/contacts",
+                "href" => "/contact",
                 "name" => "Contactos"
             ],
         ];
