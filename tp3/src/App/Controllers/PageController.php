@@ -51,12 +51,21 @@ class PageController{
     }
 
 
-    public function turnos(){
+    public function turnos($procesado = false){
         $titulo = "Enterprise Name";
         $nav = "Turnos";
+        
         require $this->viewsDir. 'index-view-turnos.php';
     }
 
+
+
+    public function turnosProccess(){
+        $formulario = $_POST;
+        
+        $this->turnos(true);
+    }
+     
     public function notFoundPage(){
         http_response_code(404);
         $titulo = "Enterprise Name";

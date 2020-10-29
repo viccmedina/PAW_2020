@@ -18,15 +18,30 @@
       </h1>
       <?php 
 			require 'parts/nav-view.php';
-			
-		
 		?>
+    <?php if ($procesado) : ?>
+      <div class= "notification ">
+        Su peticion fue procesada con exito. <br>
+        Nos pondremos en contacto con usted a la brevedad.
+      </div>
+    <?php endif; ?>
     </header>
 
     <main>
       <header>
           <h1> <?= $nav ?> </h1>
       </header>
+
+      <form action = "/turnos" method="POST"> 
+        <label for = "subject"> <strong> Asunto (*) </strong></label>
+        <input type="text" name ="subject">
+        <label for = "email"> <strong> Correo (*) </strong></label>
+        <input type="email" name= "email">
+        <label for = "description"> <strong> Description (*) </strong></label>
+        <textarea name= "description" cols="30" rows="10"> </textarea>
+        <input type="submit" name="submit" value="Enviar">
+      </form>
+
       <section>
         <header>
           <button type="button">Fecha</button> 

@@ -8,17 +8,17 @@ use Paw\Core\Exceptions\RouteNotFoundException;
 
 
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-$log -> info("Peticion a:  {$path}");
+$method = $_SERVER['REQUEST_METHOD'];
+$log -> info("Peticion a: {$method}  {$path}");
 
-$router = new Router;
-
-$router->loadRouter('/','PageController@index');
-$router->loadRouter('/home','PageController@index');
-$router->loadRouter('/turnos','PageController@turnos');
-$router->loadRouter('not_found','ErrorController@notFound');
-$router->loadRouter('internal_error','ErrorController@internalError');
+//$router = new Router;
+//$router->get('/','PageController@index');
+//$router->get('/home','PageController@index');
+//$router->post('/turnos','PageController@turnosProccess');
+//$router->get('not_found','ErrorController@notFound');
+//$router->get('internal_error','ErrorController@internalError');
 try{
-	$router->direct($path);	
+	$router->direct($path, $method);	
 }catch(RouteNotFoundException $e){ 
 	$router->direct('not_found');
 	$log->info("Status code 404 - Route not found", ["Path" => $path]);
