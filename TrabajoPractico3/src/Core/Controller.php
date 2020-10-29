@@ -16,7 +16,7 @@ class Controller
 
         global $connection, $log; //Esta sería la peor manera de resolverlo
 
-        $this->viewsDir = __DIR__ . "/../views/";
+        $this->viewsDir = __DIR__ . "/../App/views/";
 
         $this->menu = 
         [
@@ -36,14 +36,19 @@ class Controller
                 "href" => "/contact",
                 "name" => "Contactos"
             ],
+            [
+                "href" => "/authors",
+                "name" => "Autores"
+            ],
         ];
 
-        if (!is_null($this->modelName))
+        if (!is_null($this->modelName)){
             $qb = new QueryBuilder($connection);
             $qb->setLogger($log);
             $model = new $this->modelName;
             $model->setQueryBuilder($qb);
             $this->setModel($model);
+        }
     }
 
     public function setModel(Model $model)

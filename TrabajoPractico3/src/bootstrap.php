@@ -39,9 +39,9 @@
     $router->get('/services', 'PageController@services');
     $router->get('/contact', 'PageController@contact');
     $router->post('/contact', 'PageController@contactProcess');
-    $router->get('/authors', 'AuthorsController@index');
-    $router->get('/author', 'AuthorsController@get');
-    $router->get('/author/edit', 'AuthorsController@edit');
-    $router->post('/author/edit', 'AuthorsController@set');
+    $router->get('/authors', 'AuthorController@index');
+    $router->get('/author', 'AuthorController@get');
+    $router->get('/author/edit', 'AuthorController@edit');
+    $router->post('/author/edit', 'AuthorController@set');
 
 
