@@ -73,17 +73,9 @@
     </main>
 
     <footer>
-      <address>
-        <p>Tel : XXX-XXX-XXX</p>
-        <p>Email : <a href="mailto:webmaster@example.com">webmaster@example.com</a></p>
-        <p>Calle no se me ocurre al 1983, Luján</p>
-      </address> 
-      
-      <ul>
-        <li><a href="https://www.instagram.com">Instagram</a></li>
-        <li><a href="https://www.facebook.com">Facebook</a></li>
-        <li><a href="https://www.whatsapp.com">Whatsapp</a></li>
-      </ul>
+        <?php
+        require 'parts/footer.view.php';
+        ?>
 
     </footer>
   </body>

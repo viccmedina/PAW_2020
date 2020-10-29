@@ -23,9 +23,9 @@ $method = $_SERVER['REQUEST_METHOD']; //esperamos que venga get o post
 $log->info("Peticion a: {$method}{$path}"); //estoy loggeando algo con respecto al path que recibi de parte del usuario.
 
 
-
 try {
     $router->direct($path,$method);
+
     $log->info("Status code : 200 - {$path}");
 }catch (RouteNotFoundException $e) {
     $router->direct('not_found');

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset = " UTF-8 " >
+	<?php
+        require 'parts/head.view.php';
+    ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="nuevos turnos"/>
 	<link rel="stylesheet" href="/style/style.css">
 	<link rel="stylesheet" href="/style/nuevo_turno/nuevo_turno.css">
-	<title>Institución</title>
 </head>
 <body>
 	<header>
@@ -64,18 +65,9 @@
 
 	</main>
     <footer>
-        	<address>
-            	<P>Tel : XXX-XXX-XXX </P>
-
-            	<P>Email : <a href="mailto:webmaster@example.com">webmaster@example.com</a>.</P>
-            	<P>Calle no se me ocurre al 1983, Luján</P>
-        	</address>
-
-        	<ul>
-            	<li><a href="https://www.instagram.com">Instagram</a></li>
-            	<li><a href="https://www.facebook.com">Facebook</a></li>
-            	<li><a href="https://www.whatsapp.com">Whatsapp</a></li>
-        	</ul>
+        <?php
+        require 'parts/footer.view.php';
+        ?>
     </footer>	
 </body>
 </html>

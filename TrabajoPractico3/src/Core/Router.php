@@ -39,6 +39,7 @@ class Router{
     public function  direct($path, $http_method = 'GET'){
 
         if (!$this->exist($path,$http_method)){
+            var_dump($path);
             throw new RouteNotFoundException("la ruta no existe para este path"); // corta el hilo de ejecucion, es como hacer un return o un exit
         }
 

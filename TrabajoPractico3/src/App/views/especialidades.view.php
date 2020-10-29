@@ -7,8 +7,8 @@
     <!-- etiqueta indispensable para el diseño responsive-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--<link rel="stylesheet" type="text/css" href="style/reset.css"/>-->
-  <link rel="stylesheet" type="text/css" href="/../../../style/style.css"/>
-  <link rel="stylesheet" type="text/css" href="/../../../style/especialidades/especialidades.css"/>
+  <link rel="stylesheet" type="text/css" href="/../../style/style.css"/>
+  <link rel="stylesheet" type="text/css" href="/../../style/especialidades/especialidades.css"/>
 </head>
 
 <body>
@@ -67,18 +67,9 @@
 
 
     <footer>
-        <address>
-            <P>Tel : XXX-XXX-XXX </P>
-
-            <P>Email : <a href="mailto:webmaster@example.com">webmaster@example.com</a>.</P>
-            <P>Calle no se me ocurre al 1983, Luján</P>
-        </address>
-
-        <ul>
-            <li><a href="https://www.instagram.com">Instagram</a></li>
-            <li><a href="https://www.facebook.com">Facebook</a></li>
-            <li><a href="https://www.whatsapp.com">Whatsapp</a></li>
-        </ul>
+        <?php
+            require 'parts/footer.view.php';
+        ?>
     </footer>
 </body>
 </html>
