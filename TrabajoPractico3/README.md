@@ -9,4 +9,5 @@ La idea de el proyecto es pasar de STATIC a DINAMIC.
 * composer install
 * cp .env.example .env 
 * Editar el .env con los valores deseados.
+* Ejecutar migrations: phinx migrate -e development
 * Ejecutar php -S localhost:8000 -t public
