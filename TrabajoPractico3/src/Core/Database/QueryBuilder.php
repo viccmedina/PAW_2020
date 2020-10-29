@@ -14,10 +14,15 @@ class QueryBuilder
         $this->pdo = $pdo;
     }
 
-    public function select($table)
+    public function select($table, $params = [])
     {
-        $query = "select * from {$table}";
+        $where = "1 = 1";
+        if(isset($params['id']))
+            $where = "id = :id";
+        $query = "select * from {$table} where {$where}";
         $sentencia = $this->pdo->prepare($query);
+        if(isset($params['id']))
+            $sentencia->bindValue(":id", $params['id']); //Evita problemas de seguridad
         $sentencia->setFetchMode(PDO::FETCH_ASSOC); //Dice como va a retornar pdo el array de respuesta
         //Assoc en cada indice del array pone los nombres de las columnas
         $sentencia->execute();

@@ -22,4 +22,12 @@ class AutoresCollection extends Model
         }
         return $authorsCollection;
     }
+
+    public function get($id)
+    {
+        $author = new Autor;
+        $author->setQueryBuilder($this->queryBuilder);
+        $author->load($id);
+        return $author;
+    }
 }

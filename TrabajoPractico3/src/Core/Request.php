@@ -20,4 +20,9 @@ class Request
             $this->method(),
         ];
     }
+
+    public function get($key)
+    {
+        return $_POST[$key] ?? $_GET[$key] ?? null;
+    }
 }
