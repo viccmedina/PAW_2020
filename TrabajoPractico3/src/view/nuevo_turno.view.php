@@ -1,17 +1,16 @@
-<?php
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<?php require "part/head.view.php"?>
+		<link rel="stylesheet" type="text/css" href="style/index/index.css"/>
+	<head>
+	<body>
+			<?php require "part/header.view.php"?>
+			<aside>
+				<a href="#"><img src="" alt="Información COVID-19"></a>	
+			</aside>
 
-require __DIR__.'/bootstrap.php';
-use PAW\app\ViewController\Import;
-
-Import::Header('nuevo_turno/nuevo_turno.css');
-
-?>
-
-	<aside>
-		<a href="#"><img src="" alt="Información COVID-19"></a>	
-	</aside>
-
-	<main>
+		<main>
 			<header>
           		<h1>Nuevo Turno</h1>
       		</header>
@@ -41,7 +40,7 @@ Import::Header('nuevo_turno/nuevo_turno.css');
 		</form>
 		
 
-	</main>
-<?php
-	Import::Footer();
-?>
+		</main>
+		<?php require "part/footer.view.php"?>
+	</body>
+</html>

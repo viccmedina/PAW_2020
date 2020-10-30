@@ -1,13 +1,15 @@
-<?php
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<?php require "part/head.view.php"?>
+		<link rel="stylesheet" type="text/css" href="style/index/index.css"/>
+	<head>
+	<body>
+			<?php require "part/header.view.php"?>
+			<aside>
+				<a href="#"><img src="" alt="Información COVID-19"></a>	
+			</aside>
 
-require_once __DIR__.'/bootstrap.php';
-use PAW\app\ViewController\Import;
-
-Import::Header('noticias/noticias.css');
-
-?>
-
-		
 		<main>
 			<header>
         		<h1> Noticias </h1>
@@ -50,6 +52,7 @@ Import::Header('noticias/noticias.css');
 		<aside class="aside">
 			<a href="#" > <img  src="imagenes/covid.jpg" alt="Imagenes de covid nineteen -Informativo"> </a><br><br>
 		</aside>
-<?php
-	Import::Footer();
-?>
+		</main>
+		<?php require "part/footer.view.php"?>
+	</body>
+</html>

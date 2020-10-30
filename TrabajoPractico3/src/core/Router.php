@@ -5,6 +5,7 @@ namespace PAW\core;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use PAW\app\ViewController\PageController;
+use Exception;
 
 class Router{
 
@@ -17,7 +18,9 @@ class Router{
     public function redireccionar($ruta, Logger $logger = null){
         $logger->debug("Ruta: $ruta");
         if (!array_key_exists($ruta, $this->rutas)){
-            $logger->debug("Ruta: $ruta no existe");
+            //$router = New Router();
+            //$router->redireccionar("/");
+            throw new Exception();
             return;
         }
         list($controlador, $metodo) = explode("@", $this->rutas[$ruta]);

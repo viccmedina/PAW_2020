@@ -1,18 +1,21 @@
-<?php
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<?php require "part/head.view.php"?>
+		<link rel="stylesheet" type="text/css" href="style/index/index.css"/>
+	<head>
+	<body>
+			<?php require "part/header.view.php"?>
+			<aside>
+				<a href="#"><img src="" alt="Información COVID-19"></a>	
+			</aside>
 
-require __DIR__.'/bootstrap.php';
-use PAW\app\ViewController\Import;
-
-Import::Header('obras_sociales/obras_sociales.css');
-
-?>
-
-    <main>
+		<main>
       <header>
           <h1> Obras Sociales </h1>
       </header>
 
-      <form action="/obras_sociales.php" method="get" name="FormularioObrasSociales" rel="search">
+      <form action="/obras_sociales.view.php" method="get" name="FormularioObrasSociales" rel="search">
         <fieldset>
           <legend>Obra Social</legend>
           <label for="obra_social">Indique su obra social:</label>
@@ -60,8 +63,7 @@ Import::Header('obras_sociales/obras_sociales.css');
       <aside>
         <img  src ="/imagenes/publicidad.jpg" alt = "Publicidad">
       </aside>
-    </main>
-
-<?php
-	Import::Footer();
-?>
+      </main>
+		<?php require "part/footer.view.php"?>
+	</body>
+</html>

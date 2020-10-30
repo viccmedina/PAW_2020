@@ -1,13 +1,10 @@
-<?php
-
-require __DIR__.'/bootstrap.php';
-use PAW\app\ViewController\Import;
-
-Import::Header('institucional/institucional.css');
-
-?>
-
-        
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<?php require "part/head.view.php"?>
+		<link rel="stylesheet" type="text/css" href="style/index/index.css"/>
+	<head>
+	<body>
         <main>
             <header>
                 <h1> Institucional </h1>
@@ -31,13 +28,13 @@ Import::Header('institucional/institucional.css');
             <section>
                 <p class="titulo">Directorio: </p><br>
 
-                <a href="#" > <img  src ="imagenes/director.svg" alt = "imagen director1"> </a>
+                <a href="#" > <img src ="imagenes/director.svg" alt = "imagen director1"> </a>
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur</p>
 
-                <a href="#" > <img  src ="imagenes/director1.svg" alt = "imagen director2"> </a>
+                <a href="#" > <img src ="imagenes/director1.svg" alt = "imagen director2"> </a>
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur</p>
 
-                <a href="#" > <img  src ="imagenes/director2.svg" alt = "imagen director3"> </a>
+                <a href="#" > <img src ="imagenes/director2.svg" alt = "imagen director3"> </a>
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur</p>
             </section>
 
@@ -48,7 +45,7 @@ Import::Header('institucional/institucional.css');
             <a href="#" > <img src="imagenes/covid.jpg" alt="Imagenes de covid nineteen -Informativo">  </a> <br><br>
         </aside>
 
-
-<?php
-	Import::Footer();
-?>
+        </main>
+		<?php require "part/footer.view.php"?>
+	</body>
+</html>

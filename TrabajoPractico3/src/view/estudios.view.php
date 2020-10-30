@@ -1,14 +1,14 @@
-<?php
-
-require __DIR__.'/bootstrap.php';
-use PAW\app\ViewController\Import;
-
-Import::Header('estudios/estudios.css');
-
-?>
-    <!--no se si en mi seccion deberia poner una imagen u otra cosa. (alguien tiene info de covid aca)-->
-
-
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<?php require "part/head.view.php"?>
+		<link rel="stylesheet" type="text/css" href="style/index/index.css"/>
+	<head>
+	<body>
+			<?php require "part/header.view.php"?>
+			<aside>
+				<a href="#"><img src="" alt="Información COVID-19"></a>	
+			</aside>
 
     <main>
         <header>
@@ -16,7 +16,7 @@ Import::Header('estudios/estudios.css');
         </header>
 
         <section>
-        <form action="/estudios.php" method="get" name="consultaEstudios">
+        <form action="/estudios.view.php" method="get" name="consultaEstudios">
 
             <label for="buscar">Buscar
                 <input type="search" name="buscar" id="buscar"  autofocus placeholder="Ingrese el codigo de seguimiento." required>
@@ -71,6 +71,7 @@ Import::Header('estudios/estudios.css');
     <aside>
         <img  src ="/imagenes/publicidad.jpg" alt = "Publicidad">
     </aside>
-<?php
-	Import::Footer();
-?>
+    </main>
+		<?php require "part/footer.view.php"?>
+	</body>
+</html>
