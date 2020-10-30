@@ -6,9 +6,12 @@ use Exception;
 use Paw\Core\Request;
 use http\Encoding\Stream\Debrotli;
 use Paw\Core\Exceptions\RouteNotFoundException;
+use Paw\Core\Traits\loggable;
 
 class Router{
 
+
+    use loggable; //cuando esta aca adentro php lo interpreta como un trait router va a incorporar todas las propiedades de este.
 
     public array $routes = [
         "GET" =>[],
@@ -73,14 +76,25 @@ class Router{
 
             list($controller, $method) = $this->getController($path,$http_method);//explode('@',$this->routes[$method][$path]);
 
-            $this->call($controller,$method);
+            $this->logger
+                ->info(
+                    "Status Code: 200",
+                    [
+                        "Path"=>$path,
+                        "Method" =>$http_method,
+                    ]
+                );
+
         }catch ( RouteNotFoundException $e){
             list($controller, $method) = $this->getController($this->notFound,"GET");//explode('@',$this->routes[$method][$path]);
 
-            $this->call($controller,$method);
+            $this->logger->debug("Status Code : 404 - Route not found", ["ERROR"=>$e]);
         }catch ( Exception $e){
             list($controller, $method) = $this->getController($this->internalError,"GET");//explode('@',$this->routes[$method][$path]);
 
+
+            $this->logger->error("Status Code : 500 - Internal Server Error", ["ERROR"=>$e]);
+        } finally {
             $this->call($controller,$method);
         }
     }

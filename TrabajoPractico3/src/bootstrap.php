@@ -45,6 +45,8 @@ $request = new Request;
 
 
 $router = new Router;
+
+$router->setLogger($log);
 $router->get('/','PageController@index');
 $router->get('/turnos','PageController@turnos');
 $router->get('/nuevo_turno','PageController@nuevo_turno');
