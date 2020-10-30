@@ -9,7 +9,7 @@ class PageController {
 	*/
 
 	public string $viewDir;
-	
+
 	// constructor de la clase
 	public function __construct(){
 		$this->viewDir = __DIR__ . '/../views/';
@@ -43,8 +43,8 @@ class PageController {
 		/*
 			Método que nos devolverá el path del Index.
 		*/
-		$titulo = "Inicio"; 
-		require $this->viewDir . 'index.view.php';
+		$titulo = "Inicio";
+		require $this->viewDir . "index.view.php";
 	}
 
 	public function about(){
@@ -52,18 +52,18 @@ class PageController {
 			Método que nos devolverá el path de la sección
 			Página Institucional.
 		*/
-		
+
 		$titulo = "Sobre Nosotros";
 		$main = "Página Institucional";
 		require $this->viewDir . 'about.view.php';
 	}
 
-	public function contact() {
+	public function contact($procesado=false) {
 		/*
 			Método que nos delvolverá el path de la sección
 			Contactos.
 		*/
-		
+
 		$titulo = "Contactos";
 		$main = "Formas de Contactos ";
 		require $this->viewDir . 'contact.view.php';
@@ -74,9 +74,14 @@ class PageController {
 			Método que nos delverá el path de la sección
 			Servicios.
 		*/
-		
+
 		$main = "Página de Servicios";
 		require $this->viewDir . 'services.view.php';
+	}
+
+	public function contactProcess(){
+		$formulario = $_POST;
+		$this->contact(true);
 	}
 }
 
