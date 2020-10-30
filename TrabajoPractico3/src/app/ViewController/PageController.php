@@ -44,6 +44,12 @@ class PageController {
     public function logout(){
         require $this->viewDir . "logout.php";
     }
+    public function notFound(){
+        require $this->viewDir . "notFound.view.php";
+    }
+    public function internalError(){
+        require $this->viewDir . "internalError.view.php";
+    }
 }
 
 ?>
