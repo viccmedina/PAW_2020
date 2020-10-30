@@ -47,6 +47,7 @@ class PageController{
     public function index(){
         $titulo = "Enterprise Name";
         $nav = "Home";
+        print_r($titulo);
         require $this->viewsDir. 'index-view.php';
     }
 
@@ -58,6 +59,13 @@ class PageController{
         require $this->viewsDir. 'index-view-turnos.php';
     }
 
+
+    public function noticias(){
+        $titulo = "Enterprise Name";
+        $nav = "Turnos";
+        
+        require $this->viewsDir. 'noticias-view.php';
+    }
 
 
     public function turnosProccess(){

@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>Enterprise Name - Turnos</title>
-    <meta charset="UTF-8">
+    <?php require 'parts/head-view.php'; ?>
     <meta name="description" content="Consulta tus turnos."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" type="text/css" href="/style/style.css"/>
-    <link rel="stylesheet" type="text/css" href="/style/turnos/turnos.css"/>
+    
   </head>
 
   <body>
