@@ -10,21 +10,21 @@ require __DIR__. "/../src/bootstrap.php";
 /*use Paw\App\Controllers\ErrorController;
 use Paw\App\Controllers\PageController;*/
 //con este router voy a generalizar el control de la rutas.
-use Paw\Core\Exceptions\RouteNotFoundException;
+//use Paw\Core\Exceptions\RouteNotFoundException;
 
 /*La variable $_SERVER me da mucha data sobre lo que llega del lado del cliente.*/
 /*echo "<pre>";
 print_r($_SERVER);*/ 
 
 //esto del path lo empiezo a escribir en un php que sera route.
-$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);// este path es el que me pasa el cliente desde el navegador
-$method = $_SERVER['REQUEST_METHOD']; //esperamos que venga get o post
+//$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);// este path es el que me pasa el cliente desde el navegador
+//$method = $_SERVER['REQUEST_METHOD']; //esperamos que venga get o post
 
-$log->info("Peticion a: {$method}{$path}"); //estoy loggeando algo con respecto al path que recibi de parte del usuario.
+//$log->info("Peticion a: {$method}{$path}"); //estoy loggeando algo con respecto al path que recibi de parte del usuario.
 
-
-try {
-    $router->direct($path,$method);
+$router->direct($request);
+/*try {
+    $router->direct($request);
 
     $log->info("Status code : 200 - {$path}");
 }catch (RouteNotFoundException $e) {
@@ -33,7 +33,7 @@ try {
 }catch ( Exception $e){
     $router->direct('internal_error');
     $log->error('Status Code: 500 - internal server error',["Error"=>$e]); // un erorr 500 siempre es problema nuestro
-}
+}*/
 
 
 

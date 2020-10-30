@@ -10,7 +10,7 @@ class Config {
     public function __construct()
     {
         $this->configs["LOG_LEVEL"] = getenv("LOG_LEVEL","INFO");
-        $path= getenv("LOG_PATH","/logs/app.log");
+        $path= getenv("LOG_PATH","/log/app.log");
         $this->configs["LOG_PATH"] = $this->joinPaths('..',$path);
     }
 

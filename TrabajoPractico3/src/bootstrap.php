@@ -12,6 +12,7 @@ use Monolog\Handler\StreamHandler;
 use Dotenv\Dotenv;
 
 
+use Paw\Core\Request;
 use Paw\Core\Router;
 use Paw\Core\Config;
 
@@ -29,9 +30,8 @@ $config = new Config;
 $log = new Logger('mvc-app');//ese nombre es un identificador ya que monolog nos permite tener varios logger para difertes cosas.
 $handler = new StreamHandler($config->get("LOG_PATH"));
 $handler->setLevel($config->get("LOG_LEVEL"));
-
-
 $log->pushHandler($handler);
+
 
 
 $whoops = new \Whoops\Run;
@@ -39,6 +39,9 @@ $whoops ->pushHandler(new \Whoops\Handler\PrettyPageHandler);//esto significa qu
 
 $whoops->register();// con esto le estoy indicando que sobre escrib las funciones de errores de php y que pase el a manejar los errores
 //throw new \Exception("Mensaje de error para desarrollador");
+
+
+$request = new Request;
 
 
 $router = new Router;
@@ -51,5 +54,3 @@ $router->get('/obras_sociales','PageController@obras_sociales');
 $router->get('/especialidades','PageController@especialidades');
 $router->get('/noticias','PageController@noticias');
 $router->get('/institucional','PageController@institucional');
-$router->get('not_found','ErrorController@notFound');
-$router->get('internal_error','ErrorController@nInternalError');
