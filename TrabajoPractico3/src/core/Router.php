@@ -41,8 +41,8 @@ class Router{
         if ($logger){
             $logger->debug("Usando la clase " .$controlador . " metodo " . $metodo);
         }
-        $instanciaControlador = New $controlador;
-        //$instanciaControlador = New PageController();
+        //$instanciaControlador = New $controlador;
+        $instanciaControlador = New PageController();
         $instanciaControlador->$metodo();
     }
 
