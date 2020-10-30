@@ -33,6 +33,9 @@ $whoops -> register();
 $request = new Request;
 
 $router = new Router;
+
+$router->setLogger($log);
+
 $router->get('/','PageController@index');
 $router->get('/home','PageController@index');
 $router->post('/turnos','PageController@turnosProccess');
