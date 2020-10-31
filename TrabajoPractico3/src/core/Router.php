@@ -4,7 +4,6 @@ namespace PAW\core;
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
-use PAW\app\ViewController\PageController;
 use Exception;
 use PAW\core\Exception\PageNotFoundException;
 
@@ -41,8 +40,8 @@ class Router{
         if ($logger){
             $logger->debug("Usando la clase " .$controlador . " metodo " . $metodo);
         }
-        $instanciaControlador = New $controlador;
-        //$instanciaControlador = New PageController();
+        $nombreControlador = "PAW\\app\\ViewController\\{$controlador}";
+        $instanciaControlador = New $nombreControlador;
         $instanciaControlador->$metodo();
     }
 

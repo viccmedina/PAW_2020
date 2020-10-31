@@ -14,6 +14,13 @@ class Config{
         $this->config['LOG_LEVEL'] = getenv("LOG_LEVEL", "FATAL");
         $path = getenv("LOG_PATH", "/log/app.log");
         $this->config['LOG_PATH'] = $this->joinPaths("..", $path);
+        $this->config['DB_ADAPTER'] = getenv("DB_ADAPTER", "FATAL");
+        $this->config['DB_USERNAME'] = getenv("DB_USERNAME", "FATAL");
+        $this->config['DB_PASSWORD'] = getenv("DB_PASSWORD", "FATAL");
+        $this->config['DB_PORT'] = getenv("DB_PORT", "FATAL");
+        $this->config['DB_CHARSET'] = getenv("DB_CHARSET", "FATAL");
+        $this->config['DB_NAME'] = getenv("DB_NAME", "FATAL");
+        $this->config['DB_HOSTNAME'] = getenv("DB_HOSTNAME", "FATAL");
     }
 
     public function joinPaths(){

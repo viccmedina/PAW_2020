@@ -10,6 +10,7 @@
     use PAW\core\Config;
     use PAW\core\Request;
     use PAW\core\Router;
+    use PAW\core\Database\ConnectionBuilder;
 
     $request = new Request();
     $config = New Config;
@@ -32,4 +33,7 @@
     $router->cargarRuta("/turnos","GET","PageController@turnos");
     $router->cargarRuta("/login","GET","PageController@login");
     $router->cargarRuta("/logout","GET","PageController@logout");
+
+    $connectionBuilder = New ConnectionBuilder;
+    $connection = $connectionBuilder->make($config);
 ?>
