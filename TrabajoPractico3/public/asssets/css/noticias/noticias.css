@@ -1,0 +1,121 @@
+
+.titulo{
+	font-weight: bold; 
+}
+
+.img_noticia{
+	display: block;
+	margin: auto;
+}
+
+aside{
+    
+    text-align: center;
+    border: solid red;
+}
+
+footer{
+	border: solid #000000;
+	/*height: 60vh;*/
+	margin-top: 2vh;
+}
+
+footer address{
+	display: inline-block;
+	justify-content: left;
+	width: 50vw;
+	height: 25vh;
+	font-weight: bold;
+	text-align: right;
+}
+address p{
+	font-weight: bold;
+	text-align: left;
+}
+
+footer ul{
+	display: inline-block;
+	margin: none;
+	padding: none;
+
+}
+
+
+
+@media(min-width: 1000px){ /* CUADNO ESTE EN UNA PC */
+	
+    main ul{
+	    display: flex;
+	    position: relative;
+	    right: -20vw;
+	    width: 75vw;
+	    flex-wrap: wrap;
+	}
+
+
+article{
+
+    /*display: inline-block;
+    flex-wrap: wrap;*/
+    display: flex;
+    flex-wrap: wrap;
+    height: 50vh;
+    width: 35vw;
+    padding-left: 1vw;
+    
+}
+
+article img{
+    display: flex;
+    float: left;
+}
+
+.titulo{
+    display: inline-block;
+    box-sizing: border-box;
+    padding-left: 5vw;
+    text-align: right;
+}
+
+
+
+
+.description{
+    /*display: inline-block;
+    box-sizing: border-box;*/
+    width: 30vw;
+    height: 30vh;
+    float: right; 
+}
+
+
+
+
+
+.aside{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 20vw;
+    height: 100vh;
+    position: relative;
+    top:-130vh;
+}
+
+
+
+footer{
+	z-index: 100;
+    position: relative;
+    top : -93.7vh;
+    height: 32vh;
+    background: #C4C4C4;
+    border: solid #000000;
+}
+
+footer ul{ /* Redes Sociales */
+    display: inline-block;
+}
+
+footer address{
+    display: inline-block;
+}
