@@ -290,3 +290,4 @@ tmp-php.ini
 php_prueba/vendor/
 TrabajoPractico3/vendor/
 TrabajoPractico3/logs/
+TrabajoPractico3/.env
