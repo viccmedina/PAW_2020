@@ -19,3 +19,8 @@
 [2020-10-30T01:10:51.974898-03:00] mvc-app.INFO: Status code = 200 {"PATH":"/home","METHOD":"GET"} []
 [2020-10-30T01:10:54.070850-03:00] mvc-app.DEBUG: Status code = 404- Route Not Found {"ERROR":"[object] (Paw\\Core\\Exceptions\\RouteNotFoundException(code: 0): No existe ruta para este path at /home/stiven/PAW_2020/tp3/src/Core/Router.php:50)"} []
 [2020-10-30T01:10:55.421339-03:00] mvc-app.INFO: Status code = 200 {"PATH":"/noticias","METHOD":"GET"} []
+[2020-10-31T15:57:18.952109-03:00] mvc-app.INFO: Status code = 200 {"PATH":"/","METHOD":"GET"} []
+[2020-10-31T16:07:58.344292-03:00] mvc-app.INFO: Status code = 200 {"PATH":"/home","METHOD":"GET"} []
+[2020-10-31T16:07:59.748241-03:00] mvc-app.DEBUG: Status code = 404- Route Not Found {"ERROR":"[object] (Paw\\Core\\Exceptions\\RouteNotFoundException(code: 0): No existe ruta para este path at /home/stiven/PAW_2020/tp3/src/Core/Router.php:50)"} []
+[2020-10-31T16:08:01.899330-03:00] mvc-app.INFO: Status code = 200 {"PATH":"/turnos","METHOD":"GET"} []
+[2020-10-31T16:08:04.975807-03:00] mvc-app.INFO: Status code = 200 {"PATH":"/noticias","METHOD":"GET"} []
