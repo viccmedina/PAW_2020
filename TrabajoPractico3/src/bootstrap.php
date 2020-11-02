@@ -15,6 +15,7 @@ use Dotenv\Dotenv;
 use Paw\Core\Request;
 use Paw\Core\Router;
 use Paw\Core\Config;
+use \Paw\Core\Database\ConnectionBuilder;
 
 
 
@@ -31,6 +32,13 @@ $log = new Logger('mvc-app');//ese nombre es un identificador ya que monolog nos
 $handler = new StreamHandler($config->get("LOG_PATH"));
 $handler->setLevel($config->get("LOG_LEVEL"));
 $log->pushHandler($handler);
+
+
+
+//conexion a la base de datos
+$connectionBuilder = new ConnectionBuilder();
+$connectionBuilder->setLogger($log);
+$connection = $connectionBuilder->make($config);
 
 
 
