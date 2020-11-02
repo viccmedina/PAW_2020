@@ -23,10 +23,10 @@ class Config{
 
         //database config
         $this->configs['DB_ADAPTER'] = getenv('DB_ADAPTER') ?? 'mysql';
-        $this->configs['DB_HOSTNAME'] = getenv('DB_HOSTNAME') ?? 'localhost';
-        $this->configs['DB_DBNAME'] = getenv('DB_DBNAME') ?? 'PawPilar';
+        $this->configs['DB_HOSTNAME'] = getenv('DB_HOSTNAME') ?? '127.0.0.1';
+        $this->configs['DB_DBNAME'] = getenv('DB_DBNAME') ?? 'siven';
         $this->configs['DB_USERNAME'] = getenv('DB_USERNAME') ??'root';
-        $this->configs['DB_PASSWORD'] = getenv('DB_PASSWORD' ) ?? '';
+        $this->configs['DB_PASSWORD'] = getenv('DB_PASSWORD' ) ?? 'masterkey';
         $this->configs['DB_PORT'] = getenv('DB_PORT') ?? '3306';
         $this->configs['DB_CHARSET']= getenv('DB_CHARSET') ?? 'utf8'; 
         

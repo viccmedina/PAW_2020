@@ -22,8 +22,8 @@ class ConnectionBuilder{
             $dbname = $config->get('DB_DBNAME'); 
             $port = $config->get('DB_PORT'); 
             $charset = $config->get('DB_CHARSET'); 
-
-            return  new PDO(
+            
+            return new PDO(
                 "{$adapter}:host={$hostname};dbname={$dbname};port={$port};charset={$charset}",
                 $config->get('DB_USERNAME'),
                 $config->get('DB_PASSWORD'),
