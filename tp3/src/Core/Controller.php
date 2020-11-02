@@ -1,14 +1,20 @@
 <?php
 
-namespace Paw\App\Controllers;
-use Paw\Core\Controller;
+namespace Paw\Core;
+
+use Paw\Core\Model;
+use Paw\Core\Database\QueryBuilder;
 
 
-class ErrorController extends Controller{
+class Controller {
 
     public string $viewsDir;
+    public ?string $modelName = null;
 
     public function __construct(){
+
+        global $connection,$log;
+
         $this->viewsDir = __DIR__ . "/../views/";
         $this->menu = [
             [
@@ -42,23 +48,18 @@ class ErrorController extends Controller{
                 "name" => "Intitucional", 
             ],
         ];
+
+        if(!is_null($this->modelName)){
+            $queryBuilder = new QueryBuilder($connection,$log);
+            $model = $this->modelName;
+            $model->setQueryBuilder($queryBuilder);
+            $this->setModel(new $this->modelName);
+        }
     }
 
 
-    
-
-    public function notFound(){
-        http_response_code(404);
-        $titulo = "Enterprise Name";
-        $nav = "PAGE NOT FOUND";
-        require $this->viewsDir . 'not-found-view.php';
+    public function setModel(Model $model){
+        
+        $this->model = $model;
     }
-
-    public function internalError(){
-        http_response_code(500);
-        $titulo = "Enterprise Name";
-        $nav = "PAGE NOT FOUND";
-        require $this->viewsDir . 'internal-error-view.php';
-    }
-
 }
