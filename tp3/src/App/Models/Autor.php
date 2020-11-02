@@ -12,7 +12,12 @@ class Autor extends Model{
     public $fields =  [
         "nombre" => null,
         "email" => null,
+        "id" => null,
     ];
+
+    public function setID($id){
+        $this->fields["id"] = $id;
+    }
 
     public function setNombre(string $nombre){
         

@@ -14,8 +14,11 @@
         ?>
     </header> 
     <main>
-        <p><?= $author->fields["nombre"] ?></p>
-        <p><?= $author->fields["email"] ?></p>
+        <p>Código: <?= $author->fields["id"] ?></p>
+        <p>Nombre: <?= $author->fields["nombre"] ?></p>
+        <p>Correo: 
+            <a href="mailto:<?= $author->fields["email"] ?>"> <?= $author->fields["email"] ?></a>
+        </p>
     </main>
 </body>
 </html>
