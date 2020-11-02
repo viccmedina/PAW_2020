@@ -16,7 +16,7 @@ class Controller{
 
         global $connection, $log; // peligroso o confuso.
 
-        $this->viewDir = __DIR__."/../views/";
+        $this->viewDir = __DIR__."/../App/views/";
         $this->menu= [
             [
                 "href" => "/",
@@ -50,6 +50,10 @@ class Controller{
                 "href" => "/institucional",
                 "name" => "Institucional",
             ],
+            [
+                "href" => "/socios",
+                "name" => "Socios",
+            ],
 
         ];
 
@@ -57,7 +61,7 @@ class Controller{
 
 
         if(!is_null($this->modelname)){
-            $qb = new Querybuilder($connection,$log);
+            $qb = new QueryBuilder($connection,$log);
             $model = new $this->modelname;
             $model->setQueryBuilder($qb);
             $this->setModel($model);

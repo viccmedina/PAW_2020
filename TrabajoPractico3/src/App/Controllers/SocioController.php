@@ -5,13 +5,22 @@ namespace Paw\App\Controllers;
 
 use Paw\Core\Controller;
 
-use Paw\App\Models\socio;
+use Paw\App\Models\socioCollection;
 
 class SocioController extends Controller{
 
-    public ?string $modelname = socio::class;
+    public ?string $modelname = socioCollection::class;
+
+
+
 
     public function index(){
+
+        $titulo = 'Socios';
+
+        $socios = $this->model->getAll();
+
+        require $this->viewDir.'socios.index.view.php';
 
     }
 

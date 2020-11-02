@@ -3,7 +3,7 @@ $params = [
     'host' =>'localhost',
     'user' => 'root',
     'pwd' => '',
-    'db' => 'proyecto_pagina'
+    'db' => 'paw_2020'
 ];
 
 try {
@@ -17,7 +17,7 @@ try {
     echo $e->getMessage();
 }
 
-$sentencia = $pdo->query("SELECT * FROM users");
+$sentencia = $pdo->query("SELECT * FROM socio");
 
 while ($row = $sentencia->fetch(PDO::FETCH_ASSOC)){
     print_r($row);
