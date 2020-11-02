@@ -47,7 +47,7 @@ $router->post('/turnos','PageController@turnosProccess');
 $router->get('/turnos','PageController@turnos');
 $router->get('/noticias','PageController@noticias');
 $router->get('/authors', 'AuthorsController@index');
-$router->get('/authors', 'AuthorsController@get');
+#$router->get('/authors', 'AuthorsController@get');
 $router->get('/authors/edit', 'AuthorsController@edit');
 $router->post('/authors/edit', 'AuthorsController@set');
 

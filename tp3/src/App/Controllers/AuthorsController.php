@@ -12,9 +12,8 @@ class AuthorsController extends Controller{
 
 
     public function index(){
-       
         $authors = $this->model->getAll();
-        require $this->viewsDir . 'index-viex.php';
+        require $this->viewsDir . 'authors-index-viex.php';
     }
 
     public function get(){
