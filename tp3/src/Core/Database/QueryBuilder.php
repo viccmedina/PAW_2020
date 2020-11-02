@@ -13,9 +13,17 @@ class QueryBuilder{
         $this->logger = $logger;
     }
 
-    public function select($table){
-        $query = "select * from {$table};";
+    public function select($table, $params = []){
+
+        $where =  "1 = 1";
+        if(isset($params['id'])){
+            $where = " id = :id ";
+        }
+        $query = "select * from {$table} where {$where};";
         $sentencia = $this->pdo->prepare($query);
+        if(isset($params['id'])){
+            $sentencia->bindValue(":id",$params['id']);
+        }
         $sentencia->setFetchMode(PDO::FETCH_ASSOC);
         $sentencia->execute();
         return $sentencia->fetchAll();

@@ -13,13 +13,18 @@ class AuthorsController extends Controller{
 
     public function index(){
         $titulo = "Autores";
-        $nav = "authors";
+        $nav = "Authors";
         $authors = $this->model->getAll();
-        require $this->viewsDir . 'authors-index-viex.php';
+        require $this->viewsDir . 'Authors-index-view.php';
     }
 
     public function get(){
-        
+        global $request;
+        $authorID = $request->get('id');
+        $author = $this->model->get($authorID);
+        $titulo = "Autor";
+        $nav = "Authors";
+        require $this->viewsDir . 'Author-show-view.php';
     }
 
     public function edit(){

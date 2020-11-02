@@ -44,4 +44,11 @@ class Autor extends Model{
 
         }
     }
+
+
+    public function load($id){
+        $params = ["id" => $id];
+        $record = current($this->queryBuilder->select($this->table,$params));
+        $this->set($record); 
+    }
 }
