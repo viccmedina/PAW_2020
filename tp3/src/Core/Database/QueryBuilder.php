@@ -8,13 +8,13 @@ use Monolog\Logger;
 
 class QueryBuilder{
 
-    public function __contruct(PDO $pdo, Logger $logger = null){
+    public function __construct(PDO $pdo, Logger $logger = null){
         $this->pdo = $pdo;
         $this->logger = $logger;
     }
 
     public function select($table){
-        $query = "select * from {$table}";
+        $query = "select * from {$table};";
         $sentencia = $this->pdo->prepare($query);
         $sentencia->setFetchMode(PDO::FETCH_ASSOC);
         $sentencia->execute();

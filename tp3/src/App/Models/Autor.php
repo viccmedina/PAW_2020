@@ -24,12 +24,12 @@ class Autor extends Model{
     }
 
 
-    public function setMail(string $mail){
+    public function setEmail(string $mail){
         
         if(!filter_var($mail,FILTER_VALIDATE_EMAIL)){
             throw new InvalidValueFormatException ("El email ingresado es incorrecto");
         }
-        $this->fields["mail"] = $mail ;
+        $this->fields["email"] = $mail ;
 
     }
 
