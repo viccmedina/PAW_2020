@@ -18,17 +18,17 @@ final class PrimerasTablasMigration extends AbstractMigration
      */
     public function change(): void
     {
-        $tableAutor = $this->table('autor'); 
+        /*$tableAutor = $this->table('autor'); 
         $tableAutor-> addColumn('nombre', 'string', ['limit' => 60]) 
             ->addColumn('email', 'string', ['null'=> true])
-            ->create();
+            ->create();*/
 
 
-        $tableTasks = $this->tableTasks('tasks');
+        $tableTasks = $this->table('tasks');
         $tableTasks ->addColumn('titulo','string', ['limit' => 60])
             ->addColumn('descripcion','string', ['null' => true])
             ->addColumn('autor', 'integer')
-            ->addColumn('created','timeStamp', ['default' => 'CURRENT_TIMESTAMP'])
+            ->addColumn('created','timestamp', ['default' => 'CURRENT_TIMESTAMP'])
             ->addForeignKey('autor', 'autor','id')
             ->create();
 
