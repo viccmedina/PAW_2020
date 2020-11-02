@@ -64,3 +64,7 @@ $router->get('/obras_sociales','PageController@obras_sociales');
 $router->get('/especialidades','PageController@especialidades');
 $router->get('/noticias','PageController@noticias');
 $router->get('/institucional','PageController@institucional');
+$router->get('/Socios','SocioController@index');
+$router->get('/Socio','SocioController@get');
+$router->get('/Socio/edit','SocioController@edit');
+$router->post('/Socio/edit','SocioController@set');

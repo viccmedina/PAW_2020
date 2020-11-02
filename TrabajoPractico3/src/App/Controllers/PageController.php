@@ -2,50 +2,9 @@
 namespace Paw\App\Controllers;
 
 
-class PageController{
+use Paw\Core\Controller;
 
-    public string $viewDir;
-
-    function __construct(){
-
-        $this->viewDir = __DIR__."/../views/";
-        $this->menu= [
-            [
-                "href" => "/",
-                "name" => "Home",
-            ],
-            [
-                "href" => "/turnos",
-                "name" => "Turnos",
-            ],
-            [
-                "href" => "/nuevo_turno",
-                "name" => "Nuevo turno",
-            ],
-            [
-                "href" => "/estudios",
-                "name" => "Eestudios",
-            ],
-            [
-                "href" => "/obras_sociales",
-                "name" => "Obras Sociales",
-            ],
-            [
-                "href" => "/especialidades",
-                "name" => "Especialidades",
-            ],
-            [
-                "href" => "/noticias",
-                "name" => "Noticias",
-            ],
-            [
-                "href" => "/institucional",
-                "name" => "Institucional",
-            ],
-        
-        ];
-    }
-
+class PageController extends Controller {
 
     //crear un metodo por path que quiero procesar en el controlador que corresponda.
 
