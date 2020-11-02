@@ -15,7 +15,7 @@ class Controller {
 
         global $connection,$log;
 
-        $this->viewsDir = __DIR__ . "/../views/";
+        $this->viewsDir = __DIR__ . "/../App/views/";
         $this->menu = [
             [
                 "href" => "/home",
@@ -28,8 +28,7 @@ class Controller {
             [
                 "href" => "/estudios",
                 "name" => "Estudios", 
-            ]
-            ,
+            ],
             [
                 "href" => "/obrasSociales",
                 "name" => "Obras Sociales", 
@@ -47,13 +46,17 @@ class Controller {
                 "href" => "/institucional",
                 "name" => "Intitucional", 
             ],
+            [
+                "href" => "/authors",
+                "name" => "Autores", 
+            ],
         ];
 
         if(!is_null($this->modelName)){
-            $queryBuilder = new QueryBuilder($connection,$log);
-            $model = $this->modelName;
-            $model->setQueryBuilder($queryBuilder);
-            $this->setModel(new $this->modelName);
+            $qb = new QueryBuilder($connection,$log);
+            $model = new $this->modelName;
+            $model->setQueryBuilder($qb);
+            $this->setModel($model);
         }
     }
 

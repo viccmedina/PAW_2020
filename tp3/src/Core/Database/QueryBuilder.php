@@ -13,7 +13,12 @@ class QueryBuilder{
         $this->logger = $logger;
     }
 
-    public function select(){
+    public function select($table){
+        $query = "select * from {$table}";
+        $sentencia = $this->pdo->prepare($query);
+        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+        $sentencia->execute();
+        return $sentencia->fetchAll();
 
     }
 
@@ -28,7 +33,7 @@ class QueryBuilder{
     public function delete(){
         
     }
-}
-}
-}
+
+
+
 }

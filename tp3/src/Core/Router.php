@@ -24,7 +24,6 @@ class Router {
 
 
     public function loadRouter($path, $action, $method = "GET"){
-
         $this->routes[$method][$path] = $action;
 
     }

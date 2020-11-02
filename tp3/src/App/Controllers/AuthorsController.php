@@ -3,16 +3,18 @@
 namespace Paw\App\Controllers;
  
 use Paw\Core\Controller;
-use Paw\App\Models\Autor;
+use Paw\App\Models\AutoresCollection;
 
 
 class AuthorsController extends Controller{
 
-    public ?string $modelName = Autor::class;
+    public ?string $modelName = AutoresCollection::class;
 
 
     public function index(){
-
+       
+        $authors = $this->model->getAll();
+        require $this->viewsDir . 'index-viex.php';
     }
 
     public function get(){

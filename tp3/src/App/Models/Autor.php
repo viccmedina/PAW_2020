@@ -17,7 +17,7 @@ class Autor extends Model{
     public function setNombre(string $nombre){
         
         if(strlen($nombre) > 60){
-            throw new InvalidValueFormatException ("El nombre del autor no debe ser mayor a 60 caracteres");
+            throw new InvalidValueFormatException    ("El nombre del autor no debe ser mayor a 60 caracteres");
         }
         $this->fields["nombre"] = $nombre ;
 
@@ -40,7 +40,7 @@ class Autor extends Model{
             }
 
             $method = "set" . ucfirst($field); 
-            $this->method($values[$field]);
+            $this->$method($values[$field]);
 
         }
     }
