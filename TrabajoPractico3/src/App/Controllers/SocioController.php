@@ -19,12 +19,20 @@ class SocioController extends Controller{
         $titulo = 'Socios';
 
         $socios = $this->model->getAll();
-
+        var_dump($socios);
         require $this->viewDir.'socios.index.view.php';
 
     }
 
     public function get(){
+
+        global $request;
+        $socioId = $request->get('id');
+
+        $socio = $this->model->get($socioId);
+        $titulo = 'Socio';
+
+        require $this->viewDir.'socios.show.view.php';
 
     }
 

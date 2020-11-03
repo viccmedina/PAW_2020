@@ -55,4 +55,13 @@ class  socio extends Model {
 
 
     }
+
+    public function load($id){
+        $params = ['id'=>$id];
+        var_dump($id);
+        $record = current($this->querybuilder->select($this->table,$params));
+        echo ($record);
+        $this->set($record);
+
+    }
 }

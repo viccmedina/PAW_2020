@@ -21,7 +21,7 @@ class ConnectionBuilder
         try {
             $adapter = $config->get('DB_ADAPTER');
             $hostname = $config->get('DB_HOSTNAME');
-            $dbname = $config->get('DB_NAME');
+            $dbname = $config->get('DB_DBNAME');
             $port = $config->get('DB_PORT');
             $charset = $config->get('DB_CHARSET');
 

@@ -16,14 +16,23 @@ class QueryBuilder{
     }
 
 
-    public function select ($table){
-        $query = "SELECT * FROM {$table}";
+    public function select ($table,$params= []){
+
+
+
+        $where = "1=1";
+
+        if (isset($params['id'])){
+            $where= 'id = :id';
+        }
+        $query = "SELECT * FROM {$table} WHERE {$where}";
         $sentencia = $this->pdo->prepare($query);
+
+        if (isset($params['id'])){
+            $sentencia->bindValue(":id",$params['id']);
+        }
         $sentencia->setFetchMode(PDO::FETCH_ASSOC);
         $sentencia->execute();
-        var_dump($sentencia->fetchAll());
-
-
         return $sentencia->fetchAll();
 
     }

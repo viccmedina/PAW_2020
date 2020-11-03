@@ -2,6 +2,7 @@
 namespace Paw\App\Models;
 
 
+use Paw\App\Controllers\SocioController;
 use Paw\Core\Model;
 
 use Paw\App\Models\socio;
@@ -28,6 +29,15 @@ class socioCollection extends  Model{
         }
 
         return $sociosCollection;
+
+    }
+
+    public function get($id){
+        $socio = new socio;
+
+        $socio ->setQueryBuilder($this->querybuilder);
+        $socio->load($id);
+        return $socio;
 
     }
 
