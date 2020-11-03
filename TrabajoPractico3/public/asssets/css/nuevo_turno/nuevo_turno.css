@@ -1,0 +1,52 @@
+aside{ /* Oculto la publicidad como en los wireframes */
+    display: none;
+}
+
+fieldset{
+    margin: 0.3rem 0.3rem;
+    padding: 0.4rem;
+}
+
+fieldset>input{
+    margin-bottom: 0.4rem;
+}
+
+input[type="submit"], input[type="reset"]{
+    float: right;
+    margin-bottom: 0.4rem;
+}
+
+footer{
+    clear: both;
+}
+
+@media (min-width: 1000px){
+    :root{
+        --aside-width: 30vw;
+        --form-height: 75vh;
+    }
+
+    aside{ /* Estilizo la publicidad */
+        --padding: 1.8rem;
+        position: absolute;
+        display: block;
+        border: 1px solid black;
+        text-align: center;
+        padding: var(--padding);
+    
+        margin-top: calc(var(--main-header-margin-top) 
+                        + var(--main-header-padding)*2 
+                        + var(--main-header-text-size) 
+                        + var(--main-header-margin-bottom));
+        width: calc(var(--aside-width) - var(--padding)*2 - 2px); /* 2px del border */
+
+        height: calc(var(--form-height) - var(--footer-height) - var(--footer-padding)*2 - 0.8rem); /* 0.8rem is bottom margin */
+    }
+
+    form{
+        margin-left: var(--aside-width);
+        height: var(--form-height);
+    }
+
+
+}

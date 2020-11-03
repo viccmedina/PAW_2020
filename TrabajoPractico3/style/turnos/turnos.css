@@ -1,0 +1,125 @@
+:root{
+    --section-header-color: lightgrey;
+    --section-color: grey;
+    --details-color: lightgrey;
+}
+
+
+section>header{
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: var(--section-header-color);
+    margin-bottom: 1vh;
+
+}
+
+section>header h2{
+    order: 1;
+    width: 100vw;
+    text-align: center;
+    margin-bottom: 1vh;
+    margin-left: 1.5vh;
+    
+    
+}
+
+section>header>button{
+    order: 2;
+    margin-bottom: 1vh
+}
+
+/* -------------- */
+
+section>ol{
+    background-color: var(--section-color);
+    
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+}
+
+section>ol>li{
+    background-color: var(--details-color);
+    width: 100vw;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem;
+    text-align: start;
+}
+
+section>ol>li:last-child{
+    margin-bottom: 0.1rem;
+}
+/* ---------------------- */
+
+details>div{
+    display: grid;
+    grid-template-areas: 
+    "fotomedico nombremedico"
+    "horaturno consultorionumero"
+    "preparaciones detallepreparaciones"
+    "recordatorios detallerecordatorios";
+    
+}
+details>div *{
+    padding: 1rem;
+}
+
+details>div>img{
+    grid-area: fotomedico;
+}
+
+details>div>p:first-of-type{
+    grid-area: nombremedico;
+}
+
+details>div>time{
+    grid-area: horaturno;
+}
+
+details>div>p:nth-of-type(2){
+    grid-area: consultorionumero;
+}
+
+
+@media (min-width: 1000px){
+
+    :root{
+        --section-height: 64vh;
+        --turno-detalle-color: grey;
+        --section-width: 50vw;
+
+    }
+
+    section>ol{
+        width: var(--section-width);
+        margin-bottom: 0.5rem;
+        height: var(--section-height);
+        position: relative;
+        display: block;
+    }
+
+    details>div{
+        
+        position: absolute;
+        left: 51.5vw; /* esto esta dudoso */
+        top: 0px;
+        width: 46vw;
+        background-color: var(--turno-detalle-color);
+    
+        height: var(--section-height);
+        padding: 0.5rem;
+    }
+
+    summary{
+        padding: 1.3rem;
+    }
+
+    section > ol > li{
+        width: calc(var(--section-width)- 1rem);
+        height: 8vh;
+        
+    }
+}
+
+
