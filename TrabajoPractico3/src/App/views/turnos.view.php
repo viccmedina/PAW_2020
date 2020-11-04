@@ -26,7 +26,7 @@
           <button type="button">Fecha</button> 
           <button type="button">Médico</button> 
           <button type="button">Etc</button> 
-          <h2><a href="/nuevo_turno.html" title="">Nuevo Turno</a></h2>
+          <h2><a href="/nuevo_turno" title="">Nuevo Turno</a></h2>
         </header>
         <ol>  
           <li>
