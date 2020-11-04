@@ -56,9 +56,9 @@ $router = new Router;
 
 $router->setLogger($log);
 $router->get('/','PageController@index');
-$router->get('/turnos','PageController@turnos');
-$router->get('/nuevo_turno','PageController@nuevo_turno');
-$router->post('/nuevo_turno','PageController@nuevo_turno_proccess');
+$router->get('/turnos','TurnoController@turnos');
+$router->get('/nuevo_turno','TurnoController@nuevo_turno');
+$router->post('/nuevo_turno','TurnoController@nuevo_turno_proccess');
 $router->get('/estudios','PageController@estudios');
 $router->get('/obras_sociales','PageController@obras_sociales');
 $router->get('/especialidades','PageController@especialidades');

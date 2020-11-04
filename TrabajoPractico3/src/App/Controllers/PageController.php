@@ -2,7 +2,10 @@
 namespace Paw\App\Controllers;
 
 
+use Paw\App\Models\socio;
+use Paw\App\Models\socioCollection;
 use Paw\Core\Controller;
+use Kint\Kint;
 
 class PageController extends Controller {
 
@@ -12,8 +15,8 @@ class PageController extends Controller {
         require $this->viewDir.'index.view.php';
     }
 
-    
-    public function turnos(){
+    //lo pase todo a turnoController
+    /*public function turnos(){
         require $this->viewDir.'turnos.view.php';
     }
     public function nuevo_turno($procesado = false){
@@ -26,7 +29,7 @@ class PageController extends Controller {
         $formulario = $_POST; // cuando paso a hacer esto estoy asignando a formulario todos los datos de la persona que llegaron por la vista.
         $this->nuevo_turno(true);
 
-    }
+    }*/
 
     public function estudios(){
         require $this->viewDir . 'estudios.view.php';

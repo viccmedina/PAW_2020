@@ -11,7 +11,7 @@ use Paw\Core\Exceptions\invalidValueFormatException;
 
 class  socio extends Model {
 
-    public $table = 'autor';
+    public $table = 'socio';
 
     public $fields = [
         "nombre" => null,

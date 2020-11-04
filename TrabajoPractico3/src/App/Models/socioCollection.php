@@ -41,5 +41,4 @@ class socioCollection extends  Model{
 
     }
 
-
 }

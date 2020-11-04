@@ -37,7 +37,8 @@ class QueryBuilder{
 
     }
 
-    public function insert(){
+    public function insert($table, $params){
+
 
     }
 
@@ -51,7 +52,12 @@ class QueryBuilder{
 
     }
 
-
-
-
+    //queda para despues
+    public function getColumnsNames($table){
+        $query = "select column_name from information_schema.columns where table_name = '{$table}'";
+        $sentencia = $this->pdo->prepare($query);
+        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+        $sentencia->execute();
+        return $sentencia->fetchAll();
+    }
 }
