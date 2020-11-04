@@ -7,9 +7,8 @@
     <meta name="description" content="estudios"/>
     <!-- etiqueta indispensable para el diseño responsive-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="style/style.css"/>
-    <link rel="stylesheet" type="text/css" href="style/estudios/estudios.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/estudios/estudios.css"/>
 
 </head>
 <body>
