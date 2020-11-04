@@ -25,16 +25,16 @@
 
 		<ul>
 			<li>
-				<p>Consultar <a href="/turnos.html" title="">Turnos</a></p>
+				<p>Consultar <a href="/turnos" title="">Turnos</a></p>
 			</li>
 
 			<li>
-				<p>Consultar <a href="/estudios.html" title="">Estudios</a></p>
+				<p>Consultar <a href="/estudios" title="">Estudios</a></p>
 					
 			</li>
 			
 			<li>
-				<p>Consultar <a href="/especialidades.html" title="">Especialidades</a></p>
+				<p>Consultar <a href="/especialidades" title="">Especialidades</a></p>
 			</li>
 		</ul>
 		
