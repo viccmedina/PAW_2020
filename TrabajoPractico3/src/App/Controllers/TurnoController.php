@@ -32,6 +32,14 @@ class TurnoController extends Controller{
         $hora_turno = $request->get('hora_turno');
 
 
+        $errores="";
+
+        if($apenomb= null){
+
+        }
+
+
+
         // cuando paso a hacer esto estoy asignando a formulario todos los datos de la persona que llegaron por la vista.
         $this->nuevo_turno(true);
 

@@ -42,5 +42,8 @@
     "psr-4": {
       "Paw\\": "src/"
     }
+  },
+  "require-dev": {
+    "kint-php/kint": "^3.3"
   }
 }
