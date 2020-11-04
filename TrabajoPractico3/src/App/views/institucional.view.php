@@ -5,15 +5,15 @@
         <meta charset="UTF-8">
         <meta name="description" content="institucional"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style/style.css">
-        <link rel="stylesheet" type="text/css" href="style/institucional/institucional.css">
+        <link rel="stylesheet" type="text/css" href="/assets/style/style.css"/>
+        <link rel="stylesheet" type="text/css" href="/assets/style/institucional/index.css"/>    
 
     </head>
 
     <body>
 
     <header>
-        <h1> <img src="imagenes/logo.png" alt="Logo empresarial"> Enterprise Name </h1>
+        <h1> <img src="/assets/imagenes/logo.png" alt="Logo empresarial"> Enterprise Name </h1>
         <?php
         require 'parts/nav.view.php';
         ?>
@@ -43,13 +43,13 @@
             <section>
                 <p class="titulo">Directorio: </p><br>
 
-                <a href="#" > <img  src ="imagenes/director.svg" alt = "imagen director1"> </a>
+                <a href="#" > <img  src ="/assets/imagenes/director.svg" alt = "imagen director1"> </a>
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur</p>
 
-                <a href="#" > <img  src ="imagenes/director1.svg" alt = "imagen director2"> </a>
+                <a href="#" > <img  src ="/assets/imagenes/director1.svg" alt = "imagen director2"> </a>
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur</p>
 
-                <a href="#" > <img  src ="imagenes/director2.svg" alt = "imagen director3"> </a>
+                <a href="#" > <img  src ="/assets/imagenes/director2.svg" alt = "imagen director3"> </a>
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur</p>
             </section>
 
@@ -57,7 +57,7 @@
 
 
         <aside class="aside">
-            <a href="#" > <img src="imagenes/covid.jpg" alt="Imagenes de covid nineteen -Informativo">  </a> <br><br>
+            <a href="#" > <img src="/assets/imagenes/covid.jpg" alt="Imagenes de covid nineteen -Informativo">  </a> <br><br>
         </aside>
 
 

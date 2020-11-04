@@ -6,12 +6,12 @@
     ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="nuevos turnos"/>
-	<link rel="stylesheet" href="/style/style.css">
-	<link rel="stylesheet" href="/style/nuevo_turno/nuevo_turno.css">
+	<link rel="stylesheet" type="text/css" href="/assets/style/style.css"/>
+  	<link rel="stylesheet" type="text/css" href="/assets/style/nuevo_turno/index.css"/>
 </head>
 <body>
 	<header>
-    	<h1><img src="/imagenes/logo.png" alt="Enterprise Logo" width="500" height="600"> Enterprise Name</h1>
+    	<h1><img src="/assets/imagenes/logo.png" alt="Enterprise Logo" width="500" height="600"> Enterprise Name</h1>
         <?php
         require 'parts/nav.view.php';
         ?>
