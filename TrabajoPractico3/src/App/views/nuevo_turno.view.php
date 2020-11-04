@@ -17,14 +17,16 @@
         ?>
 
 
-        <?php if ($procesado):?>
+        <?php if ($hayErrores){?>
+        <?php foreach ($errores as $key => $error)?>
+                <p><?= $key?>: <?= $error?> </p>
+        <?php }else {?>
             <div class="notificaicon">
 
                 su peticion fue procesada con exito.<br>
                 nos pondremos en contacto con usted a la brevedad.
             </div>
-        <?php endif; ?>
-
+        <?php }?>
 
     </header>
 

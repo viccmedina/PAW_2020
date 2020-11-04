@@ -15,7 +15,7 @@ class TurnoController extends Controller{
     public function turnos(){
         require $this->viewDir.'turnos.view.php';
     }
-    public function nuevo_turno($procesado = false){
+    public function nuevo_turno($procesado = false, $hayErrores = false, $errores=null){
 
 
         require $this->viewDir.'nuevo_turno.view.php';
@@ -31,22 +31,57 @@ class TurnoController extends Controller{
         $edad= $request->get('edad');
         $hora_turno = $request->get('hora_turno');
 
-
-        $errores="";
-
+        d($_POST);
+       $errores = [];
+       $hayErrores = false;
         if($apenomb= null){
+            $errores['apenomb'] = "Nombre y apellido son requeridos en este formulario";
+            $hayErrores=true;
+        }
+        if (!filter_var($email,FILTER_VALIDATE_EMAIL)){
+            $errores['email']= "el email ingresado es incorrecto.";
+            $hayErrores=true;
+        }
+        $is_tel = preg_match('/^[0-9]{7-10}$/',$tel); //no me esta tomando la expresion regular del numero de telefono
+        if ($is_tel = false){
+            $errores['tel']= "el telefono ingresado es incorrecto";
+            $hayErrores=true;
+        }
 
+        if ($this->validateDate($fecha_nac) ==false ){
+            $errores['fecha_nac'] = "La fecha ingresada no es una fecha correcta";
+            $hayErrores=true;
+        }
+
+        if ($this->validateDate($date) == false){
+            $errores['date'] = "la fecha de turno ingresada no es una fecha correcta";
+            $hayErrores=true;
+        }
+
+
+        if (is_numeric($edad)==false){
+            $errores['edad'] = "la edad ingresada no es valida";
+            $hayErrores=true;
+        }
+
+        if ($this->validateDate($hora_turno,'h:i') ==false){ //puede que la h tenga que ir en mayuscula
+            $errores['hora_turno'] = "la hora ingresada no es valida";
+            $hayErrores=true;
         }
 
 
 
         // cuando paso a hacer esto estoy asignando a formulario todos los datos de la persona que llegaron por la vista.
-        $this->nuevo_turno(true);
+        $this->nuevo_turno(true,$hayErrores,$errores);
 
     }
 
 
-
+    function validateDate($date, $format = 'Y-m-d')
+    {
+        $d = DateTime::createFromFormat($format, $date);
+        return $d && $d->format($format) == $date;
+    }
 
 
 }
