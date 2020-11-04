@@ -6,7 +6,7 @@
     <meta name="description" content="Consulta si tu obra social cubre el area de tu interés."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" type="text/css" href="/assets/style/style.css"/>
-    <link rel="stylesheet" type="text/css" href="/assets/style/obras_sociales/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/obras_sociales/obras_sociales.css"/>
   </head>
 
   <body>

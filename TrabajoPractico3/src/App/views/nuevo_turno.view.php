@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="nuevos turnos"/>
 	<link rel="stylesheet" type="text/css" href="/assets/style/style.css"/>
-  	<link rel="stylesheet" type="text/css" href="/assets/style/nuevo_turno/index.css"/>
+  	<link rel="stylesheet" type="text/css" href="/assets/style/nuevo_turno/nuevo_turno.css"/>
 </head>
 <body>
 	<header>

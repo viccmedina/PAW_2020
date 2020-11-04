@@ -6,7 +6,7 @@
     <meta name="description" content="Consulta tus turnos."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" type="text/css" href="/assets/style/style.css"/>
-    <link rel="stylesheet" type="text/css" href="/assets/style/turnos/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/turnos/turnos.css"/>
   </head>
 
   <body>
