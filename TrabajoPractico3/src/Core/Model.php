@@ -11,7 +11,7 @@ class Model{
     use loggable;
 
     public function setQueryBuilder(QueryBuilder  $qb){
-        $this->querybuilder = $qb;
+        $this->queryBuilder = $qb;
 
     }
 }

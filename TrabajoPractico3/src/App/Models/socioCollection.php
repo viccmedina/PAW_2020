@@ -16,7 +16,7 @@ class socioCollection extends  Model{
     public function getAll(){
         //tantos socios como filas de tabla de socios
 
-        $socios = $this->querybuilder->select($this->table);
+        $socios = $this->queryBuilder->select($this->table);
         $sociosCollection = [];
 
 
@@ -35,7 +35,7 @@ class socioCollection extends  Model{
     public function get($id){
         $socio = new socio;
 
-        $socio ->setQueryBuilder($this->querybuilder);
+        $socio ->setQueryBuilder($this->queryBuilder);
         $socio->load($id);
         return $socio;
 

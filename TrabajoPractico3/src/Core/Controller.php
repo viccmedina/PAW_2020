@@ -4,7 +4,7 @@
 namespace Paw\Core;
 
 use Paw\Core\Model;
-use Paw\Core\Database\Querybuilder;
+use Paw\Core\Database\QueryBuilder;
 
 class Controller{
 
