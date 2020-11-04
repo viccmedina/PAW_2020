@@ -3,13 +3,13 @@
 <head>
 	<meta charset = " UTF-8 " >
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="../../../style/style.css"/>
-	<link rel="stylesheet" type="text/css" href="../../../style/index/index.css"/>
+	<link rel="stylesheet" type="text/css" href="/assets/style/style.css"/>
+	<link rel="stylesheet" type="text/css" href="/assets/style/index/index.css"/>
 	<title>Enterprise Name - Home</title>
 </head>
 <body>
 	<header>
-      <h1><img src="/imagenes/logo.png" alt="Enterprise Logo" width="50" height="50"> Enterprise Name</h1>
+      <h1><img src="/assets/imagenes/logo.png" alt="Enterprise Logo" width="50" height="50"> Enterprise Name</h1>
         <?php
         require 'parts/nav.view.php';
         ?>

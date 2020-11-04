@@ -1,5 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700;900&display=swap');
-@import "/style/reset.css";
+@import "reset.css";
 
 :root{
     font-size: 20px;

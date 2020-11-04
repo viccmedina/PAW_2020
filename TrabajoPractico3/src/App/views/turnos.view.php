@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="description" content="Consulta tus turnos."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" type="text/css" href="/style/style.css"/>
-    <link rel="stylesheet" type="text/css" href="/style/turnos/turnos.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/turnos/index.css"/>
   </head>
 
   <body>
     <header>
-      <h1><img src="/imagenes/logo.png" alt="Enterprise Logo" width="50" height="50"> Enterprise Name</h1>
+      <h1><img src="/assets/imagenes/logo.png" alt="Enterprise Logo" width="50" height="50"> Enterprise Name</h1>
         <?php
         require 'parts/nav.view.php';
         ?>
@@ -38,7 +38,7 @@
               <div>
                 <p>Nombre médico</p>
                 <time datetime="2008-02-14 20:00">Fecha Turno</time>
-                <img src="/imagenes/medico.jpg" alt="Foto del médico" width="120" height="100"> 
+                <img src="/assets/imagenes/medico.jpg" alt="Foto del médico" width="120" height="100"> 
                 <p>Numero consultorio</p>
                 <p>Preparaciónes previas</p>
                 <ul>
@@ -63,7 +63,7 @@
               <div>
                 <p>Nombre médico</p>
                 <time datetime="2008-02-14 20:00">Fecha Turno</time>
-                <img src="/imagenes/medico.jpg" alt="Foto del médico" width="120" height="100"> 
+                <img src="/assets/imagenes/medico.jpg" alt="Foto del médico" width="120" height="100"> 
                 <p>Numero consultorio</p>
                 <p>Preparaciónes previas</p>
                 <ul>

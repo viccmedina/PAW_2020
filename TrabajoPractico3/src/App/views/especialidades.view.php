@@ -7,13 +7,14 @@
     <!-- etiqueta indispensable para el diseño responsive-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--<link rel="stylesheet" type="text/css" href="style/reset.css"/>-->
-  <link rel="stylesheet" type="text/css" href="/../TrabajoPractico3/public/asssets/css/especialidades/especialidades.css"/>
-  <link rel="stylesheet" type="text/css" href="/../../style/especialidades/especialidades.css"/>
+  <link rel="stylesheet" type="text/css" href="/assets/style/style.css"/>
+  <link rel="stylesheet" type="text/css" href="/assets/style/especialidades/index.css"/>
+  
 </head>
 
 <body>
     <header>
-        <h1> <img src="imagenes/logo.png" alt="Logo empresarial" width="50" height="50"> Enterprise Name </h1>
+        <h1> <img src="/assets/imagenes/logo.png" alt="Logo empresarial" width="50" height="50"> Enterprise Name </h1>
         <?php
             require 'parts/nav.view.php';
         ?>
