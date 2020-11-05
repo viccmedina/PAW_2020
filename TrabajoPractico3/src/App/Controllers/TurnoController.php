@@ -2,6 +2,7 @@
 
 namespace Paw\App\Controllers;
 
+use DateTime;
 use Paw\App\Models\turno;
 use Paw\Core\Controller;
 
@@ -15,25 +16,35 @@ class TurnoController extends Controller{
     public function turnos(){
         require $this->viewDir.'turnos.view.php';
     }
-    public function nuevo_turno($procesado = false, $hayErrores = false, $errores=null){
+
+
+
+    public function nuevo_turno($procesado = false, $hayErrores = false, $errores=null){ //le paso estos valores a nuevo_truno pq si no no se pueden usar en la vista.
 
 
         require $this->viewDir.'nuevo_turno.view.php';
     }
 
-    public function nuevo_turno_proccess(){
-        global $request;
-        $apenomb= $request->get('apenomb') ;
-        $email = $request->get('email');
-        $tel = $request->get('tel');
-        $fecha_nac = $request->get('fecha_nac');
-        $date = $request->get('date');
-        $edad= $request->get('edad');
-        $hora_turno = $request->get('hora_turno');
 
-        d($_POST);
+
+
+
+    public function nuevo_turno_proccess(){
+       global $request;
+       $apenomb= $request->get('apenomb') ;
+       $email = $request->get('email');
+       $tel = $request->get('tel');
+       $fecha_nac = $request->get('fecha_nac');
+       $date = $request->get('date');
+       $edad= $request->get('edad');
+       $hora_turno = $request->get('hora_turno');
+
+
+
        $errores = [];
        $hayErrores = false;
+
+       d($_FILES);
         if($apenomb= null){
             $errores['apenomb'] = "Nombre y apellido son requeridos en este formulario";
             $hayErrores=true;
@@ -64,14 +75,24 @@ class TurnoController extends Controller{
             $hayErrores=true;
         }
 
-        if ($this->validateDate($hora_turno,'h:i') ==false){ //puede que la h tenga que ir en mayuscula
+        if ($this->validateDate($hora_turno,'H:i') == false){ //puede que la h tenga que ir en mayuscula
             $errores['hora_turno'] = "la hora ingresada no es valida";
             $hayErrores=true;
         }
 
 
+        //funcion para determinar si es una imagen
 
-        // cuando paso a hacer esto estoy asignando a formulario todos los datos de la persona que llegaron por la vista.
+        if (isset($_FILES['archivosubido'])){
+            if ($_FILES['archivosubido']['type'] != "image/jpeg"){
+                $errores['Estudio'] = "la imagen de estudio subida no es correcta.";
+                $hayErrores=true;
+            }
+        }
+
+
+
+        // cuando paso a hacer esto estoy asignando a formulario todos los datos que llegaron por la vista.
         $this->nuevo_turno(true,$hayErrores,$errores);
 
     }

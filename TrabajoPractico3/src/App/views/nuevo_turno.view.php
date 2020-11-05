@@ -18,9 +18,10 @@
 
 
         <?php if ($hayErrores){?>
-        <?php foreach ($errores as $key => $error)?>
+            <?php foreach ($errores as $key => $error) :?>
                 <p><?= $key?>: <?= $error?> </p>
-        <?php }else {?>
+            <?php endforeach;?>
+        <?php }elseif(!$hayErrores && $procesado) {?>
             <div class="notificaicon">
 
                 su peticion fue procesada con exito.<br>
@@ -39,7 +40,7 @@
           		<h1>Nuevo Turno</h1>
       		</header>
             <!--para probar lo que se estaba haciendo en el video le tuve que poner get a proposito-->
-			<form  action="/nuevo_turno"  method="POST" name="nuevo_turno" autocomplete="on">
+			<form  action="/nuevo_turno"  method="POST" name="nuevo_turno" autocomplete="on" enctype="multipart/form-data">
 			<fieldset>
                 <!--Para los que son campos requeridos se le puede agregar el asterisco con css: https://stackoverrun.com/es/q/2978327 -->
 
@@ -52,7 +53,7 @@
 				<label for="fecha_nac">Fecha Nacimiento:</label><br>
 				<input type="date" name="fecha_nac" tabindex="4"><br>
 				<label for="edad">Edad:</label><br>
-				<input type="number" name="edad" placeholder="46" tabindex="5">	
+				<input type="number" name="edad" placeholder="46" tabindex="5">
 			</fieldset>
 			<fieldset>
 				<label for="fecha_turno">Fecha Turno:</label><br>
@@ -60,7 +61,10 @@
 				<label for="hora_turno">Hora Turno:</label><br>
 				<input type="time" name="hora_turno" required tabindex="7">	
 			</fieldset>
-			
+            <fieldset>
+                <label for="estudio">Subir estudio:</label>
+                <input type="file" accept="image/jpeg" name="archivosubido">
+            </fieldset>
 			<input type="submit" value="Solicitar">
 			<input type="reset" value="Limpiar">
 			
