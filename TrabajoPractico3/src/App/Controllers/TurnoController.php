@@ -39,13 +39,11 @@ class TurnoController extends Controller{
        $edad= $request->get('edad');
        $hora_turno = $request->get('hora_turno');
 
-
-
        $errores = [];
        $hayErrores = false;
 
        d($_FILES);
-        if($apenomb= null){
+        if($apenomb== null){
             $errores['apenomb'] = "Nombre y apellido son requeridos en este formulario";
             $hayErrores=true;
         }
@@ -53,8 +51,8 @@ class TurnoController extends Controller{
             $errores['email']= "el email ingresado es incorrecto.";
             $hayErrores=true;
         }
-        $is_tel = preg_match('/^[0-9]{7-10}$/',$tel); //no me esta tomando la expresion regular del numero de telefono
-        if ($is_tel = false){
+        $is_tel = preg_match("#[0-9]+#", $tel); //no me esta tomando la expresion regular del numero de telefono
+        if ($is_tel == false){
             $errores['tel']= "el telefono ingresado es incorrecto";
             $hayErrores=true;
         }
