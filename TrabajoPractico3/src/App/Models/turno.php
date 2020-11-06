@@ -34,6 +34,7 @@ class turno extends Model{
         return $this->apenomb;
     }
 
+
     /**
      * @param mixed $apenomb
      */
@@ -41,6 +42,12 @@ class turno extends Model{
     {
         $this->apenomb = $apenomb;
     }
+
+    public function validarApenomb(){
+
+    }
+
+
 
     /**
      * @return mixed
@@ -58,6 +65,11 @@ class turno extends Model{
         $this->email = $email;
     }
 
+    public function validarEmail(){
+
+    }
+
+
     /**
      * @return mixed
      */
@@ -74,6 +86,10 @@ class turno extends Model{
         $this->tel = $tel;
     }
 
+    public function validarTel(){
+
+    }
+
     /**
      * @return mixed
      */
@@ -82,12 +98,20 @@ class turno extends Model{
         return $this->fecha_nac;
     }
 
+
+
     /**
      * @param mixed $fecha_nac
      */
     public function setFechaNac($fecha_nac): void
     {
         $this->fecha_nac = $fecha_nac;
+    }
+
+
+
+    public function validarFechaNac(){
+
     }
 
     /**
@@ -106,6 +130,10 @@ class turno extends Model{
         $this->date = $date;
     }
 
+
+    public function validarDate(){
+
+    }
     /**
      * @return mixed
      */
@@ -122,6 +150,10 @@ class turno extends Model{
         $this->edad = $edad;
     }
 
+    public function validarEdad(){
+
+    }
+
     /**
      * @return mixed
      */
@@ -130,12 +162,17 @@ class turno extends Model{
         return $this->hora_turno;
     }
 
+
     /**
      * @param mixed $hora_turno
      */
     public function setHoraTurno($hora_turno): void
     {
         $this->hora_turno = $hora_turno;
+    }
+
+    public function validarHoraTurno(){
+
     }
 
 

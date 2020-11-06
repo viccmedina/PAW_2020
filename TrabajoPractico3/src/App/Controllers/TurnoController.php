@@ -39,10 +39,30 @@ class TurnoController extends Controller{
        $edad= $request->get('edad');
        $hora_turno = $request->get('hora_turno');
 
-       $errores = [];
+
+
+        //aca trato de hacer lo que dijo tomi, poner las validaciones en el modelo.
+        //deberia tener cada if en una funcion de validacion? seria como estar repartiendo todos los if.
+        $validacionTurno = new turno();
+        $validacionTurno->setApenomb($request->get('apenomb'));
+        $validacionTurno->setEmail($request->get('email'));
+        $validacionTurno->setTel($request->get('tel'));
+        $validacionTurno->setFechaNac($request->get('fecha_nac'));
+        $validacionTurno->setDate($request->get('fecha_turno'));
+        $validacionTurno->setEdad($request->get('edad'));
+        $validacionTurno->setHoraTurno($request->get('hora_turno'));
+
+
+
+
+
+
+        $errores = [];
        $hayErrores = false;
 
-       d($_FILES);
+
+
+
 
 
        //todas estas validaciones deberian ir en el modelo.
