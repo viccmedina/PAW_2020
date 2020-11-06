@@ -35,7 +35,7 @@ class TurnoController extends Controller{
        $email = $request->get('email');
        $tel = $request->get('tel');
        $fecha_nac = $request->get('fecha_nac');
-       $date = $request->get('date');
+       $fecha_turno = $request->get('fecha_turno');
        $edad= $request->get('edad');
        $hora_turno = $request->get('hora_turno');
 
@@ -43,6 +43,9 @@ class TurnoController extends Controller{
        $hayErrores = false;
 
        d($_FILES);
+
+
+       //todas estas validaciones deberian ir en el modelo.
         if($apenomb== null){
             $errores['apenomb'] = "Nombre y apellido son requeridos en este formulario";
             $hayErrores=true;
@@ -51,6 +54,8 @@ class TurnoController extends Controller{
             $errores['email']= "el email ingresado es incorrecto.";
             $hayErrores=true;
         }
+
+
         $is_tel = preg_match("#[0-9]+#", $tel); //no me esta tomando la expresion regular del numero de telefono
         if ($is_tel == false){
             $errores['tel']= "el telefono ingresado es incorrecto";
@@ -62,7 +67,7 @@ class TurnoController extends Controller{
             $hayErrores=true;
         }
 
-        if ($this->validateDate($date) == false){
+        if ($this->validateDate($fecha_turno) == false){
             $errores['date'] = "la fecha de turno ingresada no es una fecha correcta";
             $hayErrores=true;
         }

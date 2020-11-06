@@ -20,6 +20,15 @@ footer{
     clear: both;
 }
 
+.notificacionError{
+    border-radius: 8px;
+    padding-left: 1rem;
+}
+.notificacion{
+    border-radius: 8px;
+    padding-left: 1rem;
+}
+
 @media (min-width: 1000px){
     :root{
         --aside-width: 30vw;
@@ -46,6 +55,22 @@ footer{
     form{
         margin-left: var(--aside-width);
         height: var(--form-height);
+    }
+
+    .notificacionError{
+        background-color: #D9534F;
+        margin-left: var(--aside-width);
+        border-radius: 8px;
+        padding-left: 1rem;
+
+    }
+    .notificacion{
+
+        background-color: aquamarine;
+        margin-left: var(--aside-width);
+        border-radius: 8px;
+        padding-left: 1rem;
+
     }
 
 

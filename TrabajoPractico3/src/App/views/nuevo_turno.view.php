@@ -17,17 +17,6 @@
         ?>
 
 
-        <?php if ($hayErrores){?>
-            <?php foreach ($errores as $key => $error) :?>
-                <p><?= $key?>: <?= $error?> </p>
-            <?php endforeach;?>
-        <?php }elseif(!$hayErrores && $procesado) {?>
-            <div class="notificaicon">
-
-                su peticion fue procesada con exito.<br>
-                nos pondremos en contacto con usted a la brevedad.
-            </div>
-        <?php }?>
 
     </header>
 
@@ -38,8 +27,20 @@
 	<main>
 			<header>
           		<h1>Nuevo Turno</h1>
-      		</header>
-            <!--para probar lo que se estaba haciendo en el video le tuve que poner get a proposito-->
+                </header>
+            <?php if ($hayErrores){?>
+                <?php foreach ($errores as $key => $error) :?>
+                    <div class="notificacionError"><?= $key?>: <?= $error?> </div>
+                <?php endforeach;?>
+            <?php }elseif(!$hayErrores && $procesado) {?>
+                <div class="notificacion">
+
+                    su peticion fue procesada con exito.<br>
+                    nos pondremos en contacto con usted a la brevedad.
+                </div>
+            <?php }?>
+
+        <!--para probar lo que se estaba haciendo en el video le tuve que poner get a proposito-->
 			<form  action="/nuevo_turno"  method="POST" name="nuevo_turno" autocomplete="on" enctype="multipart/form-data">
 			<fieldset>
                 <!--Para los que son campos requeridos se le puede agregar el asterisco con css: https://stackoverrun.com/es/q/2978327 -->
