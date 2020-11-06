@@ -58,17 +58,20 @@ footer{
     }
 
     .notificacionError{
-        background-color: #D9534F;
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
         margin-left: var(--aside-width);
         border-radius: 8px;
         padding-left: 1rem;
 
     }
     .notificacion{
-
-        background-color: aquamarine;
+        color: #004085;
+        background-color: #cce5ff;
         margin-left: var(--aside-width);
         border-radius: 8px;
+        border-color: #b8daff;
         padding-left: 1rem;
 
     }
