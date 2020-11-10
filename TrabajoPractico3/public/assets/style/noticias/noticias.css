@@ -2,7 +2,10 @@
 .titulo{
 	font-weight: bold; 
 }
-
+body{
+    background-color: cadetblue;  
+    height: 100vh;  
+}
 .img_noticia{
 	display: block;
 	margin: auto;
@@ -47,11 +50,11 @@ footer ul{
     main ul{
 	    display: flex;
 	    position: relative;
-	    right: -20vw;
+        right: -20vw;
+        height: 80vh;;
 	    width: 75vw;
 	    flex-wrap: wrap;
 	}
-
 
 article{
 
@@ -59,7 +62,7 @@ article{
     flex-wrap: wrap;*/
     display: flex;
     flex-wrap: wrap;
-    height: 50vh;
+    height: 70vh;
     width: 35vw;
     padding-left: 1vw;
     
@@ -74,6 +77,7 @@ article img{
     display: inline-block;
     box-sizing: border-box;
     padding-left: 5vw;
+    text-decoration: underline;
     text-align: right;
 }
 
@@ -83,6 +87,7 @@ article img{
 .description{
     /*display: inline-block;
     box-sizing: border-box;*/
+    font-weight: bold;
     width: 30vw;
     height: 30vh;
     float: right; 
@@ -97,8 +102,10 @@ article img{
     box-sizing: border-box;
     width: 20vw;
     height: 100vh;
+    background: #C4C4C4;
+    text-align: center;
     position: relative;
-    top:-130vh;
+    top:-60vh;
 }
 
 
@@ -106,8 +113,8 @@ article img{
 footer{
 	z-index: 100;
     position: relative;
-    top : -93.7vh;
-    height: 32vh;
+    bottom: -5vh;
+    height: 50vh;
     background: #C4C4C4;
     border: solid #000000;
 }

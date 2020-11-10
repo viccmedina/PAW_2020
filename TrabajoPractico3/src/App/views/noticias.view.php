@@ -25,7 +25,7 @@
 
 			<ul>
 				<article >
-					<a href="#" > <img class="img_noticia" src ="/assets/noticia1.png" alt = "Noticia 1 "> </a>
+					<a href="#" > <img class="img_noticia" src ="/assets/imagenes/noticia1.png" alt = "Noticia 1 "> </a>
 						<p class="titulo">titulo de la noticia 1</p>
 						<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut consectetur dolor. Nam interdum erat fermentum scelerisque facilisis. Duis tincidunt, dolor non semper semper, purus leo blandit massa, vel dictum magna augue et est. Suspendisse commodo eu augue sed euismod. Fusce mattis neque id orci posuere, vel ullamcorper ligula molestie. 1</p>
 				</article>	

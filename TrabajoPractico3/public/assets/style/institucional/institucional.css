@@ -3,6 +3,8 @@
     margin-left: 5vw;
 }
 
+
+
 section a img{
     width: 20vw;
     height: 20vh;
@@ -13,16 +15,21 @@ section a img{
 
 @media(min-width: 1000px){ /* CUADNO ESTE EN UNA PC */
 
+body{
+    background-color: cadetblue; 
+}
 
 
 .titulo{
     font-weight: bold;
 }
 
+
  main p{
         display: flex;
         position: relative;
         right: -22vw;
+        height: 10vh;
         width: 75vw;
         flex-wrap: wrap;
 }
@@ -48,7 +55,7 @@ section a img{
     width: 20vw;
     height: 100vh;
     position: relative;
-    top: -120vh;
+    top:-100vh;
     border: solid red;
 }
 
@@ -58,10 +65,10 @@ section a img{
 /* FOOTER */
 
 footer{
-    z-index: 100;
+	z-index: 100;
     position: relative;
-    top: -100vh;
-    height: 32vh;
+    bottom: -5vh;
+    height: 50vh;
     background: #C4C4C4;
     border: solid #000000;
 }

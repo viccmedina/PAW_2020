@@ -5,7 +5,7 @@
 //autoload es un mecanismo de php que me dice que cargue de forma automatica todos los objetos y clases que haya en este proyecto.
 
 //
-require __DIR__. "/../src/bootstrap.php";
+require __DIR__ . "/../src/bootstrap.php";
 
 /*use Paw\App\Controllers\ErrorController;
 use Paw\App\Controllers\PageController;*/
