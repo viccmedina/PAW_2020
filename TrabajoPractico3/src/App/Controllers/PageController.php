@@ -12,6 +12,8 @@ class PageController extends Controller {
     //crear un metodo por path que quiero procesar en el controlador que corresponda.
 
     public function index(){
+        $titulo = "Home";
+        $descripcion = "Pagina principal del sitio";
         require $this->viewDir.'index.view.php';
     }
 
@@ -32,23 +34,32 @@ class PageController extends Controller {
     }*/
 
     public function estudios(){
+        $titulo = "Estudios";
+        $descripcion = "Pagina de Estudios del sitio";
         require $this->viewDir . 'estudios.view.php';
     }
     
     public function obras_sociales(){
+        $titulo = "Obras Sociales";
+        $descripcion = "Pagina de Obras Sociales del sitio";
         require $this->viewDir . 'obras_sociales.view.php';
     }
     
     public function especialidades(){
+        $titulo = "Especialidades";
+        $descripcion = "Pagina de Especialidades del sitio";
         require $this->viewDir . 'especialidades.view.php';
     }
     
     public function noticias(){
+        $titulo = "Noticias";
+        $descripcion = "Pagina de Noticias del sitio";
         require $this->viewDir . 'noticias.view.php';
     }
 
-    
     public function institucional(){
+        $titulo = "Institucional";
+        $descripcion = "Pagina Institucional del sitio";
         require $this->viewDir . 'institucional.view.php';
     }
 

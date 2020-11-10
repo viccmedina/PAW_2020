@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Enterprise Name - Socios</title>
-  <meta name="description" content="Socios"/>
-    <!-- etiqueta indispensable para el diseño responsive-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--<link rel="stylesheet" type="text/css" href="style/reset.css"/>-->
-
+    <?php require 'parts/head.view.php'?>
 </head>
 
 <body>

@@ -1,15 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Enterprise Name - Especialidades</title>
-  <meta name="description" content="especialidades"/>
-    <!-- etiqueta indispensable para el diseño responsive-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--<link rel="stylesheet" type="text/css" href="style/reset.css"/>-->
-  <link rel="stylesheet" type="text/css" href="/assets/style/style.css"/>
-  <link rel="stylesheet" type="text/css" href="/assets/style/especialidades/especialidades.css"/>
-  
+    <?php require 'parts/head.view.php';?>
+    <link rel="stylesheet" type="text/css" href="/assets/style/especialidades/especialidades.css"/>
 </head>
 
 <body>

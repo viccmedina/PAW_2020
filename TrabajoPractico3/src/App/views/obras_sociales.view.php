@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>Enterprise Name - ObrasSociales</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Consulta si tu obra social cubre el area de tu interés."/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" type="text/css" href="/assets/style/style.css"/>
+    <?php require 'parts/head.view.php'?>
     <link rel="stylesheet" type="text/css" href="/assets/style/obras_sociales/obras_sociales.css"/>
   </head>
 

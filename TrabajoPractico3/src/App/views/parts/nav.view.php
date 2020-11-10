@@ -3,7 +3,7 @@ para que si el dia de mañana hay que hacer un cambio en esta parte de la vista 
 sin tener que recorrer todas-->
 
 <nav>
-    <ul id="menu">
+    <ul id="menu" open="">
         <?php foreach ($this->menu as $item) :?>
             <li><a href="<?=$item['href']?>"><?= $item['name']?></a></li>
         <?php endforeach;?>
