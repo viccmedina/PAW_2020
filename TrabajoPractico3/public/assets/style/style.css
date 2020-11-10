@@ -22,7 +22,7 @@
     /* Begin -> Menu variables */
     --menu-color: darkgrey;
     --menu-buttons-color:  #A58E8E;
-    --menu-width: 60vw;
+    --menu-width: 60vw;   
     /* End -> Menu variables */
 
     /* Begin -> Footer variables */
@@ -64,38 +64,6 @@ main>header>h1{ /* Estilizo la ubicación actual en el sitio */
     margin-bottom: var(--main-header-margin-bottom);
 }
 
-nav{ /* Oculto el nav cuando no esta abierto */
-    display: none;
-}
-
-/* Begin block -> Muestro el nav cuando tenga el atributo open */
-
-nav[open=""]{
-    display: block;
-    position: absolute;
-    background-color: var(--menu-color);
-    right: 0;
-    top: 0;
-    height: 100vh;
-    width: var(--menu-width);
-}
-
-nav[open=""] ul{
-    margin-top: var(--body-header-height);
-    display: flex;
-    flex-wrap: wrap;
-}
-
-nav[open=""] li{
-    width: var(--menu-width);
-    padding: 1rem;
-    text-align: end;
-    background-color: var(--menu-buttons-color);
-    margin-bottom: 0.5rem;
-    
-}
-
-/* End block -> Muestro el nav cuando tenga el atributo open */
 
 body > footer{ /* Footer de la pagina */
     padding: var(--footer-padding);
@@ -137,19 +105,4 @@ fieldset{ /**/
     :root{
         font-size: 15px;
     }    
-    nav[open=""]{
-        top: auto;
-        width: 100vw;
-        height: auto;
-    }
-
-    nav[open=""] ul{
-        margin: 1rem 1rem;
-        justify-content: center;
-    }
-
-    nav[open=""] li{
-        text-align: center;
-
-    }
 }
