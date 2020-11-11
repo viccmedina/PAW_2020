@@ -32,20 +32,45 @@ class PawNav {
         let estudios = document.querySelector("nav li[name = 'Estudios']");
         nav.insertBefore(turnos,estudios);
 
-        turnos.addEventListener("mouseover",(event)=>{
+
+
+        turnos.addEventListener("click",(event)=>{
             if(event.target.classList.contains("PAW-UlCerrado"))
             {
-                event.target.classList.remove("PAW-UlCerrado");
-                event.target.classList.add("PAW-UlAbierto");
+                turnos.classList.remove("PAW-UlCerrado");
+                turnos.classList.add("PAW-UlAbierto");
 
 
             }else {
-                event.target.classList.remove("PAW-UlAbierto");
-                event.target.classList.add("PAW-UlCerrado");
+                turnos.classList.remove("PAW-UlAbierto");
+                turnos.classList.add("PAW-UlCerrado");
             }
         });
 
 
+        window.addEventListener("resize",(event)=>{
+            if (screen.width<1000){
+                turnos.removeEventListener()
+                turnos.addEventListener("mouseover",(event)=>{
+                    if(event.target.classList.contains("PAW-UlCerrado"))
+                    {
+                        turnos.classList.remove("PAW-UlCerrado");
+                        turnos.classList.add("PAW-UlAbierto");
+
+
+                    }else {
+                        turnos.classList.remove("PAW-UlAbierto");
+                        turnos.classList.add("PAW-UlCerrado");
+                    }
+                });
+            }
+
+
+        })
+
+
     }
+
+
 
 }
