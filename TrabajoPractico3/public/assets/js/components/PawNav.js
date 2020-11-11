@@ -32,86 +32,26 @@ class PawNav {
         let estudios = document.querySelector("nav li[name = 'Estudios']");
         nav.insertBefore(turnos,estudios);
 
+        establecerEvento(false);
 
-
-
-        establecerEvento();
-
-        /*turnos.addEventListener("click",(event)=>{
-
-            if(turnos.classList.contains("PAW-UlCerrado"))
-            {
-                turnos.classList.remove("PAW-UlCerrado");
-                turnos.classList.add("PAW-UlAbierto");
-
-
-            }else {
-                turnos.classList.remove("PAW-UlAbierto");
-                turnos.classList.add("PAW-UlCerrado");
-            }
-
-        });*/
-
-
-
-
-
-        window.addEventListener("resize",(event)=>{
+        window.addEventListener("resize",()=>{
             establecerEvento(true);
-
         })
 
-
-        function establecerEvento( intentarRemover = false){
-
-            if (screen.width>1000) {
-                if (intentarRemover){
+        function establecerEvento(intentarRemover = false)
+        {
+            if (screen.width>1000) 
+            {
+                if (intentarRemover)
                     turnos.removeEventListener("click",evento);
-                }
-                turnos.addEventListener("mouseover",evento())
-            }else if (screen.width<1000){
-                if (intentarRemover){
+                turnos.addEventListener("mouseover",evento)
+            }
+            else if (screen.width<1000){
+                if (intentarRemover)
                     turnos.removeEventListener("mouseover",evento);
-                }
-                turnos.addEventListener("click",evento());
+                turnos.addEventListener("click",evento);
             }
         }
-
-
-        /*
-        function escucharEventoClick(turnos){
-
-
-            if(turnos.classList.contains("PAW-UlCerrado"))
-            {
-                turnos.classList.remove("PAW-UlCerrado");
-                turnos.classList.add("PAW-UlAbierto");
-
-
-            }else {
-                turnos.classList.remove("PAW-UlAbierto");
-                turnos.classList.add("PAW-UlCerrado");
-            }
-
-        }
-
-       function escucharEventomouseOver(turnos){
-
-
-
-            if(turnos.classList.contains("PAW-UlCerrado"))
-            {
-                turnos.classList.remove("PAW-UlCerrado");
-                turnos.classList.add("PAW-UlAbierto");
-
-
-            }else {
-                turnos.classList.remove("PAW-UlAbierto");
-                turnos.classList.add("PAW-UlCerrado");
-            }
-
-        }*/
-
 
         function evento(){
             if(turnos.classList.contains("PAW-UlCerrado"))
@@ -125,9 +65,5 @@ class PawNav {
                 turnos.classList.add("PAW-UlCerrado");
             }
         }
-
     }
-
-
-
 }
