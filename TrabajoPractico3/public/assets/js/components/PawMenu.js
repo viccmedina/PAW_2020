@@ -12,6 +12,7 @@ class PawMenu
 
         if(contenedor && buttonContainer) 
         {
+            buttonContainer.classList.add("PAW-Menu");//agrego esta clase al contenedor del boton ya que en el css pide especificiamente que el boton este adentro de algo que tenga la clase PAW-Menu
             contenedor.classList.add("PAW-Menu");
             contenedor.classList.add("PAW-MenuCerrado");
 
@@ -21,7 +22,7 @@ class PawMenu
             type: "text/css"}));
 
             let boton = Paw.nuevoElemento("button", "", {});
-            boton.classList.add("PAW-Menu");
+            //boton.classList.add("PAW-Menu");
             boton.classList.add("PAW-MenuAbrir");
 
             boton.addEventListener("click", (event) => {
