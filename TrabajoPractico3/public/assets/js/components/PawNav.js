@@ -44,11 +44,14 @@ class PawNav {
             {
                 if (intentarRemover)
                     turnos.removeEventListener("click",evento);
-                turnos.addEventListener("mouseover",evento)
+                turnos.addEventListener("mouseenter",mouseEnter)
+                turnos.addEventListener("mouseleave",mouseLeave)
             }
             else if (screen.width<1000){
-                if (intentarRemover)
-                    turnos.removeEventListener("mouseover",evento);
+                if (intentarRemover){
+                    turnos.removeEventListener("mouseenter",mouseEnter);
+                    turnos.removeEventListener("mouseleave",mouseLeave);
+                }
                 turnos.addEventListener("click",evento);
             }
         }
@@ -61,6 +64,22 @@ class PawNav {
 
 
             }else {
+                turnos.classList.remove("PAW-UlAbierto");
+                turnos.classList.add("PAW-UlCerrado");
+            }
+        }
+
+        function mouseEnter(){
+            if(turnos.classList.contains("PAW-UlCerrado"))
+            {
+                turnos.classList.remove("PAW-UlCerrado");
+                turnos.classList.add("PAW-UlAbierto");
+            }
+        }
+
+        function mouseLeave(){
+            if(turnos.classList.contains("PAW-UlAbierto"))
+            {
                 turnos.classList.remove("PAW-UlAbierto");
                 turnos.classList.add("PAW-UlCerrado");
             }
