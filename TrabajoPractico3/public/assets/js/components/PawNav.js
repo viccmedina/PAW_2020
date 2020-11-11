@@ -34,8 +34,12 @@ class PawNav {
 
 
 
-        turnos.addEventListener("click",(event)=>{
-            if(event.target.classList.contains("PAW-UlCerrado"))
+
+        establecerEvento();
+
+        /*turnos.addEventListener("click",(event)=>{
+
+            if(turnos.classList.contains("PAW-UlCerrado"))
             {
                 turnos.classList.remove("PAW-UlCerrado");
                 turnos.classList.add("PAW-UlAbierto");
@@ -45,29 +49,82 @@ class PawNav {
                 turnos.classList.remove("PAW-UlAbierto");
                 turnos.classList.add("PAW-UlCerrado");
             }
-        });
+
+        });*/
+
+
+
 
 
         window.addEventListener("resize",(event)=>{
-            if (screen.width<1000){
-                turnos.removeEventListener()
-                turnos.addEventListener("mouseover",(event)=>{
-                    if(event.target.classList.contains("PAW-UlCerrado"))
-                    {
-                        turnos.classList.remove("PAW-UlCerrado");
-                        turnos.classList.add("PAW-UlAbierto");
-
-
-                    }else {
-                        turnos.classList.remove("PAW-UlAbierto");
-                        turnos.classList.add("PAW-UlCerrado");
-                    }
-                });
-            }
-
+            establecerEvento(true);
 
         })
 
+
+        function establecerEvento( intentarRemover = false){
+
+            if (screen.width>1000) {
+                if (intentarRemover){
+                    turnos.removeEventListener("click",evento);
+                }
+                turnos.addEventListener("mouseover",evento())
+            }else if (screen.width<1000){
+                if (intentarRemover){
+                    turnos.removeEventListener("mouseover",evento);
+                }
+                turnos.addEventListener("click",evento());
+            }
+        }
+
+
+        /*
+        function escucharEventoClick(turnos){
+
+
+            if(turnos.classList.contains("PAW-UlCerrado"))
+            {
+                turnos.classList.remove("PAW-UlCerrado");
+                turnos.classList.add("PAW-UlAbierto");
+
+
+            }else {
+                turnos.classList.remove("PAW-UlAbierto");
+                turnos.classList.add("PAW-UlCerrado");
+            }
+
+        }
+
+       function escucharEventomouseOver(turnos){
+
+
+
+            if(turnos.classList.contains("PAW-UlCerrado"))
+            {
+                turnos.classList.remove("PAW-UlCerrado");
+                turnos.classList.add("PAW-UlAbierto");
+
+
+            }else {
+                turnos.classList.remove("PAW-UlAbierto");
+                turnos.classList.add("PAW-UlCerrado");
+            }
+
+        }*/
+
+
+        function evento(){
+            if(turnos.classList.contains("PAW-UlCerrado"))
+            {
+                turnos.classList.remove("PAW-UlCerrado");
+                turnos.classList.add("PAW-UlAbierto");
+
+
+            }else {
+                turnos.classList.remove("PAW-UlAbierto");
+                turnos.classList.add("PAW-UlCerrado");
+            }
+        }
 
     }
 
