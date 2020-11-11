@@ -14,14 +14,16 @@ class TurnoController extends Controller{
 
 
     public function turnos(){
+        $titulo = "Turnos";
+        $descripcion = "Pagina para consultar turnos del sitio";
         require $this->viewDir.'turnos.view.php';
     }
 
 
 
     public function nuevo_turno($procesado = false, $hayErrores = false, $errores=null){ //le paso estos valores a nuevo_truno pq si no no se pueden usar en la vista.
-
-
+        $titulo = "Nuevo Turno";
+        $descripcion = "Pagina para solicitar turnos del sitio";
         require $this->viewDir.'nuevo_turno.view.php';
     }
 
