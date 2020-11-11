@@ -22,7 +22,7 @@ class PawMenu
             type: "text/css"}));
 
             let boton = Paw.nuevoElemento("button", "", {});
-            //boton.classList.add("PAW-Menu");
+            //boton.classList.add("PAW-Menu"); //no hace falta ponerle esta clase al boton.
             boton.classList.add("PAW-MenuAbrir");
 
             boton.addEventListener("click", (event) => {
