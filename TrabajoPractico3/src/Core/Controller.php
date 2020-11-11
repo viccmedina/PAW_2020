@@ -32,7 +32,7 @@ class Controller{
             ],
             [
                 "href" => "/estudios",
-                "name" => "Eestudios",
+                "name" => "Estudios",
             ],
             [
                 "href" => "/obras_sociales",
