@@ -1,6 +1,10 @@
 class PawCarousel {
     constructor(listaImagenes, tagPadre) {
 
+        document.head.appendChild(Paw.nuevoElemento("link", "", 
+        {href: "/assets/style/paw_carousel/pawcarousel.css",
+        rel: "stylesheet",
+        type: "text/css"}));
 
 
         this.indice=0;
@@ -16,7 +20,6 @@ class PawCarousel {
         let padre = document.querySelector(tagPadre);
         let index = 0;
         listaImagenes.forEach(element =>{
-            console.log(element);
             let nuevoElemento = Paw.nuevoElemento("img","",{"src": element, "class": "imgCarousel", "index":index });
 
             //por cada imagen vamos a generar un span que va a representar el circulo, va a contener el mismo index que las imagenes
@@ -109,6 +112,7 @@ class PawCarousel {
             i++;
         }
 
+        
 
     }
 
@@ -132,9 +136,8 @@ class PawCarousel {
             this.indice++;
             return this.indice;
         }
-
-
     }
+
 
 
 

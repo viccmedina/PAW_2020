@@ -1,0 +1,40 @@
+
+
+img.imgCarousel{
+    display: none;
+}
+
+img.imgCarousel.active{
+    display: block;
+}
+
+aside>a{
+    display: none;
+}
+
+aside{
+    width: 100vw;
+    height: calc(var(--asside-height) + var(--padding) * 2);
+    overflow: hidden;
+    padding: 0;
+    border: 0px;
+}
+
+.contenedorThumbs{
+    position: absolute;
+    top: 19vh;
+    left:12vh;
+    right:12vh;
+}
+
+.buttonPrev{
+    position: absolute;
+    top: 12vh;
+    left: 0;
+}
+
+.buttonNext{
+    position: absolute;
+    top: 12vh;
+    right: 0;
+}
