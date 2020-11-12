@@ -3,6 +3,8 @@
 <head>
 	<?php require 'parts/head.view.php'?>
 	<link rel="stylesheet" type="text/css" href="/assets/style/index/index.css"/>
+	
+	
 </head>
 <body>
 	<header>

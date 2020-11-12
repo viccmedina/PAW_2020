@@ -20,7 +20,7 @@ class AppPaw
             });
 
             Paw.cargarScript("PawCarousel", "/assets/js/components/PawCarousel.js", () => {
-                let carousel = new PawCarousel(listaImagenes,"aside");
+                let carousel = new PawCarousel(listaImagenes, "aside");
             });
 
         });

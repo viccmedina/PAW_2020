@@ -1,30 +1,30 @@
 .PAW-Menu.PAW-MenuCerrado {
-	display: none;
-	transition-duration: 3s;
-	transition-property: width;
+	width: 0;
+	transition: width 1.5s;
 }
 
-.PAW-Menu.PAW-MenuCerrado ul {
-	display: none;
+.PAW-Menu.PAW-MenuAbierto {
+	width: var(--menu-width);
+	transition: width 1.5s;
 }
 
-nav.PAW-MenuAbierto{
+nav{
     display: block;
     position: absolute;
     background-color: var(--menu-color);
     right: 0;
     top: 0;
     height: 100vh;
-    width: var(--menu-width);
+    
 }
 
-nav.PAW-MenuAbierto>ul{
+nav>ul{
     margin-top: var(--body-header-height);
     display: flex;
     flex-wrap: wrap;
 }
 
-nav.PAW-MenuAbierto li{
+nav li{
     width: var(--menu-width);
     padding: 1rem;
     text-align: end;
@@ -33,7 +33,6 @@ nav.PAW-MenuAbierto li{
 }
 
 .PAW-Menu button {
-	/*float: right;*/
 	border: 0;
 	width: 2rem;
 	height: 2rem;
@@ -43,11 +42,8 @@ nav.PAW-MenuAbierto li{
 	background-color: transparent;
 	position: absolute;
 	overflow: hidden;
-	/*top: 1.1rem;
-	right: 1rem;*/
 	top: 0;
 	right: 0;
-	/*margin-top: 1.2rem;*/
 }
 
 .PAW-Menu button:hover,
@@ -88,18 +84,37 @@ nav.PAW-MenuAbierto li{
 
 
 @media (min-width: 1000px){
-    nav.PAW-MenuAbierto{
-        top: auto;
-        width: 100vw;
-        height: auto;
+	.PAW-Menu.PAW-MenuCerrado {
+		height: 0;
+		transition: all 1.5s;
+	}
+	
+	.PAW-Menu.PAW-MenuAbierto {
+		width: 100vw;
+		height: 60vh;
+		transition: all 1.5s;
+	}
+
+	.PAW-Menu.PAW-MenuCerrado li, .PAW-Menu.PAW-MenuCerrado .PAW-UlCerrado{
+		transition: opacity 0.5s;
+		opacity: 0;
+	}
+
+	.PAW-Menu.PAW-MenuAbierto li, .PAW-Menu.PAW-MenuAbierto .PAW-UlCerrado{
+		transition: opacity 2.5s;
+		opacity: 1;
+	}
+
+    nav{
+		top: auto;  
     }
 
-    nav.PAW-MenuAbierto>ul{
+    nav>ul{
         margin: 1rem 1rem;
         justify-content: center;
 	}
 	
-    nav.PAW-MenuAbierto li{
+    nav li{
         text-align: center;
 	}
 	
