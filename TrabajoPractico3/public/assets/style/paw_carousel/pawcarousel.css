@@ -1,11 +1,20 @@
 
+span.active{
+    border: 1px black solid;
+}
 
 img.imgCarousel{
-    display: none;
+    clip-path: circle(0% at 50% 50%);
+    position: absolute;
+    display: block;
+    /*opacity: 0;*/
+    transition: all 5s;
 }
 
 img.imgCarousel.active{
-    display: block;
+    clip-path: circle(150% at 50% 50%);
+    opacity: 1;
+    transition: all 5s;
 }
 
 aside>a{
@@ -13,11 +22,12 @@ aside>a{
 }
 
 aside{
+    display: block;
     width: 100vw;
-    height: calc(var(--asside-height) + var(--padding) * 2);
+    height: 15vh;
     overflow: hidden;
     padding: 0;
-    border: 0px;
+    border: 0;
 }
 
 .contenedorThumbs{
@@ -34,30 +44,41 @@ aside{
 .buttonPrev{
     cursor: pointer;
     position: absolute;
-    top: 12vh;
+    /*top: 12vh;*/
+    top: 0;
     left: 0;
 }
 
 .buttonNext{
     cursor: pointer;
     position: absolute;
-    top: 12vh;
+    /*top: 12vh;*/
+    top: 0;
     right: 0;
 }
 
 .fade {
+    /*
     -webkit-animation-name: fade;
     -webkit-animation-duration: 1.5s;
     animation-name: fade;
     animation-duration: 1.5s;
+    */
   }
-
-  @-webkit-keyframes fade {
-    from {opacity: .10}
-    to {opacity: 1}
-  }
-  
+/*
   @keyframes fade {
     from {opacity: .10}
     to {opacity: 1}
+  }
+*/
+  @media (min-width: 1000px){
+      button.buttonPrev, button.buttonNext{
+        height: calc(var(--asside-height) + var(--padding) * 2);
+        background-color: transparent;
+        border: 0;
+
+      }
+      aside{
+          height: calc(var(--asside-height) + var(--padding) * 2);
+        }
   }
