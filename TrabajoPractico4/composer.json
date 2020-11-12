@@ -1,0 +1,49 @@
+{
+  "name": "paw/static-to-dynamic",
+  "description": "Proyecto del grupo 1 para los TPs de PAW Pilar 2020",
+  "keywords": ["php","mvc"],
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": 
+  [
+    {
+      "name": "Dilan Bernabe",
+      "email": "dilanbernbae043@gmail.com",
+      "role": "Creator/Developer"
+    },
+    {
+      "name": "Victoria Medina",
+      "email": "VictoriaMedina@gmail.com",
+      "role": "Main Developer"
+    },
+    {
+        "name": "Esteban Yarza",
+        "email": "EstebanYarza@gmail.com",
+        "role": "Main Developer"
+    },
+    {
+      "name": "Nicolás Larena",
+      "email": "NicolasLarena@gmail.com",
+      "role": "Main Developer"
+    },
+    {
+        "name": "Agustín Normand",
+        "email": "NormandAgustin@gmail.com",
+        "role": "Main Developer"
+    }
+  ],
+  "require": {
+    "php" : ">=7.4.0",
+    "filp/whoops": "~2",
+    "monolog/monolog": "^2.1",
+    "vlucas/phpdotenv": "^5.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Paw\\": "src/"
+    }
+  },
+  "require-dev": {
+    "kint-php/kint": "^3.3"
+  }
+}

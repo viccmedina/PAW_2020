@@ -1,0 +1,85 @@
+.titulo{
+    font-weight: bold;
+    margin-left: 5vw;
+}
+
+
+
+section a img{
+    width: 20vw;
+    height: 20vh;
+    display: block;
+    margin: auto;
+}
+
+
+@media(min-width: 1000px){ /* CUADNO ESTE EN UNA PC */
+
+body{
+    background-color: cadetblue; 
+}
+
+
+.titulo{
+    font-weight: bold;
+}
+
+
+ main p{
+        display: flex;
+        position: relative;
+        right: -22vw;
+        height: 10vh;
+        width: 75vw;
+        flex-wrap: wrap;
+}
+ main section a{
+        display: flex;
+        position: relative;
+        right: -22vw;
+        width: 75vw;
+        flex-wrap: wrap;
+}
+
+
+
+section a img{
+    width: 10vw;
+    height: 10vh;
+}
+
+
+.aside{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 20vw;
+    height: 100vh;
+    position: relative;
+    top:-100vh;
+    border: solid red;
+}
+
+
+
+
+/* FOOTER */
+
+footer{
+	z-index: 100;
+    position: relative;
+    bottom: -5vh;
+    height: 50vh;
+    background: #C4C4C4;
+    border: solid #000000;
+}
+
+footer ul{ /* Redes Sociales */
+    display: inline-block;
+}
+
+footer address{
+    display: inline-block;
+}
+
+
+/* END FOOTER */
