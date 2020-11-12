@@ -1,14 +1,15 @@
-.PAW-Menu.PAW-MenuCerrado {
+.PAW-Menu.PAW-MenuCerrado{
 	width: 0;
 	transition: width 1.5s;
 }
 
-.PAW-Menu.PAW-MenuAbierto {
+.PAW-Menu.PAW-MenuAbierto{
 	width: var(--menu-width);
 	transition: width 1.5s;
 }
 
 nav{
+	overflow: hidden;
     display: block;
     position: absolute;
     background-color: var(--menu-color);
