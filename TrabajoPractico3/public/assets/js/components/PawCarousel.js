@@ -20,14 +20,14 @@ class PawCarousel {
         let padre = document.querySelector(tagPadre);
         let index = 0;
         listaImagenes.forEach(element =>{
-            let nuevoElemento = Paw.nuevoElemento("img","",{"src": element, "class": "imgCarousel", "index":index });
+            let nuevoElemento = Paw.nuevoElemento("img","",{"src": element, "class": "imgCarousel fade", "index":index });
 
             //por cada imagen vamos a generar un span que va a representar el circulo, va a contener el mismo index que las imagenes
             //tambien podemos ponerle el active.
             let nuevoCirculo = Paw.nuevoElemento("span","",{"class":"circuloCarousel","index":index});
 
             if (index == 0){
-                nuevoCirculo.classList.add("active");
+                //nuevoCirculo.classList.add("active");
                 nuevoElemento.classList.add("active");
             }
 
@@ -51,9 +51,13 @@ class PawCarousel {
 
 
         botonNext.addEventListener("click",(event) =>{
+
+            //console.log("This indice: "+this.indice);
+
             let imagenActual = document.querySelector(".imgCarousel[index=\""+this.indice +"\"]");
             imagenActual.classList.remove("active");
             this.getNext();
+            console.log("This indice after get next: "+this.indice);
             let imagenSiguiente = document.querySelector(".imgCarousel[index=\""+this.indice +"\"]");
             imagenSiguiente.classList.add("active");
 
@@ -103,11 +107,16 @@ class PawCarousel {
         while (i<listaImagenes.length){
             let circulo = document.querySelector(".circuloCarousel[index=\""+i +"\"]");
             circulo.addEventListener("click",(event)=>{
+
+                //console.log("This indice: "+this.indice);
+                //console.log("Index circulo: "+circulo.getAttribute("index"));
+
                 let imagenActual = document.querySelector(".imgCarousel[index=\""+this.indice +"\"]");
                 imagenActual.classList.remove("active");
                 let imagenSiguiente = document.querySelector(".imgCarousel[index=\""+circulo.getAttribute("index") +"\"]");
                 imagenSiguiente.classList.add("active");
-                this.indice =circulo.getAttribute("index");
+                //console.log(typeof(circulo.getAttribute("index")));
+                this.indice = parseInt(circulo.getAttribute("index"));
             });
             i++;
         }
@@ -127,14 +136,11 @@ class PawCarousel {
     }
 
     getNext() {
-
+        console.log("This indice: "+this.indice);
         if((this.indice+1) ==this.listaImagenes.length){
             this.indice=0;
-            return 0;
-
         }else {
             this.indice++;
-            return this.indice;
         }
     }
 

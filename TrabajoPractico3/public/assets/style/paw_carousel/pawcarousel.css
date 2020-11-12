@@ -27,14 +27,37 @@ aside{
     right:12vh;
 }
 
+.contenedorThumbs>span{
+    cursor: pointer;
+}
+
 .buttonPrev{
+    cursor: pointer;
     position: absolute;
     top: 12vh;
     left: 0;
 }
 
 .buttonNext{
+    cursor: pointer;
     position: absolute;
     top: 12vh;
     right: 0;
 }
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {opacity: .10}
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .10}
+    to {opacity: 1}
+  }
