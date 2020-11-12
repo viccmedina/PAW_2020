@@ -69,4 +69,17 @@ main li{ /* Estilizo las tarjetas */
    
         font-size: 1.5rem;
     }
+
+
+    /*meto aca este css por ahora, no se si va en totro lado*/
+    .contenedorThumbs{
+        text-align: center;
+    }
+    .circuloCarousel {
+        height: 25px;
+        width: 25px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+    }
 }

@@ -12,12 +12,14 @@
         ?>
     </header>
 	<aside>
+
 		<a href="#"><img src="" alt="Información COVID-19"></a>	
 	</aside>
 
 	<main>
 		<header>
         	<h1> Home </h1>
+
       	</header>
 
 		<ul>
