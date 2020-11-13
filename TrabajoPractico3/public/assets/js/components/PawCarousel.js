@@ -16,7 +16,10 @@ class PawCarousel {
         let index = 0;
         listaImagenes.forEach(element =>
         {
-            let nuevoElemento = Paw.nuevoElemento("img","",{"src": element, "class": "imgCarousel fade", "index":index });
+            let nuevoElemento = Paw.nuevoElemento("img","",{"src": element, "class": "imgCarousel loading", "index":index });
+            nuevoElemento.addEventListener("load", function(event) {
+                nuevoElemento.classList.remove("loading");
+              });
             //por cada imagen vamos a generar un span que va a representar el circulo, va a contener el mismo index que las imagenes
             //tambien podemos ponerle el active.
             /*let nuevoCirculo = Paw.nuevoElemento("span","",{"class":"circuloCarousel","index":index});*/
