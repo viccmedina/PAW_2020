@@ -3,7 +3,6 @@
 	font-weight: bold; 
 }
 body{
-    background-color: cadetblue;  
     height: 100vh;  
 }
 .img_noticia{
@@ -111,8 +110,8 @@ article img{
 
 
 footer{
-	z-index: 100;
-    position: relative;
+	/*z-index: 100;
+    position: relative;*/
     bottom: -5vh;
     height: 50vh;
     background: #C4C4C4;

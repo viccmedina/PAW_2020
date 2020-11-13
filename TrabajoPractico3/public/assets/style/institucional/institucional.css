@@ -16,12 +16,13 @@ section a img{
 @media(min-width: 1000px){ /* CUADNO ESTE EN UNA PC */
 
 body{
-    background-color: cadetblue; 
+    
 }
 
 
 .titulo{
     font-weight: bold;
+    font-size: 3em;
 }
 
 
