@@ -19,7 +19,8 @@ class PawCarousel {
             let nuevoElemento = Paw.nuevoElemento("img","",{"src": element, "class": "imgCarousel fade", "index":index });
             //por cada imagen vamos a generar un span que va a representar el circulo, va a contener el mismo index que las imagenes
             //tambien podemos ponerle el active.
-            let nuevoCirculo = Paw.nuevoElemento("span","",{"class":"circuloCarousel","index":index});
+            /*let nuevoCirculo = Paw.nuevoElemento("span","",{"class":"circuloCarousel","index":index});*/
+            let nuevoCirculo = Paw.nuevoElemento("img","",{"src": element, "class":"circuloCarousel","index":index, "width":60, "height":60})
 
             if (index == 0){
                 nuevoCirculo.classList.add("active");
@@ -36,48 +37,33 @@ class PawCarousel {
         let botonNext = Paw.nuevoElemento("button","Next",{"class": "buttonNext"});
         padre.appendChild(botonNext);
 
-
         botonNext.addEventListener("click",() =>{
             let previousIndex = this.getIndex();
-            //console.log(this.indice);
-            //console.log(".imgCarousel[index=\""+previousIndex+"\"]");
-            let imagenActual = document.querySelector(".imgCarousel[index=\""+previousIndex+"\"]");
-            imagenActual.classList.remove("active");
             this.getNext();
-            let imagenSiguiente = document.querySelector(".imgCarousel[index=\""+this.indice +"\"]");
-            imagenSiguiente.classList.add("active");
-            this.setActiveThumb(previousIndex, this.indice);
+            this.carouselImagesEvent(previousIndex, this.indice);
+            //this.setActiveThumb(previousIndex, this.indice);
         })
 
         botonPrev.addEventListener("click",() =>{
             let previousIndex = this.getIndex();
-            let imagenActual = document.querySelector(".imgCarousel[index=\""+previousIndex+"\"]");
-            imagenActual.classList.remove("active");
             this.getPrevious();
-            let imagenPosterior = document.querySelector(".imgCarousel[index=\""+this.indice +"\"]");
-            imagenPosterior.classList.add("active");
-            this.setActiveThumb(previousIndex, this.indice);
+            this.carouselImagesEvent(previousIndex, this.indice);
+            //this.setActiveThumb(previousIndex, this.indice);
         })
 
         document.addEventListener('keydown', (event) => {
             const keyName = event.key;
             if (keyName=="ArrowLeft"){
                 let previousIndex = this.getIndex();
-                let imagenActual = document.querySelector(".imgCarousel[index=\""+this.indice +"\"]");
-                imagenActual.classList.remove("active");
                 this.getPrevious();
-                let imagenPosterior = document.querySelector(".imgCarousel[index=\""+this.indice +"\"]");
-                imagenPosterior.classList.add("active");
-                this.setActiveThumb(previousIndex, this.indice);
+                this.carouselImagesEvent(previousIndex, this.indice);
+                //this.setActiveThumb(previousIndex, this.indice);
 
             }else if (keyName == "ArrowRight"){
                 let previousIndex = this.getIndex();
-                let imagenActual = document.querySelector(".imgCarousel[index=\""+this.indice +"\"]");
-                imagenActual.classList.remove("active");
                 this.getNext();
-                let imagenSiguiente = document.querySelector(".imgCarousel[index=\""+this.indice +"\"]");
-                imagenSiguiente.classList.add("active");
-                this.setActiveThumb(previousIndex, this.indice);
+                this.carouselImagesEvent(previousIndex, this.indice);
+                //his.setActiveThumb(previousIndex, this.indice);
             }
         });
         //CODIGO DE LOS THUMBS
@@ -85,15 +71,10 @@ class PawCarousel {
         let i = 0;
         while (i<listaImagenes.length){
             let circulo = document.querySelector(".circuloCarousel[index=\""+i +"\"]");
-            circulo.addEventListener("click",(event)=>{
-                let imagenActual = document.querySelector(".imgCarousel[index=\""+this.indice +"\"]");
-                imagenActual.classList.remove("active");
-
-                let imagenSiguiente = document.querySelector(".imgCarousel[index=\""+circulo.getAttribute("index") +"\"]");
-                imagenSiguiente.classList.add("active");
-
-                this.setActiveThumb(this.indice, circulo.getAttribute("index"));
+            circulo.addEventListener("click",()=>{
+                let previousIndex = this.indice;
                 this.indice = parseInt(circulo.getAttribute("index"));
+                this.carouselImagesEvent(previousIndex, this.indice);
             });
             i++;
         }
@@ -128,5 +109,13 @@ class PawCarousel {
 
     getIndex(){
         return this.indice;
+    }
+
+    carouselImagesEvent(previousIndex, nextIndex){
+        let imagenActual = document.querySelector(".imgCarousel[index=\""+previousIndex+"\"]");
+        imagenActual.classList.remove("active");
+        let imagenSiguiente = document.querySelector(".imgCarousel[index=\""+nextIndex+"\"]");
+        imagenSiguiente.classList.add("active");
+        this.setActiveThumb(previousIndex, nextIndex);
     }
 }

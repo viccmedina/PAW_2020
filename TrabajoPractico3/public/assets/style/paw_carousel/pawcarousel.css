@@ -1,20 +1,16 @@
 
-span.active{
-    border: 1px black solid;
-}
 
 img.imgCarousel{
     clip-path: circle(0% at 50% 50%);
     position: absolute;
     display: block;
-    /*opacity: 0;*/
-    transition: all 5s;
+    transition: all 1.5s;
 }
 
 img.imgCarousel.active{
-    clip-path: circle(150% at 50% 50%);
+    clip-path: circle(100% at 50% 50%);
     opacity: 1;
-    transition: all 5s;
+    transition: all 1.5s;
 }
 
 aside>a{
@@ -37,8 +33,12 @@ aside{
     right:12vh;
 }
 
-.contenedorThumbs>span{
+.contenedorThumbs .circuloCarousel{
     cursor: pointer;
+}
+
+.circuloCarousel.active{
+    border: 1px black solid;
 }
 
 .buttonPrev{
@@ -57,20 +57,6 @@ aside{
     right: 0;
 }
 
-.fade {
-    /*
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-    */
-  }
-/*
-  @keyframes fade {
-    from {opacity: .10}
-    to {opacity: 1}
-  }
-*/
   @media (min-width: 1000px){
       button.buttonPrev, button.buttonNext{
         height: calc(var(--asside-height) + var(--padding) * 2);
