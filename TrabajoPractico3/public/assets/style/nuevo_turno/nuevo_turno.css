@@ -7,6 +7,13 @@ fieldset{
     padding: 0.4rem;
 }
 
+.cargaDeEstudio{
+    border: 1px solid black;
+
+    margin: 0.3rem 0.3rem;
+    padding: 0.4rem;
+}
+
 fieldset>input{
     margin-bottom: 0.4rem;
 }
@@ -74,6 +81,12 @@ footer{
         border-color: #b8daff;
         padding-left: 1rem;
 
+    }
+
+    .cargaDeEstudio{
+
+
+        height: 100px;
     }
 
 
