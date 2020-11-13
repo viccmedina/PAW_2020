@@ -3,8 +3,8 @@
 <head>
 	<?php require 'parts/head.view.php'?>
 	<link rel="stylesheet" type="text/css" href="/assets/style/index/index.css"/>
-	
-	
+	<link rel="stylesheet" type="text/css" href="/assets/style/paw_carousel/pawcarousel.css"/>
+	<script src="/assets/js/components/PawCarousel.js"></script>	
 </head>
 <body>
 	<header>

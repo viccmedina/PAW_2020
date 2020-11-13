@@ -71,13 +71,13 @@ main>header>h1{ /* Estilizo la ubicación actual en el sitio */
 
 body > footer{ /* Footer de la pagina */
     padding: var(--footer-padding);
-    /*display: flex;*/
+    display: flex;
     background-color: var(--footer-color);
     justify-content: space-between;
     align-items: center;
     height: var(--footer-height);
     width: 100vw;
-    /*position: fixed;*/
+    position: fixed;
     bottom: 0;
 }
 

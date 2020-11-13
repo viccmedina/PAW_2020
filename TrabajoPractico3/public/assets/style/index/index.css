@@ -7,6 +7,7 @@ aside{ /* Oculto la publicidad como en los wireframes */
 }
 
 main li{ /* Estilizo las tarjetas */
+    
     background: var(--tarjetas-color);
     margin-bottom: 0.4rem;
     padding: 1.5rem;
@@ -50,10 +51,26 @@ main li{ /* Estilizo las tarjetas */
         margin-bottom: 0.1rem;
     }
 
+    main li:nth-child(1){
+        background-image: url("/assets/imagenes/turno.jpg");
+        background-color: #cccccc;
+        background-size: cover;
+    }
+
+    main li:nth-child(2){
+        background-image: url("/assets/imagenes/estudio.jpg");
+        background-color: #cccccc;
+        background-size: cover;
+    }
+
+    main li:nth-child(3){
+        background-image: url("/assets/imagenes/especialistas.png");
+        background-color: #cccccc;
+        background-size: cover;
+    }
+    
     main li{ /* Estilizo las tarjetas */
         --height-tarjetas: 35vh;
-
-        background: var(--tarjetas-color);
         padding: 1.5rem;
         flex-grow: 3;
         flex-shrink: 1;
@@ -66,20 +83,6 @@ main li{ /* Estilizo las tarjetas */
     }
 
     li>p{
-   
-        font-size: 1.5rem;
-    }
-
-
-    /*meto aca este css por ahora, no se si va en totro lado*/
-    .contenedorThumbs{
-        text-align: center;
-    }
-    .circuloCarousel {
-        height: 25px;
-        width: 25px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
+        font-size: 2rem;
     }
 }

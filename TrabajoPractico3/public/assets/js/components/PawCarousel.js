@@ -1,9 +1,9 @@
 class PawCarousel {
     constructor(listaImagenes, tagPadre) {
-        document.head.appendChild(Paw.nuevoElemento("link", "", 
-        {href: "/assets/style/paw_carousel/pawcarousel.css",
-        rel: "stylesheet",
-        type: "text/css"}));
+        //document.head.appendChild(Paw.nuevoElemento("link", "", 
+        //{href: ,
+        //rel: "stylesheet",
+        //type: "text/css"}));
 
         this.indice=0;
         this.listaImagenes = listaImagenes;
@@ -119,3 +119,12 @@ class PawCarousel {
         this.setActiveThumb(previousIndex, nextIndex);
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    let listaImagenes =[
+        "/assets/imagenes/imagen1.jpg",
+        "/assets/imagenes/imagen2.jpg",
+        "/assets/imagenes/imagen3.jpg"
+    ]
+    let carousel = new PawCarousel(listaImagenes, "aside");
+});
