@@ -2,8 +2,6 @@ class AppPaw
 {
     constructor()
    {
-
-
        let listaImagenes =[
            "/assets/imagenes/imagen1.jpg",
            "/assets/imagenes/imagen2.jpg",
