@@ -41,20 +41,60 @@ aside{
     border: 1px black solid;
 }
 
-.buttonPrev{
+.buttonNext, .buttonPrev{
     cursor: pointer;
     position: absolute;
-    /*top: 12vh;*/
     top: 0;
+    width: 10vw;
+    color:transparent;
+}
+
+.buttonNext::before,
+.buttonNext::after,
+.buttonPrev::before,
+.buttonPrev::after {
+	display: block;
+	position: absolute;
+	content: " ";
+	width: 2rem;
+	height: 0.2rem;
+	background-color: white;
+    border-radius: 0.2rem;
+    
+}
+
+.buttonNext::before{
+    right: 0;
+    transform: rotate(45deg);
+}
+
+.buttonNext::after{
+    right: 0;
+    transform: translateY(0.2rem) rotate(-45deg);
+}
+
+.buttonPrev::before{
     left: 0;
+    transform: rotate(135deg);
+}
+
+.buttonPrev::after{
+    left: 0;
+    transform: translateY(0.2rem) rotate(-135deg);
+}
+
+.buttonPrev{
+    left: 0;
+    text-align: start;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.7917367630646008) 0%, rgba(0,0,0,0.4920168751094187) 50%, rgba(255,255,255,0) 100%);
 }
 
 .buttonNext{
-    cursor: pointer;
-    position: absolute;
-    /*top: 12vh;*/
-    top: 0;
     right: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.4920168751094187) 50%, rgba(0,0,0,0.783333401720063) 100%);
+    text-align: end;
 }
 
   @media (min-width: 1000px){
