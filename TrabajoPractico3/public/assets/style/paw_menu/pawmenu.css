@@ -124,7 +124,7 @@ nav li{
 	
 	.PAW-Menu.PAW-MenuAbierto {
 		width: 100vw;
-		height: 60vh;
+		height: auto;
 		transition: all 1.5s;
 	}
 
