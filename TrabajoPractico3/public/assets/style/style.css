@@ -75,7 +75,6 @@ body > footer{ /* Footer de la pagina */
     justify-content: space-between;
     align-items: center;
     height: var(--footer-height);
-    width: calc(100vw - var(--footer-padding) * 2);
 }
 
 input[type="submit"]{ /* Estilizo el botton de submit */

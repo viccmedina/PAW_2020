@@ -1,58 +1,46 @@
-
-
 img.imgCarousel{
-    clip-path: circle(0% at 50% 50%);
+    width: 150vw;
     position: absolute;
-    display: block;
-    transition: all 1.5s;
+    left:-25vw;
+    clip-path: circle(0% at 50% 50%);
+    transition: clip-path 1.5s;
 }
 
 img.imgCarousel.active{
     clip-path: circle(100% at 50% 50%);
-    opacity: 1;
-    transition: all 1.5s;
-}
-
-aside>a{
-    display: none;
-}
-
-aside{
-    display: block;
-    width: 100vw;
-    height: 15vh;
-    overflow: hidden;
-    padding: 0;
-    border: 0;
+    transition: clip-path 1.5s;
 }
 
 .contenedorThumbs{
     text-align: center;
     position: absolute;
-    top: 19vh;
-    left:12vh;
-    right:12vh;
+    line-height: 0;
+    bottom: 0vh;
+    left:0;
+    right:0;
 }
 
 .contenedorThumbs .circuloCarousel{
     cursor: pointer;
-    height: 25px;
-    width: 25px;
+    height: 5vh;
+    width: 5vh;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
 }
 
 .circuloCarousel.active{
-    border: 1px black solid;
+    border: 2px black solid;
 }
 
 .buttonNext, .buttonPrev{
     cursor: pointer;
     position: absolute;
     top: 0;
-    width: 10vw;
+    width: 20vw;
+    height: var(--asside-height);
     color:transparent;
+    border: 0;
 }
 
 .buttonNext::before,
@@ -76,7 +64,7 @@ aside{
 
 .buttonNext::after{
     right: 0;
-    transform: translateY(0.2rem) rotate(-45deg);
+    transform: translateY(2.3vh) rotate(-45deg);
 }
 
 .buttonPrev::before{
@@ -86,7 +74,7 @@ aside{
 
 .buttonPrev::after{
     left: 0;
-    transform: translateY(0.2rem) rotate(-135deg);
+    transform: translateY(2.3vh) rotate(-135deg);
 }
 
 .buttonPrev{
@@ -103,17 +91,18 @@ aside{
     text-align: end;
 }
 
-  @media (min-width: 1000px){
-      button.buttonPrev, button.buttonNext{
-        height: calc(var(--asside-height) + var(--padding) * 2);
-        background-color: transparent;
-        border: 0;
+    @media (min-width: 1000px){
+        img.imgCarousel{
+            left: 0;
+            width: 100vw;
+        }
+        .buttonNext::after{
+            right: 0;
+            transform: translateY(0.5vh) rotate(-45deg);
+        }
 
-      }
-      aside{
-          height: calc(var(--asside-height) + var(--padding) * 2 + 2vh);
+        .buttonPrev::after{
+            left: 0;
+            transform: translateY(0.5vh) rotate(-135deg);
         }
-        main>ul{
-            margin-top: 35vh;
-        }
-  }
+    }
