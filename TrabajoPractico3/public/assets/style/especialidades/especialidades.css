@@ -21,7 +21,7 @@ section>form>label>input{
 }
 
 section{
-    background-color: var(--body-header-color);
+    background-color: cadetblue;
     height: 60vh;
 }
 
@@ -50,7 +50,6 @@ section>h2{
         position: absolute;
         display: inline-block;
         margin-left: 25vw;
-        background-color: white;
     }
 
     input[type="submit"]{

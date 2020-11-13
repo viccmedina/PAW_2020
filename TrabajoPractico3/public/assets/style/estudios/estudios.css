@@ -9,7 +9,7 @@ aside{
 
 /*-------section------------*/
 section{
-    background-color: var(--body-header-color);
+    background-color: cadetblue;
     height: 63.5vh;
 }
 
@@ -70,7 +70,7 @@ section>form>p{
         position: absolute;
         display: inline-block;
         margin-left: 20vw;
-        background-color: white;
+
     }
     table{
         width: 60vw;
