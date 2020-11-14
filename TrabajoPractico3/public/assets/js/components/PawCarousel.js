@@ -22,16 +22,11 @@ class PawCarousel {
             });
 
             nuevoElemento.addEventListener("progress", function(event){
-                console.log(event.loaded);
-            });
-
-            nuevoElemento.addEventListener("progress", function(event){
                 if(event.lengthComputable) {
-                    console.log(event.loaded);
+                    console.error(event.loaded);
                 }
             });
 
-              
             //por cada imagen vamos a generar un span que va a representar el circulo, va a contener el mismo index que las imagenes
             //tambien podemos ponerle el active.
             /*let nuevoCirculo = Paw.nuevoElemento("span","",{"class":"circuloCarousel","index":index});*/
