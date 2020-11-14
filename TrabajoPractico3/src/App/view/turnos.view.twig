@@ -1,28 +1,16 @@
-{% extends "parts/base.view.html" %}
+{% extends "parts/baseAside_C.twig" %}
+
+{% block head %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="/assets/style/turnos/turnos.css"/>
+{% endblock %}
 
 {% block header %}
+    <h1><img src="/assets/imagenes/logo.png" alt="Enterprise Logo" width="50" height="50"> Enterprise Name</h1>
     {{ parent() }}
-    <h1> <img src="/assets/imagenes/logo.png" alt="Logo empresarial" width="50" height="50">Enterprise Name</h1>
 {% endblock %}
 
 {% block main %}
-{% endblock %}
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <?php require 'parts/head.view.php'?>
-    <link rel="stylesheet" type="text/css" href="/assets/style/turnos/turnos.css"/>
-  </head>
-
-  <body>
-    <header>
-      <h1><img src="/assets/imagenes/logo.png" alt="Enterprise Logo" width="50" height="50"> Enterprise Name</h1>
-        <?php
-        require 'parts/nav.view.php';
-        ?>
-    </header>
-
-    <main>
       <header>
           <h1> Turnos </h1>
       </header>
@@ -85,13 +73,4 @@
           </li>
         </ol>
       </section>
-    </main>
-
-    <footer>
-        <?php
-        require 'parts/footer.view.php';
-        ?>
-    </footer>
-  </body>
-</html> 
-
+{% endblock %}

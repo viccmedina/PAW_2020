@@ -21,7 +21,7 @@ class TwigPageController extends PageController {
         $titulo = "Home";
         $descripcion = "Pagina principal del sitio";
         $menu = $this->menu;
-        $this->twigLoader('index.view.twig', compact("menu"));
+        $this->twigLoader('index.view.twig', compact("menu", "titulo"));
     }
 
     //lo pase todo a turnoController
@@ -43,40 +43,36 @@ class TwigPageController extends PageController {
     public function estudios(){
         $titulo = "Estudios";
         $descripcion = "Pagina de Estudios del sitio";
-        require $this->viewDir . 'estudios.view.php';
         $menu = $this->menu;
-        $this->twigLoader('index.view.twig', compact("menu"));
+        $this->twigLoader('estudios.view.twig', compact("menu", "titulo"));
     }
     
     public function obras_sociales(){
         $titulo = "Obras Sociales";
         $descripcion = "Pagina de Obras Sociales del sitio";
-        require $this->viewDir . 'obras_sociales.view.php';
         $menu = $this->menu;
-        $this->twigLoader('index.view.twig', compact("menu"));
+        $this->twigLoader('obras_sociales.view.twig', compact("menu", "titulo"));
     }
     
     public function especialidades(){
         $titulo = "Especialidades";
         $descripcion = "Pagina de Especialidades del sitio";
         $menu = $this->menu;
-        $this->twigLoader('especialidades.twig', compact("menu"));
+        $this->twigLoader('especialidades.twig', compact("menu", "titulo"));
     }
     
     public function noticias(){
         $titulo = "Noticias";
         $descripcion = "Pagina de Noticias del sitio";
-        require $this->viewDir . 'noticias.view.php';
         $menu = $this->menu;
-        $this->twigLoader('index.view.twig', compact("menu"));
+        $this->twigLoader('noticias.view.twig', compact("menu", "titulo"));
     }
 
     public function institucional(){
         $titulo = "Institucional";
         $descripcion = "Pagina Institucional del sitio";
-        require $this->viewDir . 'institucional.view.php';
         $menu = $this->menu;
-        $this->twigLoader('index.view.twig', compact("menu"));
+        $this->twigLoader('institucional.view.twig', compact("menu", "titulo"));
     }
 
 }
