@@ -16,7 +16,17 @@ class PawCarousel {
         let index = 0;
         listaImagenes.forEach(element =>
         {
-            let nuevoElemento = Paw.nuevoElemento("img","",{"src": element, "class": "imgCarousel fade", "index":index });
+            let nuevoElemento = Paw.nuevoElemento("img","",{"src": element, "class": "imgCarousel loading", "index":index });
+            nuevoElemento.addEventListener("load", function(event) {
+                nuevoElemento.classList.remove("loading");
+            });
+
+            nuevoElemento.addEventListener("progress", function(event){
+                if(event.lengthComputable) {
+                    console.error(event.loaded);
+                }
+            });
+
             //por cada imagen vamos a generar un span que va a representar el circulo, va a contener el mismo index que las imagenes
             //tambien podemos ponerle el active.
             /*let nuevoCirculo = Paw.nuevoElemento("span","",{"class":"circuloCarousel","index":index});*/
@@ -30,6 +40,13 @@ class PawCarousel {
             contenedorThumbs.appendChild(nuevoCirculo);
             index++;
         });
+
+        let progressBar = Paw.nuevoElemento("div", "", {"class": "progressBar"});
+        let actualProgress = Paw.nuevoElemento("div", "", {"class": "progress"});
+        progressBar.appendChild(actualProgress);
+        padre.appendChild(progressBar);
+
+
         //cuando sale del foreach mi contenedorThumbs lo agrego al padre.
         padre.appendChild(contenedorThumbs);
         let botonPrev = Paw.nuevoElemento("button","Prev",{"class": "buttonPrev"});

@@ -2,13 +2,12 @@
 .titulo{
 	font-weight: bold; 
 }
-body{
-    height: 100vh;  
-}
+
 .img_noticia{
 	display: block;
 	margin: auto;
 }
+
 
 aside{
     
@@ -16,16 +15,46 @@ aside{
     border: solid red;
 }
 
+
+/*
+footer{
+	border: solid #000000;
+	/*height: 60vh;*/
+	/*margin-top: 2vh;
+}
+/*
+footer address{
+	display: inline-block;
+	justify-content: left;
+	width: 50vw;
+	height: 25vh;
+	font-weight: bold;
+	text-align: right;
+}
+address p{
+	font-weight: bold;
+	text-align: left;
+}
+
+footer ul{
+	display: inline-block;
+	margin: none;
+	padding: none;
+
+}*/
+
+
+
 @media(min-width: 1000px){ /* CUADNO ESTE EN UNA PC */
 	
-    main ul{
-	    display: flex;
-	    position: relative;
-        right: -20vw;
-        height: 80vh;;
-	    width: 75vw;
-	    flex-wrap: wrap;
-	}
+main ul{
+    display: flex;
+    position: relative;
+    right: -20vw;
+    height: 42vh;
+    width: 75vw;
+    flex-wrap: wrap;
+}
 
 article{
 
@@ -33,7 +62,6 @@ article{
     flex-wrap: wrap;*/
     display: flex;
     flex-wrap: wrap;
-    height: 70vh;
     width: 35vw;
     padding-left: 1vw;
     
@@ -72,10 +100,19 @@ article img{
     display: inline-block;
     box-sizing: border-box;
     width: 20vw;
-    height: 100vh;
+    height: 70vh;
     background: #C4C4C4;
     text-align: center;
     position: relative;
-    top:-60vh;
+    top: -20vh;
 }
 
+
+
+/*footer ul{ 
+    display: inline-block;
+}
+
+footer address{
+    display: inline-block;
+}*/
