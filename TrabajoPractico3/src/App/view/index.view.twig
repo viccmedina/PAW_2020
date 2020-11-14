@@ -1,0 +1,35 @@
+{% extends "parts/base.view.twig" %}
+
+{% block head %}
+    {{ parent() }}
+	<link rel="stylesheet" type="text/css" href="/assets/style/index/index.css"/>
+	<link rel="stylesheet" type="text/css" href="/assets/style/paw_carousel/pawcarousel.css"/>
+	<script src="/assets/js/components/PawCarousel.js"></script>	
+{% endblock %}
+
+{% block header %}
+      <h1><img src="/assets/imagenes/logo.png" alt="Enterprise Logo" width="50" height="50"> Enterprise Name</h1>	
+    {{ parent() }}
+{% endblock %}
+
+{% block main %}
+		<header>
+        	<h1> Home </h1>
+
+      	</header>
+
+		<ul>
+			<li>
+				<p>Consultar <a href="/turnos" title="">Turnos</a></p>
+			</li>
+
+			<li>
+				<p>Consultar <a href="/estudios" title="">Estudios</a></p>
+					
+			</li>
+			
+			<li>
+				<p>Consultar <a href="/especialidades" title="">Especialidades</a></p>
+			</li>
+		</ul>
+{% endblock %}

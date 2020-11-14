@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        {% include("parts/head.view.twig") %}
+    {% endblock %}
+</head>
+<body>
+    <aside>
+        <img  src ="/imagenes/publicidad.jpg" alt = "Publicidad">
+    </aside>
+    <header>
+        {% block header %}{% endblock %}
+            {% block nav %}
+                {% include("parts/nav.view.twig") %}
+            {% endblock %}
+    </header>
+    <main>{% block main %}{% endblock %}</main>
+    <footer>
+        {% block footer %}
+            {% include("parts/footer.view.twig") %}
+        {% endblock %}
+    </footer>
+</body>
+</html>

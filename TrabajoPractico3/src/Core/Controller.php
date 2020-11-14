@@ -16,7 +16,7 @@ class Controller{
 
         global $connection, $log; // peligroso o confuso.
 
-        $this->viewDir = __DIR__."/../App/views/";
+        $this->viewDir = __DIR__."/../App/view/";
         $this->menu= [
             [
                 "href" => "/",

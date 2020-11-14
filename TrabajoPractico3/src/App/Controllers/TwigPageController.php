@@ -7,14 +7,21 @@ use Paw\App\Models\socioCollection;
 use Paw\Core\Controller;
 use Kint\Kint;
 
-class PageController extends Controller {
+class TwigPageController extends PageController {
 
     //crear un metodo por path que quiero procesar en el controlador que corresponda.
+
+    private function twigLoader($file, $array) {
+        $loader = new \Twig\Loader\FilesystemLoader( __DIR__ . '/../view');
+        $twig = new \Twig\Environment($loader, array('auto_reload' => true));
+        echo $twig->render($file, $array);
+    }
 
     public function index(){
         $titulo = "Home";
         $descripcion = "Pagina principal del sitio";
-        require $this->viewDir.'index.view.html';
+        $menu = $this->menu;
+        $this->twigLoader('index.view.twig', compact("menu"));
     }
 
     //lo pase todo a turnoController
@@ -36,31 +43,40 @@ class PageController extends Controller {
     public function estudios(){
         $titulo = "Estudios";
         $descripcion = "Pagina de Estudios del sitio";
-        require $this->viewDir . 'estudios.view.html';
+        require $this->viewDir . 'estudios.view.php';
+        $menu = $this->menu;
+        $this->twigLoader('index.view.twig', compact("menu"));
     }
     
     public function obras_sociales(){
         $titulo = "Obras Sociales";
         $descripcion = "Pagina de Obras Sociales del sitio";
-        require $this->viewDir . 'obras_sociales.view.html';
+        require $this->viewDir . 'obras_sociales.view.php';
+        $menu = $this->menu;
+        $this->twigLoader('index.view.twig', compact("menu"));
     }
     
     public function especialidades(){
         $titulo = "Especialidades";
         $descripcion = "Pagina de Especialidades del sitio";
-        require $this->viewDir . 'especialidades.view.html';
+        $menu = $this->menu;
+        $this->twigLoader('especialidades.twig', compact("menu"));
     }
     
     public function noticias(){
         $titulo = "Noticias";
         $descripcion = "Pagina de Noticias del sitio";
-        require $this->viewDir . 'noticias.view.html';
+        require $this->viewDir . 'noticias.view.php';
+        $menu = $this->menu;
+        $this->twigLoader('index.view.twig', compact("menu"));
     }
 
     public function institucional(){
         $titulo = "Institucional";
         $descripcion = "Pagina Institucional del sitio";
         require $this->viewDir . 'institucional.view.php';
+        $menu = $this->menu;
+        $this->twigLoader('index.view.twig', compact("menu"));
     }
 
 }

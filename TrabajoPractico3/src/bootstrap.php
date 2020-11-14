@@ -55,13 +55,13 @@ $request = new Request;
 $router = new Router;
 
 $router->setLogger($log);
-$router->get('/','PageController@index');
+$router->get('/','TwigPageController@index');
 $router->get('/turnos','TurnoController@turnos');
 $router->get('/nuevo_turno','TurnoController@nuevo_turno');
 $router->post('/nuevo_turno','TurnoController@nuevo_turno_proccess');
 $router->get('/estudios','PageController@estudios');
 $router->get('/obras_sociales','PageController@obras_sociales');
-$router->get('/especialidades','PageController@especialidades');
+$router->get('/especialidades','TwigPageController@especialidades');
 $router->get('/noticias','PageController@noticias');
 $router->get('/institucional','PageController@institucional');
 $router->get('/socios','SocioController@index');
