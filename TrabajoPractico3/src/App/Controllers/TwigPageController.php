@@ -12,7 +12,7 @@ class TwigPageController extends PageController {
     //crear un metodo por path que quiero procesar en el controlador que corresponda.
 
     private function twigLoader($file, $array) {
-        $loader = new \Twig\Loader\FilesystemLoader( __DIR__ . '/../view');
+        $loader = new \Twig\Loader\FilesystemLoader( __DIR__ . '/../views');
         $twig = new \Twig\Environment($loader, array('auto_reload' => true));
         echo $twig->render($file, $array);
     }

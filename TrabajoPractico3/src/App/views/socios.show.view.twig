@@ -1,0 +1,15 @@
+{% extends "parts/baseAsideDown.twig" %}
+
+{% block header %}
+    <h1> <img src="/assets/imagenes/logo.png" alt="Logo empresarial" width="50" height="50"> Enterprise Name </h1>
+    {{ parent() }}
+{% endblock %}
+
+{% block main %}
+        <header>
+            <h1>Socios</h1>
+        </header>
+
+        <p>{{ socio.fields.nombre}}</p>
+        <p>{{ socio.fields.email}}</p>
+{% endblock %}
