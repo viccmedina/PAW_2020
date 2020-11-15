@@ -56,7 +56,7 @@
     </main>
 
     <aside class="imagenCovid">
-        <img src="/imagenes/covid.jpg" alt="Información COVID-19" >
+        <img href="#" src="/assets/imagenes/aside.jpg" alt="Información COVID-19" >
     </aside>
 
 

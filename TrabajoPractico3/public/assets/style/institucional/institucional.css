@@ -2,85 +2,105 @@
     font-weight: bold;
     margin-left: 5vw;
 }
+.descripcion{
+    margin-left: 0.3em;
+}
 
+.descripcionDirectorio{
+    margin-left: 0.3em;
+}
 
+aside{
+    text-align: center;
+}
 
 section a img{
     width: 20vw;
-    height: 20vh;
-    display: block;
-    margin: auto;
-}
-
-
-@media(min-width: 1000px){ /* CUADNO ESTE EN UNA PC */
-
-body{
+    height: 5vh;
     
 }
 
 
+
+@media(min-width: 1100px){ /* CUADNO ESTE EN UNA PC */
+
+
+main{
+    height: 80vh;
+    width: 60vw;
+    position: relative;
+    right: -9vw;
+}
+
+
+main h1{ 
+    width: 100vw;
+    position: relative;
+    left: -11.5vw;
+}
+
 .titulo{
     font-weight: bold;
-    font-size: 3em;
+    font-size: 2em;
+    position: relative;
+    right: -15vw;
+   
+}
+.descripcion{
+    width: 65vw;
+    height: 10vh;
+    position: relative;
+    right: -22vw;
 }
 
-
- main p{
-        display: flex;
-        position: relative;
-        right: -22vw;
-        height: 10vh;
-        width: 75vw;
-        flex-wrap: wrap;
-}
- main section a{
-        display: flex;
-        position: relative;
-        right: -22vw;
-        width: 75vw;
-        flex-wrap: wrap;
+main .titulo{
+    margin-left: 11vw;
+    margin-top: 4vh;
+    
 }
 
+section .titulo{
+    position: relative;
+    top: 1em;
+}
+
+section .descripcionDirectorio{
+    position: relative;
+    right: -22vw;
+}
 
 
 section a img{
+    display: flex;
+    position: relative;
+    top: 2em;
+    right: -22vw;
     width: 10vw;
     height: 10vh;
+    margin-bottom: 3em;   
 }
-
 
 .aside{
     display: inline-block;
     box-sizing: border-box;
-    width: 20vw;
-    height: 100vh;
-    position: relative;
-    top:-100vh;
-    border: solid red;
-}
-
-
-
-
-/* FOOTER */
-
-footer{
-	z-index: 100;
-    position: relative;
-    bottom: -5vh;
-    height: 50vh;
+    width: 30vw;
+    height: 70vh;
     background: #C4C4C4;
-    border: solid #000000;
+    text-align: center;
+    position: relative;
+    top: -50vh;
 }
 
-footer ul{ /* Redes Sociales */
-    display: inline-block;
-}
-
-footer address{
-    display: inline-block;
+.aside img{
+    width: 30vw;
+    height: 70vh;
 }
 
 
-/* END FOOTER */
+
+
+
+
+
+
+

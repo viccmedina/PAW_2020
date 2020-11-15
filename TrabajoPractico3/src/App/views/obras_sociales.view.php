@@ -64,7 +64,7 @@
       </ul>
 
       <aside>
-        <img  src ="/assets/imagenes/publicidad.jpg" alt = "Publicidad">
+        <img  src ="/assets/imagenes/aside.jpg" alt = "Publicidad">
       </aside>
     </main>
 
