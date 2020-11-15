@@ -1,5 +1,5 @@
 :root{
-    --article-background: darkgrey;
+    --article-background: rgba(2, 2, 173, 0.733);
 }
 
 input[type="submit"]{ /* Reubico el button de "Buscar" */
@@ -30,10 +30,14 @@ article{ /* Estilizo los resultados de la busqueda */
 }
 
 aside{ /* Estilizo la publicidad */
-    border: 1px black solid;
     text-align: center;
     margin: 1rem 0.3rem;
     padding: 1rem;
+}
+
+aside img{
+    height: 50vh;
+    width: 20vw;
 }
 
 
@@ -65,6 +69,8 @@ aside{ /* Estilizo la publicidad */
     }
     main>footer{
         grid-area: footer;
+        position: relative;
+        bottom: -30vw;
     }
 
     input[type="submit"]{

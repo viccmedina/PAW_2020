@@ -1,10 +1,5 @@
 aside{
-    width: calc(100vw - 2rem - 0.5rem);
-    border: 1px red solid;
     text-align: center;
-    padding: 1rem;
-    margin: 0.5rem 0.5rem;
-    background-color: var(--body-header-color);
 }
 
 form>label{
@@ -33,16 +28,18 @@ section>article{
     margin-left: 0.2rem;
     padding: 0.5rem;
 }
+
 section>h2{
     margin-top: 1rem;
     font-weight: bold;
 }
+
 @media(min-width: 1000px){
     
     body>aside{
         display: inline-block;
-        width: 12vw;
-        height: 73vh;
+        width: 20vw;
+        height: 65vh;
         margin: 1.2rem 0.6rem;
     }
 
@@ -71,5 +68,9 @@ section>h2{
         height: 12vh;
         padding: 0.5rem;
         margin-left: 0vw;
+    }
+    .imagenCovid img{
+        width: 20vw;
+        height: 65vh;
     }
 }

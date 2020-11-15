@@ -30,7 +30,7 @@
             <br>
 
             <p class="titulo">Valores:</p>
-                <p class="descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut consectetur dolor. Nam interdum erat fermentum scelerisque facilisis. Duis tincidunt, dolor non semper semper, purus leo blandit massa, vel dictum magna augue et est. Suspendisse commodo eu augue sed euismod. Fusce mattis neque id orci posuere, vel ullamcorper ligula molestie.</p>
+                <p class="descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut consectetur dolor. Nam interdum erat fermentum scelerisque facilisis. Duis tincidunt, dolor non semper semper, purus leo blandit massa, vel dictum magna augue et est. Suspendisse commodo eu augue sed euismod.</p>
             <br>
 
             
@@ -39,20 +39,20 @@
                 <p class="titulo">Directorio: </p><br>
 
                 <a href="#" > <img  src ="/assets/imagenes/director.svg" alt = "imagen director1"> </a>
-                    <p class="descripcion">Lorem ipsum dolor sit amet, consectetur</p>
+                    <p class="descripcionDirectorio">Apellido Nombre</p>
 
                 <a href="#" > <img  src ="/assets/imagenes/director1.svg" alt = "imagen director2"> </a>
-                    <p class="descripcion">Lorem ipsum dolor sit amet, consectetur</p>
+                    <p class="descripcionDirectorio">Apellido Nombre</p>
 
                 <a href="#" > <img  src ="/assets/imagenes/director2.svg" alt = "imagen director3"> </a>
-                    <p class="descripcion">Lorem ipsum dolor sit amet, consectetur</p>
+                    <p class="descripcionDirectorio">Apellido Nombre</p>
             </section>
 
          </main>   
 
 
         <aside class="aside">
-            <a href="#" > <img src="/assets/imagenes/covid.jpg" alt="Imagenes de covid nineteen -Informativo">  </a> <br><br>
+            <a href="#" > <img src="/assets/imagenes/aside.jpg" alt="Imagenes de covid nineteen -Informativo">  </a> <br><br>
         </aside>
 
 

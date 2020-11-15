@@ -3,6 +3,7 @@
 <head>
 	<?php require 'parts/head.view.php'?>
   	<link rel="stylesheet" type="text/css" href="/assets/style/nuevo_turno/nuevo_turno.css"/>
+    <script src="/assets/js/components/PawDD.js"></script>
 </head>
 <body>
 	<header>
@@ -61,6 +62,10 @@
                 <label for="estudio">Subir estudio:</label>
                 <input type="file" accept="image/jpeg" name="archivosubido">
             </fieldset>
+            <section class="cargaDeEstudio">
+                <input type="file" accept="image/jpeg" name="archivosubidoDD" hidden>
+
+            </section>
 			<input type="submit" value="Solicitar">
 			<input type="reset" value="Limpiar">
 			

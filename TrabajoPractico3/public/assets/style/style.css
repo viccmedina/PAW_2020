@@ -2,17 +2,18 @@
 @import "reset.css";
 
 :root{
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    
+    font-family: 'Copperplate', sans-serif;
+    font-size: 10rem;
     line-height: 1.5em;
     
     /* Begin -> Body header variables */
-    --body-header-color: lightgrey;
+    --body-header-color:rgba(2, 2, 173, 0.733);
     --body-header-height: 9vh;
     /* End -> Body header variables */
 
     /* Begin -> Main header variables */
-    --main-header-color: lightgrey;
+    --main-header-color:rgba(2, 2, 173, 0.733);
     --main-header-margin-top: 1vh;
     --main-header-margin-bottom: 1vh;
     --main-header-padding: 1.9vh;
@@ -20,13 +21,13 @@
     /* End -> Main header variables */
 
     /* Begin -> Menu variables */
-    --menu-color: darkgrey;
-    --menu-buttons-color:  #A58E8E;
+    --menu-color:rgba(255, 255, 255, 0.747);
+    --menu-buttons-color:  #79c7e6;
     --menu-width: 60vw;   
     /* End -> Menu variables */
 
     /* Begin -> Footer variables */
-    --footer-color: lightgrey;
+    --footer-color:rgba(1, 1, 94, 0.918);
     --footer-padding: 0.3rem;
     /* End -> Footer variables */
 }
@@ -34,13 +35,13 @@
 /* Begin block -> Estilizo el logo y nombre de la empresa*/
 
 body{
-    background-color: cadetblue;  
+    background-color: rgb(255, 255, 255);  
 }
 
 body>header{
     background-color: var(--body-header-color);
     height: var(--body-header-height);
-
+    
     position: sticky;
     top: 0;
     z-index: 100; /* Sin esto el asside aparece sobre el menú */
@@ -48,6 +49,9 @@ body>header{
 
 body>header>h1>img{
     margin-top: 1vh;
+    
+    margin-left: 0.5vw;
+    margin-right: 1vw;
     float:left;
     border-radius: 50%;
     width: 7vh;
@@ -56,12 +60,16 @@ body>header>h1>img{
 
 body>header>h1{
     line-height: 9vh;
+    color: white;
+    font-weight: bold;
 }
 
 /* End block -> Estilizo el logo y nombre de la empresa*/
 
 main>header>h1{ /* Estilizo la ubicación actual en el sitio */
     text-align: center;
+    font-weight: bold;
+    color: white;
     padding: var(--main-header-padding);
     background-color: var(--main-header-color);
     margin-top: var(--main-header-margin-top);
@@ -73,6 +81,7 @@ body > footer{ /* Footer de la pagina */
     display: flex;
     background-color: var(--footer-color);
     justify-content: space-between;
+    color: white;
     align-items: center;
     height: var(--footer-height);
 }
@@ -94,7 +103,7 @@ input[type="reset"]{ /* Estilizo el botton de limpiar */
 }
 
 fieldset{ /**/
-    border: solid 1px grey;
+    border: solid 1px#002;
 }
 
 @media (min-width: 600px){
@@ -106,6 +115,6 @@ fieldset{ /**/
 
 @media (min-width: 1000px){
     :root{
-        font-size: 15px;
+        font-size: 20px;
     }    
 }

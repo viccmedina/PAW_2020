@@ -21,17 +21,13 @@ class PawDD {
         function soltar(e) {
             console.log("entro a soltar")
             e.preventDefault();
-            let listaArchivos = e.dataTransfer.files;
-            let lista = "";
 
-            for (let i = 0; i < listaArchivos.length; i++) {
-                lista = listaArchivos[i].name;
-            }
+            let entrada = document.querySelector("input[name='archivosubidoDD']");
+            console.log(e.dataTransfer.files[0]);
 
-            //esto solo muestra el archivo.
+           /* entrada.files[0]=e.dataTransfer.files[0];
+            console.log(entrada.files[0]);*/
 
-
-            soltar.innerHTML=lista;
         }
 
         }
@@ -40,5 +36,9 @@ class PawDD {
 
     }
 
-
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    let dd = new PawDD("cargaDeEstudio");
+});

@@ -54,7 +54,7 @@
 		</main>
 
 		<aside class="aside">
-			<a href="#" > <img  src="/assets/imagenes/covid.jpg" alt="Imagenes de covid nineteen -Informativo"> </a><br><br>
+			<a href="#" > <img  src="/assets/imagenes/aside.jpg" alt="Imagenes de covid nineteen -Informativo"> </a><br><br>
 		</aside>
 
 		<footer>
