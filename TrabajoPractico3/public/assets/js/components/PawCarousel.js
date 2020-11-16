@@ -7,6 +7,8 @@ class PawCarousel {
 
         this.indice=0;
         this.listaImagenes = listaImagenes;
+        this.loadedImages=0;
+        this.imageCount=listaImagenes.length;
 
         //genero un contenedor para los thumbs;
         //a este svg se le tiene que dar estilo desde css.
@@ -14,11 +16,21 @@ class PawCarousel {
 
         let padre = document.querySelector(tagPadre);
         let index = 0;
+        let progressBar, actualProgress;
+        progressBar = Paw.nuevoElemento("div", "", {"class": "progressBar"});
+        actualProgress = Paw.nuevoElemento("div", "", {"class": "progress"});
+            
         listaImagenes.forEach(element =>
         {
+            
+            progressBar.appendChild(actualProgress);
             let nuevoElemento = Paw.nuevoElemento("img","",{"src": element, "class": "imgCarousel loading", "index":index });
-            nuevoElemento.addEventListener("load", function(event) {
+            nuevoElemento.addEventListener("load", event=>{
                 nuevoElemento.classList.remove("loading");
+                this.loadedImages++;
+                averageOfLoad = (this.loadedImages / this.imageCount) * 100
+                if(averageOfLoad = 100)
+                    actualProgress.setAtribute("value", "100");
             });
 
             nuevoElemento.addEventListener("progress", function(event){
@@ -41,9 +53,7 @@ class PawCarousel {
             index++;
         });
 
-        let progressBar = Paw.nuevoElemento("div", "", {"class": "progressBar"});
-        let actualProgress = Paw.nuevoElemento("div", "", {"class": "progress"});
-        progressBar.appendChild(actualProgress);
+        
         padre.appendChild(progressBar);
 
 
