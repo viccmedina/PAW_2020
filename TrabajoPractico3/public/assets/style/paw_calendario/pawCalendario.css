@@ -1,6 +1,7 @@
 
 /*robo estas cosas del menu para ir  probando el calendario*/
 .pawContenedorCalendario.cerrado{
+
     width: 0;
     transition: width 1.5s;
 }
