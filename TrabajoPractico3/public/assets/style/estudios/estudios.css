@@ -9,7 +9,7 @@ aside{
 
 /*-------section------------*/
 section{
-    background-color: cadetblue;
+
     height: 63.5vh;
 }
 
@@ -35,8 +35,8 @@ form>label>input{
 table{
     /*border: 1px solid black;*/
     font-size: 17px;
-    margin-left: 9vw;
-    width: 60vw;
+    margin-left: 7vw;
+    width: 50vw;
 }
 th,td{
     /*border: 1px solid black;*/
