@@ -19,14 +19,14 @@ class PawDD {
         zona.addEventListener("drop",soltar,false);
 
         function soltar(e) {
-            console.log("entro a soltar")
+
             e.preventDefault();
 
             let entrada = document.querySelector("input[name='archivosubidoDD']");
-            console.log(e.dataTransfer.files[0]);
 
-           /* entrada.files[0]=e.dataTransfer.files[0];
-            console.log(entrada.files[0]);*/
+            entrada.files=e.dataTransfer.files;
+            console.log(entrada.files);
+
 
         }
 
