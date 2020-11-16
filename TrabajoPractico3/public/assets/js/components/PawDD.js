@@ -32,7 +32,8 @@ class PawDD {
 
         }
 
-        window.addEventListener("load",comenzar,false);
+        //window.addEventListener("load",comenzar,false);
+        comenzar();
 
     }
 
