@@ -4,7 +4,7 @@
 :root{
     
     font-family: 'Copperplate', sans-serif;
-    font-size: 10rem;
+    /*font-size: 10rem; Comento esto pq es lo que rompia todo en mobile*/
     line-height: 1.5em;
     
     /* Begin -> Body header variables */
@@ -104,6 +104,7 @@ input[type="reset"]{ /* Estilizo el botton de limpiar */
 
 fieldset{ /**/
     border: solid 1px#002;
+    border-radius: 8px;
 }
 
 @media (min-width: 600px){

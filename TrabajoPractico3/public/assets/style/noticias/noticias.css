@@ -29,68 +29,67 @@
 
 
 
-@media(min-width: 1350px){ /* CUADNO ESTE EN UNA PC */
-	
-main ul{
-    display: flex;
-    position: relative;
-    right: -35vw;
-    height: 42vh;
-    width: 65vw;
-    flex-wrap: wrap;
+@media(min-width: 1350px) {
+    /* CUADNO ESTE EN UNA PC */
+    main ul {
+        display: flex;
+        position: relative;
+        right: -35vw;
+        height: 42vh;
+        width: 65vw;
+        flex-wrap: wrap;
+    }
+
+    article {
+        display: flex;
+        flex-wrap: wrap;
+        width: 30vw;
+        padding-left: 1vw;
+
+    }
+
+    article img {
+        display: flex;
+        float: left;
+    }
+
+    .titulo {
+        display: inline-block;
+        box-sizing: border-box;
+        padding-left: 5vw;
+        text-decoration: underline;
+        text-align: right;
+    }
+
+
+    .description {
+        font-weight: bold;
+        width: 30vw;
+        height: 30vh;
+        float: right;
+    }
+
+
+    .aside {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 35vw;
+        height: 70vh;
+        background: #C4C4C4;
+        text-align: center;
+        position: relative;
+        top: -20vh;
+    }
+
+    .aside a img {
+        width: 35vw;
+        height: 70vh;
+    }
+
+    .img_noticia {
+        display: block;
+        margin: auto;
+        height: 8vh;
+        width: 8vw;
+    }
 }
-
-article{
-    display: flex;
-    flex-wrap: wrap;
-    width: 30vw;
-    padding-left: 1vw;
-    
-}
-
-article img{
-    display: flex;
-    float: left;
-}
-
-.titulo{
-    display: inline-block;
-    box-sizing: border-box;
-    padding-left: 5vw;
-    text-decoration: underline;
-    text-align: right;
-}
-
-
-
-
-.description{
-    font-weight: bold;
-    width: 30vw;
-    height: 30vh;
-    float: right; 
-}
-
-
-.aside{
-    display: inline-block;
-    box-sizing: border-box;
-    width: 35vw;
-    height: 70vh;
-    background: #C4C4C4;
-    text-align: center;
-    position: relative;
-    top: -20vh;
-}
-
-.aside a img{
-    width: 35vw;
-	height: 70vh;
-}
-.img_noticia{
-	display: block;
-    margin: auto;
-    height: 8vh;
-    width: 8vw;
-}
-
