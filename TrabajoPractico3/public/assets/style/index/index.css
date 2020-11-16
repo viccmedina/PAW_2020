@@ -1,6 +1,7 @@
 :root{
     --tarjetas-color: darkgrey;
     --margin-for-aside: 39.8vh;
+    font-size: 15px;
 }
 
 main>header>h1{
@@ -26,7 +27,8 @@ aside{
     margin-top: calc(var(--main-header-margin-top)
                     + var(--main-header-padding)*2 
                     + var(--main-header-text-size) 
-                    + var(--margin)/2);
+                    + var(--margin)/2
+                    + 9vh);
     width: 100vw;
 }
 

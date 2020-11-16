@@ -1,3 +1,7 @@
+aside>img:nth-of-type(1){
+    display: none;
+}
+
 img.loading {
     width: 2vw;
     height: 2vw;
@@ -45,14 +49,36 @@ img.imgCarousel{
     object-fit: cover;
     left: 0;
     position: absolute;
-    clip-path: circle(0% at 50% 50%);
-    transition: clip-path 1.5s;
 }
 
-img.imgCarousel.active{
-    
+img.imgCarousel:nth-of-type(2){
+    clip-path: circle(0% at 50% 50%);
+    transition: clip-path 0.5s;
+}
+
+img.imgCarousel.active:nth-of-type(2){
     clip-path: circle(100% at 50% 50%);
-    transition: clip-path 1.5s;
+    transition: clip-path 2.5s;
+}
+
+img.imgCarousel:nth-of-type(3){
+    clip-path: ellipse(0% 0% at 50% 50%);;
+    transition: clip-path 0.5s;
+}
+
+img.imgCarousel.active:nth-of-type(3){
+    clip-path: ellipse(100% 100% at 50% 50%);;
+    transition: clip-path 2.5s;
+}
+
+img.imgCarousel:nth-of-type(4){
+    clip-path: circle(0% at 50% 50%);
+    transition: clip-path 0.5s;
+}
+
+img.imgCarousel.active:nth-of-type(4){
+    clip-path: circle(100% at 50% 50%);
+    transition: clip-path 2.5s;
 }
 
 .contenedorThumbs{
@@ -167,5 +193,15 @@ img.imgCarousel.active{
     .buttonPrev::after{
         left: 0;
         transform: translateY(0.5vh) rotate(-135deg);
+    }
+
+    img.imgCarousel:nth-of-type(4){
+        clip-path: inset(50% 90% 50% 10%);
+        transition: clip-path 0.5s;
+    }
+    
+    img.imgCarousel.active:nth-of-type(4){
+        clip-path: inset(100% 100% 100% 100%);
+        transition: clip-path 2.5s;
     }
 }
