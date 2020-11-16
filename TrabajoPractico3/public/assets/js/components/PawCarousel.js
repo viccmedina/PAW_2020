@@ -1,10 +1,5 @@
 class PawCarousel {
     constructor(listaImagenes, tagPadre) {
-        //document.head.appendChild(Paw.nuevoElemento("link", "", 
-        //{href: ,
-        //rel: "stylesheet",
-        //type: "text/css"}));
-
         this.indice=0;
         this.listaImagenes = listaImagenes;
         this.loadedImages=0;
@@ -23,22 +18,33 @@ class PawCarousel {
         listaImagenes.forEach(element =>
         {
             
-            progressBar.appendChild(actualProgress);
+            
             let nuevoElemento = Paw.nuevoElemento("img","",{"src": element, "class": "imgCarousel loading", "index":index });
             nuevoElemento.addEventListener("load", event=>{
                 nuevoElemento.classList.remove("loading");
                 this.loadedImages++;
-                averageOfLoad = (this.loadedImages / this.imageCount) * 100
-                if(averageOfLoad = 100)
-                    actualProgress.setAtribute("value", "100");
+                let averageOfLoad = (this.loadedImages / this.imageCount) * 100;
+                //console.log(averageOfLoad);
+                if(averageOfLoad == 100){
+                    actualProgress.setAttribute("loaded", "100");
+                    padre.removeChild(progressBar);
+                }
+                else
+                    if(averageOfLoad >= 75)
+                        actualProgress.setAttribute("loaded", "75");
+                    else
+                        if(averageOfLoad >= 50)
+                            actualProgress.setAttribute("loaded", "50");
+                        else
+                            if(averageOfLoad >= 25)
+                                actualProgress.setAttribute("loaded", "25");
             });
-
             nuevoElemento.addEventListener("progress", function(event){
                 if(event.lengthComputable) {
                     console.error(event.loaded);
                 }
             });
-
+            progressBar.appendChild(actualProgress);
             //por cada imagen vamos a generar un span que va a representar el circulo, va a contener el mismo index que las imagenes
             //tambien podemos ponerle el active.
             /*let nuevoCirculo = Paw.nuevoElemento("span","",{"class":"circuloCarousel","index":index});*/
@@ -68,14 +74,12 @@ class PawCarousel {
             let previousIndex = this.getIndex();
             this.getNext();
             this.carouselImagesEvent(previousIndex, this.indice);
-            //this.setActiveThumb(previousIndex, this.indice);
         })
 
         botonPrev.addEventListener("click",() =>{
             let previousIndex = this.getIndex();
             this.getPrevious();
             this.carouselImagesEvent(previousIndex, this.indice);
-            //this.setActiveThumb(previousIndex, this.indice);
         })
 
         document.addEventListener('keydown', (event) => {
@@ -84,13 +88,11 @@ class PawCarousel {
                 let previousIndex = this.getIndex();
                 this.getPrevious();
                 this.carouselImagesEvent(previousIndex, this.indice);
-                //this.setActiveThumb(previousIndex, this.indice);
 
             }else if (keyName == "ArrowRight"){
                 let previousIndex = this.getIndex();
                 this.getNext();
                 this.carouselImagesEvent(previousIndex, this.indice);
-                //his.setActiveThumb(previousIndex, this.indice);
             }
         });
         //CODIGO DE LOS THUMBS
@@ -118,7 +120,6 @@ class PawCarousel {
     }
 
     getNext() {
-        console.log("This indice: "+this.indice);
         if((this.indice+1) ==this.listaImagenes.length){
             this.indice=0;
         }else {
