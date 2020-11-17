@@ -386,7 +386,6 @@ class PawCalendario {
         //primero voy a insertar un boton, donde el usuario tiene que apretar para observar el calendario.
         let boton = document.createElement("button");
         boton.classList.add("pawBotonCalendario");
-        boton.classList.add("PawButton-Abierto");
         boton.type="button";
         boton.innerText="Abrir calendario";
         boton.addEventListener("click", ()=>{this.handleButtonEvent()});
@@ -430,7 +429,11 @@ class PawCalendario {
     }
 
     changeButtonText(){
-
+        let button = this.padre.querySelector(".pawBotonCalendario");
+        if(this.contenedor.classList.contains("abierto"))
+            button.innerText="Cerrar calendario";
+        else
+            button.innerText="Abrir calendario";
     }
 
     removeTableIfExists(){
