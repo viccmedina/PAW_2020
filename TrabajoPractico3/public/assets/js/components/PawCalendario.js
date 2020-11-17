@@ -293,8 +293,6 @@ class PawCalendario {
         this.contenedor = this.generarContenedor();
 
         this.generarButton();
-
-        
     }
     
     generarTabla(diasQueAtiende, horarioInicio, horarioFin, duracionTurno){
@@ -350,15 +348,47 @@ class PawCalendario {
     }
 
     generarSelect(){
+        let label = Paw.nuevoElemento("lable", "Médico: ", {class:"PawCalendario-LabelMedico"});
+        let select = Paw.nuevoElemento("select", "", {class:"PawCalendario-Select"});
+        select.addEventListener("change", ()=>{this.updateTable();})
+        this.padre.prepend(Paw.nuevoElemento("br","",""));
+        this.padre.prepend(select);
+        this.padre.prepend(Paw.nuevoElemento("br","",""));
+        this.padre.prepend(label);
+        let medicos = this.getMedicos();
+        medicos["especialistas"].forEach(element => {
+            let informationMedico = element["nombre"] + ', ' + element["apellido"] + ', ' + element["matricula"]
+            let option = Paw.nuevoElemento("option", informationMedico, "");
+            select.appendChild(option);
+        });  
+    }
 
+    getInformationOfSelectedMedico(){
+        let result = null;
+        let found = false;
+        let select = this.padre.querySelector(".PawCalendario-Select");
+        let values = select.value.split(",");
+        let nombre = values[0], apellido = values[1], matricula = values[2];
+        this.listaTurnos["especialistas"].forEach(element => {
+            if(element["matricula"] == parseInt(matricula))
+            {
+                if(found == false){
+                    result = element;
+                    found = true;
+                }
+            }
+               
+        });
+        return result;
     }
 
     generarButton(contenedor){
         //primero voy a insertar un boton, donde el usuario tiene que apretar para observar el calendario.
         let boton = document.createElement("button");
         boton.classList.add("pawBotonCalendario");
+        boton.classList.add("PawButton-Abierto");
         boton.type="button";
-        boton.innerText="abrir calendario";
+        boton.innerText="Abrir calendario";
         boton.addEventListener("click", ()=>{this.handleButtonEvent()});
         this.padre.appendChild(boton);
     }
@@ -373,93 +403,20 @@ class PawCalendario {
     }
 
     handleButtonEvent(){
+        this.updateTable();
+        this.changeContenedorClass();  
+        this.changeButtonText();
+    }
+
+    updateTable(){
         this.removeTableIfExists();
-        let tabla = this.generarTabla(["Lunes","Miercoles","Viernes"],  {"horas": 15, "minutos": 0}, {"horas": 18, "minutos": 0},10)
-        this.setTurnosTomados(tabla,[
-            {
-                "dia": "Lunes",
-                "horas": 15,
-                "minutos": 0
-            },
-            {
-                "dia": "Lunes",
-                "horas": 15,
-                "minutos": 10
-            },
-            {
-                "dia": "Lunes",
-                "horas": 15,
-                "minutos": 20
-            },
-            {
-                "dia": "Lunes",
-                "horas": 15,
-                "minutos": 30
-            },
-            {
-                "dia": "Lunes",
-                "horas": 15,
-                "minutos": 50
-            },
-            {
-                "dia": "Miercoles",
-                "horas": 15,
-                "minutos": 30
-            },
-            {
-                "dia": "Miercoles",
-                "horas": 15,
-                "minutos": 50
-            },
-            {
-                "dia": "Miercoles",
-                "horas": 16,
-                "minutos": 30
-            },
-            {
-                "dia": "Miercoles",
-                "horas": 17,
-                "minutos": 0
-            },
-            {
-                "dia": "Viernes",
-                "horas": 15,
-                "minutos": 0
-            },
-            {
-                "dia": "Viernes",
-                "horas": 15,
-                "minutos": 30
-            },
-            {
-                "dia": "Viernes",
-                "horas": 16,
-                "minutos": 30
-            },
-            {
-                "dia": "Viernes",
-                "horas": 16,
-                "minutos": 40
-            },
-            {
-                "dia": "Viernes",
-                "horas": 16,
-                "minutos": 50
-            },
-            {
-                "dia": "Viernes",
-                "horas": 17,
-                "minutos": 0
-            },
-            {
-                "dia": "Viernes",
-                "horas": 17,
-                "minutos": 30
-            }
-        ]);
+        let informationOfSelectedMedico = this.getInformationOfSelectedMedico();
+        let tabla = this.generarTabla(informationOfSelectedMedico["diasQueAtiende"],
+                                        informationOfSelectedMedico["horarioInicio"],
+                                        informationOfSelectedMedico["horarioFinalizacion"],
+                                        informationOfSelectedMedico["duracionTurno"])
+        this.setTurnosTomados(tabla, informationOfSelectedMedico["turnosTomados"]);
         this.contenedor.appendChild(tabla);
-        this.changeContenedorClass();
-        
     }
 
     changeContenedorClass(){
@@ -472,10 +429,27 @@ class PawCalendario {
         }
     }
 
+    changeButtonText(){
+
+    }
+
     removeTableIfExists(){
         let table = this.contenedor.querySelector("table");
         if(table)
             this.contenedor.removeChild(table);
+    }
+
+    getMedicos(){
+        var result = {
+            "especialistas":[]
+        };
+        this.listaTurnos["especialistas"].forEach(element => {
+            let especialista = {"nombre": element["nombre"],
+                            "apellido": element["apellido"],
+                            "matricula": element["matricula"]}
+            result["especialistas"].push(especialista);
+        });
+        return result;
     }
 }
 
