@@ -1,6 +1,9 @@
 class PawCalendario {
 
-    constructor() {
+    constructor(tagPadre) {
+        //es el fieldset
+        this.padre = tagPadre;
+
         this.listaTurnos = {
             "especialistas": [
                 {
@@ -227,12 +230,12 @@ class PawCalendario {
                         },
                         {
                             "dia": "Miercoles",
-                            "horas": 14,
+                            "horas": 15,
                             "minutos": 30
                         },
                         {
                             "dia": "Miercoles",
-                            "horas": 14,
+                            "horas": 15,
                             "minutos": 50
                         },
                         {
@@ -247,7 +250,7 @@ class PawCalendario {
                         },
                         {
                             "dia": "Viernes",
-                            "horas": 14,
+                            "horas": 15,
                             "minutos": 0
                         },
                         {
@@ -284,139 +287,17 @@ class PawCalendario {
                 }
             ]
         };
-        //es el fieldset
-        var padre = document.querySelector("label[for = 'fecha_turno']").parentElement;
 
+        this.generarSelect();
+        
+        this.contenedor = this.generarContenedor();
 
-        //primero voy a insertar un boton, donde el usuario tiene que apretar para observar el calendario.
+        this.generarButton();
 
-        let boton = document.createElement("button");
-        boton.classList.add("pawBotonCalendario");
-        boton.type="button";
-        boton.innerText="abrir calendario";
-        padre.appendChild(boton);
-
-        //insertar un div que va a contener los datos del calendario.
-        let contenedor  = document.createElement("div");
-        contenedor.classList.add("pawContenedorCalendario");
-        contenedor.classList.add("cerrado");
-        padre.appendChild(contenedor);
-
-
-
-
-        boton.addEventListener("click",ev => {
-
-            let tabla = this.generarTabla(["Lunes","Miercoles","Viernes"],  {"horas": 15, "minutos": 0}, {"horas": 18, "minutos": 0},10)
-            this.setTurnosTomados(tabla,[
-                {
-                    "dia": "Lunes",
-                    "horas": 15,
-                    "minutos": 0
-                },
-                {
-                    "dia": "Lunes",
-                    "horas": 15,
-                    "minutos": 10
-                },
-                {
-                    "dia": "Lunes",
-                    "horas": 15,
-                    "minutos": 20
-                },
-                {
-                    "dia": "Lunes",
-                    "horas": 15,
-                    "minutos": 30
-                },
-                {
-                    "dia": "Lunes",
-                    "horas": 15,
-                    "minutos": 50
-                },
-                {
-                    "dia": "Miercoles",
-                    "horas": 14,
-                    "minutos": 30
-                },
-                {
-                    "dia": "Miercoles",
-                    "horas": 14,
-                    "minutos": 50
-                },
-                {
-                    "dia": "Miercoles",
-                    "horas": 16,
-                    "minutos": 30
-                },
-                {
-                    "dia": "Miercoles",
-                    "horas": 17,
-                    "minutos": 0
-                },
-                {
-                    "dia": "Viernes",
-                    "horas": 14,
-                    "minutos": 0
-                },
-                {
-                    "dia": "Viernes",
-                    "horas": 15,
-                    "minutos": 30
-                },
-                {
-                    "dia": "Viernes",
-                    "horas": 16,
-                    "minutos": 30
-                },
-                {
-                    "dia": "Viernes",
-                    "horas": 16,
-                    "minutos": 40
-                },
-                {
-                    "dia": "Viernes",
-                    "horas": 16,
-                    "minutos": 50
-                },
-                {
-                    "dia": "Viernes",
-                    "horas": 17,
-                    "minutos": 0
-                },
-                {
-                    "dia": "Viernes",
-                    "horas": 17,
-                    "minutos": 30
-                }
-            ]);
-            contenedor.appendChild(tabla);
-
-            if (contenedor.classList.contains("cerrado")) {
-            contenedor.classList.remove("cerrado");
-            contenedor.classList.add("abierto");
-            }else{
-                contenedor.classList.remove("abierto");
-                contenedor.classList.add("cerrado");
-            }
-
-            this.listarTurnos();
-
-        });
-
-
-
+        
     }
-
-    listarTurnos(){
-        this.listaTurnos["especialistas"].forEach(obj =>{
-            console.log(obj);
-        })
-    }
-
-
+    
     generarTabla(diasQueAtiende, horarioInicio, horarioFin, duracionTurno){
-
         //recorrer dias que atiende.
         let nuevaTabla = Paw.nuevoElemento("table","",{class:'PawTable'});
 
@@ -431,9 +312,6 @@ class PawCalendario {
         });
         nuevaTabla.appendChild(diasAtiende);
 
-        let horarioInicioHora = horarioInicio["horas"];
-        let horarioInicioMin = horarioInicio["minutos"];
-
         let dIndex = new Date();
         dIndex.setHours(horarioInicio["horas"]);
         dIndex.setMinutes(horarioInicio["minutos"]);
@@ -442,29 +320,22 @@ class PawCalendario {
         dFin.setHours(horarioFin["horas"]);
         dFin.setMinutes(horarioFin["minutos"]);
 
-
-
         while (dIndex<=dFin ){
             let tr = Paw.nuevoElemento("tr","",{class: dIndex.getHours()+':'+dIndex.getMinutes()});
             let thHora = Paw.nuevoElemento("th",dIndex.getHours()+':'+dIndex.getMinutes(),{hora:dIndex.getHours(),min:dIndex.getMinutes()});
             tr.appendChild(thHora);
 
             //carga de turnos
-
             diasQueAtiende.forEach(obj =>{
                let diaTurno  =Paw.nuevoElemento("td","libre",{dia:obj, hora:dIndex.getHours(), min:dIndex.getMinutes()});
                tr.appendChild(diaTurno);
             });
 
-
             nuevaTabla.appendChild(tr);
 
             dIndex.setMinutes(dIndex.getMinutes()+duracionTurno);
         }
-
-
         return nuevaTabla;
-
     }
 
     setTurnosTomados(tabla, turnosTomados){
@@ -472,30 +343,145 @@ class PawCalendario {
             let dia =obj['dia'];
             let hora = obj['horas'];
             let minutos = obj['minutos'];
-
             let selector = "td[dia='"+dia+"'][hora='"+hora+"'][min='"+minutos+"']";
-
-            /*let turnoDias = tabla.querySelector("td[dia="+dia+"]");
-
-            let turnoHoras = turnoDias.querySelector("td[hora=\""+hora+"\"]");
-            console.log(turnoHoras);
-
-            let turnoMin = turnoHoras.querySelector("td[min=\""+minutos.toString()+"\"]");*/
             let turno = tabla.querySelector(selector);
-            /*console.log(turno);
-            turno.appendChild(document.createTextNode("ocupado"));*/
-            console.log(turno);
-
-
+            turno.textContent = "Ocupado";
         });
     }
 
+    generarSelect(){
 
+    }
 
+    generarButton(contenedor){
+        //primero voy a insertar un boton, donde el usuario tiene que apretar para observar el calendario.
+        let boton = document.createElement("button");
+        boton.classList.add("pawBotonCalendario");
+        boton.type="button";
+        boton.innerText="abrir calendario";
+        boton.addEventListener("click", ()=>{this.handleButtonEvent()});
+        this.padre.appendChild(boton);
+    }
+
+    generarContenedor(){
+        //insertar un div que va a contener los datos del calendario.
+        let contenedor  = document.createElement("div");
+        contenedor.classList.add("pawContenedorCalendario");
+        contenedor.classList.add("cerrado");
+        this.padre.appendChild(contenedor);
+        return contenedor;
+    }
+
+    handleButtonEvent(){
+        this.removeTableIfExists();
+        let tabla = this.generarTabla(["Lunes","Miercoles","Viernes"],  {"horas": 15, "minutos": 0}, {"horas": 18, "minutos": 0},10)
+        this.setTurnosTomados(tabla,[
+            {
+                "dia": "Lunes",
+                "horas": 15,
+                "minutos": 0
+            },
+            {
+                "dia": "Lunes",
+                "horas": 15,
+                "minutos": 10
+            },
+            {
+                "dia": "Lunes",
+                "horas": 15,
+                "minutos": 20
+            },
+            {
+                "dia": "Lunes",
+                "horas": 15,
+                "minutos": 30
+            },
+            {
+                "dia": "Lunes",
+                "horas": 15,
+                "minutos": 50
+            },
+            {
+                "dia": "Miercoles",
+                "horas": 15,
+                "minutos": 30
+            },
+            {
+                "dia": "Miercoles",
+                "horas": 15,
+                "minutos": 50
+            },
+            {
+                "dia": "Miercoles",
+                "horas": 16,
+                "minutos": 30
+            },
+            {
+                "dia": "Miercoles",
+                "horas": 17,
+                "minutos": 0
+            },
+            {
+                "dia": "Viernes",
+                "horas": 15,
+                "minutos": 0
+            },
+            {
+                "dia": "Viernes",
+                "horas": 15,
+                "minutos": 30
+            },
+            {
+                "dia": "Viernes",
+                "horas": 16,
+                "minutos": 30
+            },
+            {
+                "dia": "Viernes",
+                "horas": 16,
+                "minutos": 40
+            },
+            {
+                "dia": "Viernes",
+                "horas": 16,
+                "minutos": 50
+            },
+            {
+                "dia": "Viernes",
+                "horas": 17,
+                "minutos": 0
+            },
+            {
+                "dia": "Viernes",
+                "horas": 17,
+                "minutos": 30
+            }
+        ]);
+        this.contenedor.appendChild(tabla);
+        this.changeContenedorClass();
+        
+    }
+
+    changeContenedorClass(){
+        if (this.contenedor.classList.contains("cerrado")) {
+            this.contenedor.classList.remove("cerrado");
+            this.contenedor.classList.add("abierto");
+        }else{
+            this.contenedor.classList.remove("abierto");
+            this.contenedor.classList.add("cerrado");
+        }
+    }
+
+    removeTableIfExists(){
+        let table = this.contenedor.querySelector("table");
+        if(table)
+            this.contenedor.removeChild(table);
+    }
 }
 
 
 document.addEventListener("DOMContentLoaded",()=>{
-    let calendario = new  PawCalendario();
+    let fieldset = document.querySelector("label[for = 'fecha_turno']").parentElement;
+    let calendario = new  PawCalendario(fieldset);
 })
 
