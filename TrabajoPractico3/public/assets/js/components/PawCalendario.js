@@ -463,9 +463,30 @@ class PawCalendario {
         if (table){
             let tdLibres= table.querySelectorAll("td[estado='libre']");
             tdLibres.forEach(obj=>{
-                let radio = Paw.nuevoElemento("input","",{type: 'radio',dia: obj.getAttribute("dia"),hora: obj.getAttribute("hora"),min: obj.getAttribute("min"),name:'radio'});
-                obj.prepend(radio);
-                console.log(obj.getAttribute("dia"));
+                //let radio = Paw.nuevoElemento("input","",{type: 'radio',dia: obj.getAttribute("dia"),hora: obj.getAttribute("hora"),min: obj.getAttribute("min"),name:'radio'});
+                //obj.prepend(radio);
+                obj.addEventListener("click", event=>{
+                    let boton = document.querySelector(".pawBotonCalendario");
+                    let padreBoton = boton.parentElement;
+                    if ((padreBoton.querySelector(".labelTurno") &&(padreBoton.querySelector(".inputTurno")))){
+                        let viejoLabel = padreBoton.querySelector(".labelTurno");
+                        let viejoInput = padreBoton.querySelector(".inputTurno");
+
+                        let nuevoLabelTurno = Paw.nuevoElemento("label","usted eligio el dia "+ obj.getAttribute("dia")+" en el horario "+obj.getAttribute("hora")+":"+obj.getAttribute("min"),{class:'labelTurno'});
+                        let nuevoInputTurno = Paw.nuevoElemento("input","",{class:'inputTurno', dia:obj.getAttribute("dia"), hora:obj.getAttribute("hora"), min:obj.getAttribute("min")});
+                        nuevoInputTurno.setAttribute("type","hidden");
+                        padreBoton.replaceChild(nuevoLabelTurno,viejoLabel);
+                        padreBoton.replaceChild(nuevoInputTurno,viejoInput);
+                    }else{
+                        let nuevoLabelTurno = Paw.nuevoElemento("label","usted eligio el dia "+ obj.getAttribute("dia")+" en el horario "+obj.getAttribute("hora")+":"+obj.getAttribute("min"),{class:'labelTurno'});
+                        let nuevoInputTurno = Paw.nuevoElemento("input","",{class:'inputTurno', dia:obj.getAttribute("dia"), hora:obj.getAttribute("hora"), min:obj.getAttribute("min")})
+                        nuevoInputTurno.setAttribute("type","hidden");
+                        padreBoton.appendChild(nuevoLabelTurno);
+                        padreBoton.appendChild(nuevoInputTurno);
+                    }
+                });
+
+                //console.log(obj);
             });
 
         }
