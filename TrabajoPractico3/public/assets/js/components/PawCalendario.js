@@ -325,7 +325,8 @@ class PawCalendario {
 
             //carga de turnos
             diasQueAtiende.forEach(obj =>{
-               let diaTurno  =Paw.nuevoElemento("td","libre",{dia:obj, hora:dIndex.getHours(), min:dIndex.getMinutes()});
+               let diaTurno  =Paw.nuevoElemento("td","libre",{dia:obj, hora:dIndex.getHours(), min:dIndex.getMinutes(), estado: "libre"});
+
                tr.appendChild(diaTurno);
             });
 
@@ -343,6 +344,7 @@ class PawCalendario {
             let minutos = obj['minutos'];
             let selector = "td[dia='"+dia+"'][hora='"+hora+"'][min='"+minutos+"']";
             let turno = tabla.querySelector(selector);
+            turno.setAttribute("estado","ocupado");
             turno.textContent = "Ocupado";
         });
     }
@@ -405,6 +407,7 @@ class PawCalendario {
         this.updateTable();
         this.changeContenedorClass();  
         this.changeButtonText();
+        this.manejoDeSeleccionTurno();
     }
 
     updateTable(){
@@ -453,6 +456,19 @@ class PawCalendario {
             result["especialistas"].push(especialista);
         });
         return result;
+    }
+
+    manejoDeSeleccionTurno(){
+        let table = this.contenedor.querySelector("table");
+        if (table){
+            let tdLibres= table.querySelectorAll("td[estado='libre']");
+            tdLibres.forEach(obj=>{
+                let radio = Paw.nuevoElemento("input","",{type: 'radio',dia: obj.getAttribute("dia"),hora: obj.getAttribute("hora"),min: obj.getAttribute("min"),name:'radio'});
+                obj.prepend(radio);
+                console.log(obj.getAttribute("dia"));
+            });
+
+        }
     }
 }
 
