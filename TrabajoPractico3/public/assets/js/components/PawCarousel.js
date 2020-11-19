@@ -44,7 +44,7 @@ class PawCarousel {
                     console.log(this.userInteracted);
                     if(this.userInteracted == false)
                         this.handleEvent()
-                }, 5000);
+                }, 15000);
             });
 
             progressBar.appendChild(actualProgress);
@@ -166,20 +166,13 @@ class PawCarousel {
     userInteracted(){
         return this.userInteracted;
     }
-
-    //loop(){
-    //    //console.log("Entered here");
-    //    this.handleEvent();
-    //    //this.sleep(300000);
-    //    window.setTimeout(this.handleEvent(), 150000);
-    //}
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     let listaImagenes =[
-        "/assets/imagenes/imagen1.jpg",
-        "/assets/imagenes/imagen2.jpg",
-        "/assets/imagenes/imagen3.jpg"
+        "/assets/imagenes/Carousel1.jpg",
+        "/assets/imagenes/Carousel2.jpg",
+        "/assets/imagenes/Carousel3.jpeg"
     ]
     let carousel = new PawCarousel(listaImagenes, "aside");
 });

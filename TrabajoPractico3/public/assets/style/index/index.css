@@ -40,6 +40,26 @@ main li{ /* Estilizo las tarjetas */
     text-align: center;
 }
 
+main li:nth-child(1){
+    background-image: url("/assets/imagenes/turno.jpg");
+    background-color: #cccccc;
+    background-size: cover;
+}
+
+main li:nth-child(2){
+    background-image: url("/assets/imagenes/estudio.jpg");
+    background-color: #cccccc;
+    background-size: cover;
+}
+
+main li:nth-child(3){
+    background-image: url("/assets/imagenes/especialistas.jpg");
+    background-color: #cccccc;
+    background-size: cover;
+}
+
+
+
 @media (min-width: 1000px){
     :root{
         --margin-for-aside: 35.2vh;
@@ -50,25 +70,7 @@ main li{ /* Estilizo las tarjetas */
         justify-content: space-evenly;
         margin-bottom: 0.1rem;
     }
-
-    main li:nth-child(1){
-        background-image: url("/assets/imagenes/turno.jpg");
-        background-color: #cccccc;
-        background-size: cover;
-    }
-
-    main li:nth-child(2){
-        background-image: url("/assets/imagenes/estudio.jpg");
-        background-color: #cccccc;
-        background-size: cover;
-    }
-
-    main li:nth-child(3){
-        background-image: url("/assets/imagenes/especialistas.png");
-        background-color: #cccccc;
-        background-size: cover;
-    }
-    
+ 
     main li{ /* Estilizo las tarjetas */
         --height-tarjetas: 35vh;
         padding: 1.5rem;

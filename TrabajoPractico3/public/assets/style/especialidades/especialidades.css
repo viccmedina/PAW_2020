@@ -6,9 +6,6 @@ form>label{
     margin-left: 9vw;
 }
 
-/*input[type="submit"]{
-
-}*/
 section>form>label>input{
     border-radius: 6px;
     width: 45vw;
@@ -47,10 +44,6 @@ section>h2{
         position: absolute;
         display: inline-block;
         margin-left: 25vw;
-    }
-
-    input[type="submit"]{
-
     }
 
     form>label{
