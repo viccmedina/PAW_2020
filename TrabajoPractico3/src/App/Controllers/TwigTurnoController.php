@@ -37,6 +37,7 @@ class TwigTurnoController extends TurnoController{
 
 
     public function nuevo_turno_proccess(){
+
        global $request;
        $apenomb= $request->get('apenomb') ;
        $email = $request->get('email');
@@ -60,7 +61,7 @@ class TwigTurnoController extends TurnoController{
         $validacionTurno->setHoraTurno($request->get('hora_turno'));
 
 
-
+        $validacionTurno->insert();
 
 
 
@@ -113,12 +114,12 @@ class TwigTurnoController extends TurnoController{
 
         //funcion para determinar si es una imagen
 
-        if (isset($_FILES['archivosubido'])){
-            if ($_FILES['archivosubido']['type'] != "image/jpeg"){
-                $errores['Estudio'] = "la imagen de estudio subida no es correcta.";
-                $hayErrores=true;
-            }
-        }
+        // if (isset($_FILES['archivosubido'])){
+        //     if ($_FILES['archivosubido']['type'] != "image/jpeg"){
+        //         $errores['Estudio'] = "la imagen de estudio subida no es correcta.";
+        //         $hayErrores=true;
+        //     }
+        // }
 
 
 

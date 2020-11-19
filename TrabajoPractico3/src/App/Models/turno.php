@@ -5,6 +5,7 @@ namespace Paw\App\Models;
 
 use Paw\Core\Model;
 use Exception;
+use Paw\Core\Database\QueryBuilder;
 
 use Paw\Core\Exceptions\invalidValueFormatException;
 
@@ -18,6 +19,8 @@ class turno extends Model{
 
     protected $apenomb;
     protected $email ;
+    public $socio;
+    public $medico;
     protected $tel;
     protected $fecha_nac;
     protected $date;
@@ -34,6 +37,28 @@ class turno extends Model{
         return $this->apenomb;
     }
 
+
+    public function insert(){
+        global $connection,$log;
+        $qb = new QueryBuilder($connection,$log);
+        $columns = array();
+        array_push($columns,'apenomb','email','socio','medico');
+        $valor = array();
+        array_push($valor,$this->apenomb,$this->email, $this->socio,$this->medico);
+
+        // $columns = ['1' => 'apenomb','2' => 'email','3' => 'socio','4'=> 'medico'];
+        // $valor = ['1' => $this->apenomb,'2' => $this->email,'3' => $this->socio,'4'=> $this->medico];  
+        $qb->insert($this->table,$columns,$valor);
+
+    }
+
+        // // titulo', 'string',['limit'=>60])
+        // ->addColumn('descripcion','string',['null'=>true])
+        // ->addColumn('socio','integer')
+        // ->addColumn('medico','integer')
+        // ->addColumn('created', 'timestamp', ['default'=> 'CURRENT_TIMESTAMP'])
+        // ->addForeignKey('socio','socio','id')
+        // ->addForeignKey('medico','medico','id')
 
     /**
      * @param mixed $apenomb

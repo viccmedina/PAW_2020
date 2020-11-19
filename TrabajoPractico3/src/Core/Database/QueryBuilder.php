@@ -37,9 +37,24 @@ class QueryBuilder{
 
     }
 
-    public function insert($table, $params){
+    public function insert($table, $column, $valor){
+        $query = "insert into $table (";
+        foreach($column as $c ){
+            $query .=  $c . ",";
+        }
+        $query  = substr($query,0,strlen($query) -1); # sin la ultima coma
 
+        $query .= ") VALUES (" ;
+        foreach($valor as $v ){
+            $query .= "'". $v ."'," ;
+        }
 
+        $query  = substr($query,0,strlen($query) -1); # sin la ultima coma
+        $query .= ");";
+        $this->logger->debug($query);
+        $sentencia = $this->pdo->prepare($query);
+        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+        $sentencia->execute();
     }
 
 
