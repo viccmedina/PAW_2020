@@ -172,6 +172,19 @@ a[href="https://www.whatsapp.com"]{
     background-size: contain;
 }
 
+.pawCard{
+
+    margin: 0.8rem 0.8rem;
+    padding: 0.4rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);;
+    transition: 0.3s;
+    border: none;
+}
+
+.pawCard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
 @media (min-width: 600px){ 
     :root{
         font-size: 16px; /* Font size si es tablet */
