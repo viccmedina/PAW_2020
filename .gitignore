@@ -288,6 +288,7 @@ tmp-php.ini
 # Composer
 # ------------------------------------------------------------------------------
 php_prueba/vendor/
-
+.env.example/
 .idea/
 TrabajoPractico3/logs/
+tp3/
