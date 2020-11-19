@@ -140,31 +140,33 @@ footer>ul{
     display: flex;
 }
 
+
+footer>ul a{
+    --link-images-size: 5vh;
+    width: var(--link-images-size);
+    height: var(--link-images-size);
+    overflow: hidden;
+    margin-right: 0.5rem;
+}
 a[href="https://www.instagram.com"]{
     background: url("/assets/imagenes/LogoIg.webp") center no-repeat;
     color: transparent;
     display: inline-block;
     background-size: contain;
-    width: 2.5vw;
-    height: 2.5vw; 
 }
 
 a[href="https://www.facebook.com"]{
-    background: url("/assets/imagenes/LogoWpp.svg") center no-repeat;
-    color: transparent;
-    display: inline-block;
-    background-size: contain;
-    width: 2.5vw;
-    height: 2.5vw; 
-}
-
-a[href="https://www.whatsapp.com"]{
     background: url("/assets/imagenes/LogoFb.svg") center no-repeat;
     color: transparent;
     display: inline-block;
     background-size: contain;
-    width: 2.5vw;
-    height: 2.5vw; 
+}
+
+a[href="https://www.whatsapp.com"]{
+    background: url("/assets/imagenes/LogoWpp.svg") center no-repeat;
+    color: transparent;
+    display: inline-block;
+    background-size: contain;
 }
 @media (min-width: 600px){
     :root{
