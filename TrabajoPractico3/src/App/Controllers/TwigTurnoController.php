@@ -39,6 +39,9 @@ class TwigTurnoController extends TurnoController{
     public function nuevo_turno_proccess(){
 
        global $request;
+
+       d($_POST);
+
        $apenomb= $request->get('apenomb') ;
        $email = $request->get('email');
        $tel = $request->get('tel');
