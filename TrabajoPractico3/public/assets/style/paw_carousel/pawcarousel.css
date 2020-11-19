@@ -23,25 +23,14 @@ img.loading {
     background-color: #f1f1f1;
 }
 
-.progress[loaded="25"]{
-    width: 25vw;
+
+.progress{
+    transition: width 1s;
+    --ancho: 0;
+    width: var(--ancho);
     background-color: #f44336;
 }
 
-.progress[loaded="50"]{
-    width: 50vw;
-    background-color: #f44336;
-}
-
-.progress[loaded="75"]{
-    width: 75vw;
-    background-color: #f44336;
-}
-
-.progress[loaded="100"]{
-    width: 100vw;
-    background-color: #f44336;
-}
 
 img.imgCarousel{
     width: 100%;

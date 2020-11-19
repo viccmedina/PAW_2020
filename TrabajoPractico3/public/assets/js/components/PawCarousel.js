@@ -24,27 +24,22 @@ class PawCarousel {
                 let averageOfLoad = (this.loadedImages / this.imageCount) * 100;
                 //console.log(averageOfLoad);
                 if(averageOfLoad == 100){
-                    actualProgress.setAttribute("loaded", "100");
+                    //actualProgress.setAttribute("loaded", "100");
                     padre.removeChild(progressBar);
                     this.handleEvent();
                 }
                 else
-                    if(averageOfLoad >= 75)
-                        actualProgress.setAttribute("loaded", "75");
-                    else
-                        if(averageOfLoad >= 50)
-                            actualProgress.setAttribute("loaded", "50");
-                        else
-                            if(averageOfLoad >= 25)
-                                actualProgress.setAttribute("loaded", "25");
+                    actualProgress.style.setProperty("--ancho", averageOfLoad+"vw");
             });
 
-            nuevoElemento.addEventListener("transitionend", ()=>{
+            nuevoElemento.addEventListener("transitionend", (event)=>{
                 setTimeout(()=>{
-                    console.log(this.userInteracted);
+                    //console.log(this.userInteracted);
                     if(this.userInteracted == false)
-                        this.handleEvent()
-                }, 15000);
+                        if(event.target.classList.contains("active"))
+                            this.handleEvent();
+                    
+                }, 4500);
             });
 
             progressBar.appendChild(actualProgress);
