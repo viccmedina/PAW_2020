@@ -1,39 +1,40 @@
+:root{
+    --thead-color: var(--turquesa-90);
+    --impares-color: var(--turquesa-30);
+    --thead-letter-color: var(--turquesa-10);
+}
 
-/*robo estas cosas del menu para ir  probando el calendario*/
 .pawContenedorCalendario.cerrado{
     width: 0;
-    height: 0;
-    transition: all 1.5s;
+    transition: width 1.5s;
 }
 
 .pawContenedorCalendario.abierto{
     width: 100vw;
-    height: 45vh;
-    transition: all 1.5s;
-    
+    transition: width 1.5s;  
 }
 
 .pawContenedorCalendario{
-    
+    height: auto;
     right: 0;
     top: 17.5vh;
     display: block;
     position: absolute;
-    background-color: var(--menu-color);
-    overflow: auto;
+    background-color: var(--turquesa-20);
+    /*overflow: auto;*/
 }
 
-.pawContenedorCalendario tr:nth-child(2n){
-    background-color: #f2f2f2;
+.pawContenedorCalendario tr:nth-child(2n+1){
+    background-color: var(--impares-color);
 }
 
-.PawDiasAtiende{
+html body main form fieldset div.pawContenedorCalendario.abierto table.PawTable tr.PawDiasAtiende{
     color: white;
-    background-color: rgba(2, 2, 173, 0.733);
+    background-color: var(--thead-color);
 }
 
 table, th, td {
-    border: 1px solid #f1f1f1;
+    border: 1px solid var(--borders-color);
 }
 
 table{
