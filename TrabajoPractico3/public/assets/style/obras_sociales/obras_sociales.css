@@ -1,5 +1,6 @@
 :root{
-    --article-background: rgba(2, 2, 173, 0.733);
+    --article-background: var(--turquesa-40);
+    color: var(--color-letras);
 }
 
 input[type="submit"]{ /* Reubico el button de "Buscar" */

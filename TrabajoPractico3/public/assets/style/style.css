@@ -2,6 +2,7 @@
 @import "reset.css";
 
 :root{
+    --turquesa-150: #1a5753;
     --turquesa-100: #239089;
     --turquesa-90: #329b93;
     --turquesa-80: #3fa59e;
@@ -47,6 +48,9 @@
     --links-color: var(--turquesa-100);
     --links-hover-color: var(--turquesa-60);
     --footer-link-color: var(--turquesa-10);
+
+    --border-color: var(--turquesa-100);
+    --color-letras: var(--turquesa-150);
 }
 
 a{
@@ -132,7 +136,7 @@ input[type="reset"]{ /* Estilizo el botton de limpiar */
 }
 
 fieldset{ /**/
-    border: solid 1px#002;
+    border: solid 1px var(--border-color);
     border-radius: 8px;
 }
 

@@ -1,3 +1,6 @@
+:root{
+    color: var(--color-letras);
+}
 
 .titulo{
 	font-weight: bold; 

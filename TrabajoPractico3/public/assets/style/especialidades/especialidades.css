@@ -1,3 +1,8 @@
+:root{
+    --article-color: var(--turquesa-20);
+    color: var(--color-letras);
+}
+
 aside{
     text-align: center;
 }
@@ -18,7 +23,7 @@ section{
 }
 
 section>article{
-    background-color: #8B8989;
+    background-color: var(--article-color);
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
     margin-right: 0.2rem;

@@ -1,3 +1,7 @@
+:root{
+    color: var(--color-letras);
+}
+
 .titulo{
     font-weight: bold;
     margin-left: 5vw;
@@ -85,7 +89,7 @@ section a img{
     box-sizing: border-box;
     width: 30vw;
     height: 70vh;
-    background: #C4C4C4;
+    background: var(--body-header-color);
     text-align: center;
     position: relative;
     top: -50vh;

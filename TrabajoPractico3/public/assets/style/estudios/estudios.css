@@ -1,5 +1,10 @@
+:root{
+    --thead-color: var(--turquesa-90);
+    --impares-color: var(--turquesa-30);
+    --thead-letter-color: var(--turquesa-10);
+    color: var(--color-letras);
+}
 aside{
-    border: 1px red solid;
     text-align: center;
     padding: 1rem;
     margin-top: 0.3rem;
@@ -33,7 +38,7 @@ form>label>input{
 
 /*------table----------*/
 table{
-    /*border: 1px solid black;*/
+    border: 1px solid var(--turquesa-90);
     font-size: 17px;
     margin-left: 7vw;
     width: 50vw;
@@ -44,11 +49,13 @@ th,td{
     font-family: Roboto;
 }
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: var(--impares-color);
 }
 
 thead{
-    background-color: #A58E8E;
+    color: var(--thead-letter-color);
+    padding: 1rem;
+    background-color: var(--thead-color);
 }
 section>form>p{
     font-size: 0.7rem;
