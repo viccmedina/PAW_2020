@@ -40,6 +40,7 @@ main li{ /* Estilizo las tarjetas */
     margin-bottom: 0.4rem;
     padding: 1.5rem;
     text-align: center;
+    color: var(--color-letras);
 }
 
 main li:nth-child(1){ /* Le pongo una imagen de fondo a la tarjeta de Turnos */

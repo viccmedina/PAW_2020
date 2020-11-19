@@ -18,7 +18,8 @@ ul[name="Turnos"]{
 }
 
 ul[name="Turnos"]::before {
-    content: "Turnos";
+	color: var(--color-letras);
+	content: "Turnos";
 }
 
 .PAW-Menu.PAW-MenuCerrado{
@@ -115,7 +116,7 @@ nav li{
 	}
 	ul[name="Turnos"].PAW-UlAbierto{
 		width: auto;
-		border: 0.5px black solid;
+		border: 0.5px var(--border-color) solid;
 	}
 	
 	.PAW-Menu.PAW-MenuCerrado {
