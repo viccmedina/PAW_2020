@@ -2,19 +2,16 @@
 @import "reset.css";
 
 :root{
-    
-    /*
-    #239089
-    #329b93
-    #3fa59e
-    #4bb0a9
-    #57bbb4
-    #72c8c1
-    #96d6d0
-    #b9e4df
-    #daf1ef
-    #faffff
-    */
+    --turquesa-100: #239089;
+    --turquesa-90: #329b93;
+    --turquesa-80: #3fa59e;
+    --turquesa-70: #4bb0a9;
+    --turquesa-60: #57bbb4;
+    --turquesa-50: #72c8c1;
+    --turquesa-40: #96d6d0;
+    --turquesa-30: #b9e4df;
+    --turquesa-20: #daf1ef;
+    --turquesa-10: #faffff;
 
     font-family: 'Ubuntu', sans-serif;
     /*font-size: 10rem; Comento esto pq es lo que rompia todo en mobile*/
@@ -22,12 +19,12 @@
     line-height: 1.5em;
     
     /* Begin -> Body header variables */
-    --body-header-color:#329b93;
+    --body-header-color: var(--turquesa-90);
     --body-header-height: 9vh;
     /* End -> Body header variables */
 
     /* Begin -> Main header variables */
-    --main-header-color: #4bb0a9;
+    --main-header-color: var(--turquesa-70);
     --main-header-margin-top: 1vh;
     --main-header-margin-bottom: 1vh;
     --main-header-padding: 1.9vh;
@@ -35,21 +32,21 @@
     /* End -> Main header variables */
 
     /* Begin -> Menu variables */
-    --menu-color: #96d6d0;
-    --menu-buttons-color: #faffff;
+    --menu-color: var(--turquesa-40);
+    --menu-buttons-color: var(--turquesa-10);
     --menu-width: 60vw;   
     /* End -> Menu variables */
 
     /* Begin -> Footer variables */
-    --footer-color:#329b93;
+    --footer-color:var(--turquesa-90);
     --footer-padding: 0.3rem;
     /* End -> Footer variables */
 
-    --body-background-color: #faffff;
+    --body-background-color: var(--turquesa-10);
 
-    --links-color: #239089;
-    --links-hover-color: #57bbb4;
-    --footer-link-color: #faffff;
+    --links-color: var(--turquesa-100);
+    --links-hover-color: var(--turquesa-60);
+    --footer-link-color: var(--turquesa-10);
 }
 
 a{
