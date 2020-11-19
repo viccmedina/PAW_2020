@@ -28,7 +28,7 @@ form{
 
 
 form>label>input{
-    border-radius: 6px;
+    /*border-radius: 6px;*/
     width: 45vw;
     height:5vh;
 }

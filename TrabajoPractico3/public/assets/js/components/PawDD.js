@@ -25,6 +25,7 @@ class PawDD {
             let entrada = document.querySelector("input[name='archivosubidoDD']");
 
             entrada.files=e.dataTransfer.files;
+
             console.log(entrada.files);
 
 
@@ -41,5 +42,5 @@ class PawDD {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    let dd = new PawDD("cargaDeEstudio");
+    let dd = new PawDD("pawCard cargaDeEstudio");
 });
