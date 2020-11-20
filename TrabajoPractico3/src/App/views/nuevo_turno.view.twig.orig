@@ -42,22 +42,13 @@
 		<input type="tel" name="tel" required placeholder="232315232425" tabindex="3"><br>
 		<label for="fecha_nac">Fecha Nacimiento:</label>
 		<input type="date" name="fecha_nac" tabindex="4"><br>
-<<<<<<< HEAD
 	</fieldset>
 	<fieldset>
 		<label for="matricula">Matricula Medico:</label><br>
 		<input type="number" name="matricula" ><br>
 		<label for="fecha_turno">Fecha Turno:</label><br>
 		<input type="date" name="fecha_turno" required tabindex="6"><br>
-		<label for="hora_turno">Hora Turno:</label><br>
-=======
-		
-	</fieldset>
-	<fieldset class="pawCard turnos">
-		<label for="fecha_turno">Fecha Turno:</label>
-		<input type="date" name="fecha_turno" required tabindex="6">
 		<label for="hora_turno">Hora Turno:</label>
->>>>>>> 9553b3f18b8f5f97d4e983622287bde5a585309f
 		<input type="time" name="hora_turno" required tabindex="7">
 	</fieldset>
 	<fieldset class="pawCard subirArchivos">

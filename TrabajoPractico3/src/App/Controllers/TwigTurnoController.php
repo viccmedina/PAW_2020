@@ -78,6 +78,22 @@ class TwigTurnoController extends TurnoController{
 
 
        //todas estas validaciones deberian ir en el modelo.
+
+        if($matricula== null){
+            $errores['matricula'] = "La matricula es requerida en este formulario";
+            $hayErrores=true;
+        }
+        if ($validacionTurno->validarMatricula($matricula) == false ){
+            $errores['matricula'] = "La matricula ingresada es incorrecta";
+            $hayErrores=true;
+        }
+
+        if ($validacionTurno->validarSocioMail($email) == false ){
+            $errores['socio'] = "El socio ingresado es incorrecto";
+            $hayErrores=true;
+        }
+
+
         if($apenomb== null){
             $errores['apenomb'] = "Nombre y apellido son requeridos en este formulario";
             $hayErrores=true;

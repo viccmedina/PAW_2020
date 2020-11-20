@@ -46,22 +46,13 @@ class turno extends Model{
         //array_push($valor,$this->apenomb,$this->email, $this->socio,$this->medico);
         $soc = $qb->selectSocio($this->email);
         
-        // foreach($soc as $s){
-            
-        //     $this->idSoc = $s;  
-        // }
-        
-        //echo("Me rompe {$soc}");
         $medic = $qb->selectMedico($this->matricula);
-        // foreach($soc as $s){
-        //     $this->idMed = $s;  
-        // }
-       
+        
 
-        array_push($valor,$this->apenomb,$this->email,$soc[0], $medic[0]);
+        //array_push($valor,$this->apenomb,$this->email,$soc[0], $medic[0]);
         // $columns = ['1' => 'apenomb','2' => 'email','3' => 'socio','4'=> 'medico'];
         // $valor = ['1' => $this->apenomb,'2' => $this->email,'3' => $this->socio,'4'=> $this->medico];  
-        $qb->insert($this->table,$columns,$valor);
+        //$qb->insert($this->table,$columns,$valor);
 
     }
 
@@ -85,7 +76,28 @@ class turno extends Model{
 
     }
 
+    public function validarMatricula($matricula){
+        global $connection,$log;
+        $qb = new QueryBuilder($connection,$log);
+        $validar = $qb->validarMatricula($matricula);
+        if (empty($validar)){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
+    public function validarSocioMail($mail){
+        global $connection,$log;
+        $qb = new QueryBuilder($connection,$log);
+        $validarsoc = $qb->validarMatricula($mail);
+        
+        if (empty($validarsoc)){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
     /**
      * @return mixed

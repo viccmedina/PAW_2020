@@ -65,6 +65,27 @@ class QueryBuilder{
 
     }
 
+
+
+    public function validarMatricula($matricula){
+        $query = "select * from medico where matricula = {$matricula}";
+        $this->logger->debug($query);
+        $sentencia = $this->pdo->prepare($query);
+        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+        $sentencia->execute();
+        return $sentencia->fetchAll();
+    }
+
+    public function validarSocio($mail){
+        $query = "select * from socio where email = {$mail}";
+        $this->logger->debug($query);
+        $sentencia = $this->pdo->prepare($query);
+        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+        $sentencia->execute();
+        return $sentencia->fetchAll();
+    }
+
+
     public function insert($table, $column, $valor){
         $query = "insert into $table (";
         foreach($column as $c ){
