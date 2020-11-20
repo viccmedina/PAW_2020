@@ -293,6 +293,8 @@ class PawCalendario {
         this.contenedor = this.generarContenedor();
 
         this.generarButton();
+
+        this.generarInputsHidden(document.querySelector(".pawBotonCalendario").parentElement);
     }
     
     generarTabla(diasQueAtiende, horarioInicio, horarioFin, duracionTurno){
@@ -351,11 +353,10 @@ class PawCalendario {
 
     generarSelect(){
         let label = Paw.nuevoElemento("lable", "Médico: ", {class:"PawCalendario-LabelMedico"});
-        let select = Paw.nuevoElemento("select", "", {class:"PawCalendario-Select"});
+        let select = Paw.nuevoElemento("select", "", {class:"PawCalendario-Select", name:"nombreMedico"});
         select.addEventListener("change", ()=>{this.updateTable();})
-        this.padre.prepend(Paw.nuevoElemento("br","",""));
+
         this.padre.prepend(select);
-        this.padre.prepend(Paw.nuevoElemento("br","",""));
         this.padre.prepend(label);
         let medicos = this.getMedicos();
         medicos["especialistas"].forEach(element => {
@@ -384,7 +385,19 @@ class PawCalendario {
         return result;
     }
 
+    eliminarInputsAntiguos(){
+        let label = this.padre.querySelector("label[for='fecha_turno']");
+        this.padre.removeChild(label);
+        let inputFechaTurno = this.padre.querySelector("input[name='fecha_turno']");
+        this.padre.removeChild(inputFechaTurno);
+        let labelHoraTurno = this.padre.querySelector("label[for='hora_turno']");
+        this.padre.removeChild(labelHoraTurno);
+        let inputHoraTurno = this.padre.querySelector("input[name='hora_turno']");
+        this.padre.removeChild(inputHoraTurno);
+    }
+
     generarButton(contenedor){
+        this.eliminarInputsAntiguos();
         //primero voy a insertar un boton, donde el usuario tiene que apretar para observar el calendario.
         let boton = document.createElement("button");
         boton.classList.add("pawBotonCalendario");
@@ -458,37 +471,41 @@ class PawCalendario {
         return result;
     }
 
+    generarInputsHidden(padre){
+        padre.appendChild(Paw.nuevoElemento("input","",{name:"inputDia", type:"hidden", value:""}));
+        padre.appendChild(Paw.nuevoElemento("input","",{name:"inputHora", type:"hidden", value:""}));
+        padre.appendChild(Paw.nuevoElemento("input","",{name:"inputMinutos", type:"hidden", value:""}));
+    }
+
+    remplazarInputHidden(padre, name, value){
+        let input = padre.querySelector("input[name='"+name+"']");
+        //
+        console.log(input);
+        input.setAttribute("value", value);
+        //input.value = value;
+    }
+
     manejoDeSeleccionTurno(){
         let table = this.contenedor.querySelector("table");
         if (table){
             let tdLibres= table.querySelectorAll("td[estado='libre']");
             tdLibres.forEach(obj=>{
-                //let radio = Paw.nuevoElemento("input","",{type: 'radio',dia: obj.getAttribute("dia"),hora: obj.getAttribute("hora"),min: obj.getAttribute("min"),name:'radio'});
-                //obj.prepend(radio);
+
                 obj.addEventListener("click", event=>{
                     let boton = document.querySelector(".pawBotonCalendario");
                     let padreBoton = boton.parentElement;
-                    if ((padreBoton.querySelector(".labelTurno") &&(padreBoton.querySelector(".inputTurno")))){
-                        let viejoLabel = padreBoton.querySelector(".labelTurno");
-                        let viejoInput = padreBoton.querySelector(".inputTurno");
+                
+                    this.remplazarInputHidden(padreBoton, "inputDia", obj.getAttribute("dia"));
+                    this.remplazarInputHidden(padreBoton, "inputHora", obj.getAttribute("hora"));
+                    this.remplazarInputHidden(padreBoton, "inputMinutos", obj.getAttribute("min"));
 
-                        let nuevoLabelTurno = Paw.nuevoElemento("label","usted eligio el dia "+ obj.getAttribute("dia")+" en el horario "+obj.getAttribute("hora")+":"+obj.getAttribute("min"),{class:'labelTurno'});
-                        let nuevoInputTurno = Paw.nuevoElemento("input","",{class:'inputTurno', dia:obj.getAttribute("dia"), hora:obj.getAttribute("hora"), min:obj.getAttribute("min")});
-                        nuevoInputTurno.setAttribute("type","hidden");
-                        padreBoton.replaceChild(nuevoLabelTurno,viejoLabel);
-                        padreBoton.replaceChild(nuevoInputTurno,viejoInput);
-                    }else{
-                        let nuevoLabelTurno = Paw.nuevoElemento("label","usted eligio el dia "+ obj.getAttribute("dia")+" en el horario "+obj.getAttribute("hora")+":"+obj.getAttribute("min"),{class:'labelTurno'});
-                        let nuevoInputTurno = Paw.nuevoElemento("input","",{class:'inputTurno', dia:obj.getAttribute("dia"), hora:obj.getAttribute("hora"), min:obj.getAttribute("min")})
-                        nuevoInputTurno.setAttribute("type","hidden");
+                    let nuevoLabelTurno = Paw.nuevoElemento("label","usted eligio el dia "+ obj.getAttribute("dia")+" en el horario "+obj.getAttribute("hora")+":"+obj.getAttribute("min"),{class:'labelTurno'});
+                    if(padreBoton.querySelector(".labelTurno"))
+                        padreBoton.replaceChild(nuevoLabelTurno, padreBoton.querySelector(".labelTurno"));
+                    else
                         padreBoton.appendChild(nuevoLabelTurno);
-                        padreBoton.appendChild(nuevoInputTurno);
-                    }
                 });
-
-                //console.log(obj);
             });
-
         }
     }
 }

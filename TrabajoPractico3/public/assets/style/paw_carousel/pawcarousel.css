@@ -6,7 +6,7 @@ img.loading {
     width: 2vw;
     height: 2vw;
     border: 1vw solid #f3f3f3; /* Light grey */
-    border-top: 1vw solid #3498db; /* Blue */
+    border-top: 1vw solid var(--turquesa-70); /* Blue */
     border-radius: 50%;
     animation: spin 2s linear infinite;
 }
@@ -23,25 +23,14 @@ img.loading {
     background-color: #f1f1f1;
 }
 
-.progress[loaded="25"]{
-    width: 25vw;
+
+.progress{
+    transition: width 1s;
+    --ancho: 0;
+    width: var(--ancho);
     background-color: #f44336;
 }
 
-.progress[loaded="50"]{
-    width: 50vw;
-    background-color: #f44336;
-}
-
-.progress[loaded="75"]{
-    width: 75vw;
-    background-color: #f44336;
-}
-
-.progress[loaded="100"]{
-    width: 100vw;
-    background-color: #f44336;
-}
 
 img.imgCarousel{
     width: 100%;
@@ -100,7 +89,7 @@ img.imgCarousel.active:nth-of-type(4){
 }
 
 .circuloCarousel.active{
-    border: 2px black solid;
+    border: 2px var(--turquesa-150) solid;
 }
 
 .buttonNext, .buttonPrev{
@@ -150,14 +139,14 @@ img.imgCarousel.active:nth-of-type(4){
 .buttonPrev{
     left: 0;
     text-align: start;
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,0.7917367630646008) 0%, rgba(0,0,0,0.4920168751094187) 50%, rgba(255,255,255,0) 100%);
+    background: rgb(0,77,71);
+    background: linear-gradient(90deg, rgba(0,77,71,1) 0%, rgba(0,0,0,0) 100%);
 }
 
 .buttonNext{
     right: 0;
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.4920168751094187) 50%, rgba(0,0,0,0.783333401720063) 100%);
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,77,71,1) 100%);
     text-align: end;
 }
   
@@ -178,7 +167,7 @@ img.imgCarousel.active:nth-of-type(4){
         
     .loading {
         border: 8px solid #f3f3f3; /* Light grey */
-        border-top: 8px solid #3498db; /* Blue */
+        border-top: 8px solid var(--turquesa-70); /* Blue */
         border-radius: 50%;
         width: 1vw;
         height: 1vw;

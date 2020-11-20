@@ -1,9 +1,13 @@
 :root{
-    --section-header-color: lightgrey;
-    --section-color: grey;
-    --details-color: lightgrey;
+    --section-header-color: var(--turquesa-30);
+    --details-color: var(--turquesa-20);
+    --section-color: var(--turquesa-80);
+    --turno-detalle-color: var(--turquesa-30);
 }
 
+summary, details{
+    color: var(--color-letras);
+}
 
 section>header{
     display:flex;
@@ -20,8 +24,6 @@ section>header h2{
     text-align: center;
     margin-bottom: 1vh;
     margin-left: 1.5vh;
-    
-    
 }
 
 section>header>button{
@@ -86,9 +88,8 @@ details>div>p:nth-of-type(2){
 
     :root{
         --section-height: 64vh;
-        --turno-detalle-color: grey;
         --section-width: 50vw;
-
+        
     }
 
     section>ol{

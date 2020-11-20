@@ -1,3 +1,8 @@
+:root{
+    --article-color: var(--turquesa-20);
+    color: var(--color-letras);
+}
+
 aside{
     text-align: center;
 }
@@ -6,9 +11,6 @@ form>label{
     margin-left: 9vw;
 }
 
-/*input[type="submit"]{
-
-}*/
 section>form>label>input{
     border-radius: 6px;
     width: 45vw;
@@ -21,7 +23,7 @@ section{
 }
 
 section>article{
-    background-color: #8B8989;
+    background-color: var(--article-color);
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
     margin-right: 0.2rem;
@@ -47,10 +49,6 @@ section>h2{
         position: absolute;
         display: inline-block;
         margin-left: 25vw;
-    }
-
-    input[type="submit"]{
-
     }
 
     form>label{

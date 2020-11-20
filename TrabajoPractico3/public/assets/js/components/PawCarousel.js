@@ -24,27 +24,22 @@ class PawCarousel {
                 let averageOfLoad = (this.loadedImages / this.imageCount) * 100;
                 //console.log(averageOfLoad);
                 if(averageOfLoad == 100){
-                    actualProgress.setAttribute("loaded", "100");
+                    //actualProgress.setAttribute("loaded", "100");
                     padre.removeChild(progressBar);
                     this.handleEvent();
                 }
                 else
-                    if(averageOfLoad >= 75)
-                        actualProgress.setAttribute("loaded", "75");
-                    else
-                        if(averageOfLoad >= 50)
-                            actualProgress.setAttribute("loaded", "50");
-                        else
-                            if(averageOfLoad >= 25)
-                                actualProgress.setAttribute("loaded", "25");
+                    actualProgress.style.setProperty("--ancho", averageOfLoad+"vw");
             });
 
-            nuevoElemento.addEventListener("transitionend", ()=>{
+            nuevoElemento.addEventListener("transitionend", (event)=>{
                 setTimeout(()=>{
-                    console.log(this.userInteracted);
+                    //console.log(this.userInteracted);
                     if(this.userInteracted == false)
-                        this.handleEvent()
-                }, 5000);
+                        if(event.target.classList.contains("active"))
+                            this.handleEvent();
+                    
+                }, 4500);
             });
 
             progressBar.appendChild(actualProgress);
@@ -166,20 +161,13 @@ class PawCarousel {
     userInteracted(){
         return this.userInteracted;
     }
-
-    //loop(){
-    //    //console.log("Entered here");
-    //    this.handleEvent();
-    //    //this.sleep(300000);
-    //    window.setTimeout(this.handleEvent(), 150000);
-    //}
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     let listaImagenes =[
-        "/assets/imagenes/imagen1.jpg",
-        "/assets/imagenes/imagen2.jpg",
-        "/assets/imagenes/imagen3.jpg"
+        "/assets/imagenes/Carousel1.jpg",
+        "/assets/imagenes/Carousel2.jpg",
+        "/assets/imagenes/Carousel3.jpeg"
     ]
     let carousel = new PawCarousel(listaImagenes, "aside");
 });

@@ -1,22 +1,29 @@
+form{
+    color: var(--color-letras);
+}
+
 aside{ /* Oculto la publicidad como en los wireframes */
     display: none;
 }
 
 fieldset{
-    margin: 0.3rem 0.3rem;
-    padding: 0.4rem;
+    background-color: var(--turquesa-30);
 }
 
 .cargaDeEstudio{
-    border: 1px solid black;
-
-    margin: 0.3rem 0.3rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--turquesa-30);
+    /*margin: 0.3rem 0.3rem;*/
     padding: 0.4rem;
+    border: none;
+    border-radius: 8px;
 }
 
 fieldset>input{
     margin-bottom: 0.4rem;
 }
+
+
 
 input[type="submit"], input[type="reset"]{
     float: right;
@@ -35,6 +42,8 @@ footer{
     border-radius: 8px;
     padding-left: 1rem;
 }
+
+
 
 
 
@@ -87,7 +96,7 @@ footer{
 
     .cargaDeEstudio{
 
-        border-radius: 8px;
+
         height: 100px;
     }
 
