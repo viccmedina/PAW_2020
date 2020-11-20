@@ -22,14 +22,21 @@ final class PrimerasTablasMigration extends AbstractMigration
 
         $tableSocio = $this->table("socio");
         $tableSocio->addColumn('nombre', 'string', ['limit'=>60])
-
                     ->addColumn('email', 'string', ['null'=>true])
                     ->create();
+            
+        $tableEspecialidad = $this->table('especialidad');
+        $tableEspecialidad->addColumn('descipcion', 'string', ['limit'=>60])
+                                      ->create(); 
 
         $tableMedico = $this->table("medico");
         $tableMedico->addColumn('nombre', 'string', ['limit'=>60])
                     ->addColumn('email', 'string', ['null'=>true])
-                     ->create();
+                    ->addColumn('matricula', 'integer')
+                    ->addColumn('especialidad', 'integer')
+                    ->addForeignKey('especialidad','especialidad','id')
+                    ->create();
+
 
         $tableTurno = $this->table('turno');
         $tableTurno->addColumn('titulo', 'string',['limit'=>60])

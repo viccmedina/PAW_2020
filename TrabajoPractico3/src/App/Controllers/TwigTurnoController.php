@@ -40,12 +40,13 @@ class TwigTurnoController extends TurnoController{
 
        global $request;
        $apenomb= $request->get('apenomb') ;
-       $email = $request->get('email');
+       $email = $request->get('email');+
        $tel = $request->get('tel');
        $fecha_nac = $request->get('fecha_nac');
        $fecha_turno = $request->get('fecha_turno');
-       $edad= $request->get('edad');
+       //$edad= $request->get('edad');
        $hora_turno = $request->get('hora_turno');
+       $matricula = $request->get('matricula');
 
 
 
@@ -55,10 +56,10 @@ class TwigTurnoController extends TurnoController{
         $validacionTurno->setApenomb($request->get('apenomb'));
         $validacionTurno->setEmail($request->get('email'));
         $validacionTurno->setTel($request->get('tel'));
-        $validacionTurno->setFechaNac($request->get('fecha_nac'));
         $validacionTurno->setDate($request->get('fecha_turno'));
-        $validacionTurno->setEdad($request->get('edad'));
+        //$validacionTurno->setEdad($request->get('edad'));
         $validacionTurno->setHoraTurno($request->get('hora_turno'));
+        $validacionTurno->setMatricula($request->get('matricula'));
 
 
         $validacionTurno->insert();
@@ -101,10 +102,10 @@ class TwigTurnoController extends TurnoController{
         }
 
 
-        if (is_numeric($edad)==false){
-            $errores['edad'] = "la edad ingresada no es valida";
-            $hayErrores=true;
-        }
+        // if (is_numeric($edad)==false){
+        //     $errores['edad'] = "la edad ingresada no es valida";
+        //     $hayErrores=true;
+        // }
 
         if ($this->validateDate($hora_turno,'H:i') == false){ //puede que la h tenga que ir en mayuscula
             $errores['hora_turno'] = "la hora ingresada no es valida";
