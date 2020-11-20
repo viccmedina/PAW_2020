@@ -1,0 +1,75 @@
+{% extends "parts/base.view_D.twig" %}
+
+{% block head %}
+    {{ parent() }}
+  	<link rel="stylesheet" type="text/css" href="/assets/style/nuevo_turno/nuevo_turno.css"/>
+	<link rel="stylesheet" type="text/css" href="/assets/style/paw_calendario/pawCalendario.css"/>
+	<script src="/assets/js/components/PawCalendario.js"></script>
+	<script src="/assets/js/components/PawDD.js"></script>
+{% endblock %}
+
+{% block header %}
+    <h1><img src="/assets/imagenes/logo.png" alt="Enterprise Logo" width="500" height="600"> Enterprise Name</h1>
+    {{ parent() }}
+{% endblock %}
+
+{% block main %}
+	<header>
+		<h1>Nuevo Turno</h1>
+	</header>
+	{% if hayErrores %}
+		{% for error in errores %}
+			<div class="notificacionError"> {{ error }} </div>
+		{% endfor %}
+	{% elseif not hayErrores and procesado %}
+		<div class="notificacion">
+
+			su peticion fue procesada con exito.<br>
+			nos pondremos en contacto con usted a la brevedad.
+		</div>
+	{% endif %}
+
+<!--para probar lo que se estaba haciendo en el video le tuve que poner get a proposito-->
+	<form  action="/nuevo_turno"  method="POST" name="nuevo_turno" autocomplete="on" enctype="multipart/form-data">
+	<fieldset class="pawCard datos">
+		<!--Para los que son campos requeridos se le puede agregar el asterisco con css: https://stackoverrun.com/es/q/2978327 -->
+
+		<label for="apenomb" >Apellido y Nombre</label>
+		<input type="text" name="apenomb" required placeholder="Peréz Juan" autofocus tabindex="1"><br>
+		<label for="email">Email:</label>
+		<input type="email" name="email" placeholder="ejemplo@ejemplo.com.ar" tabindex="2"><br>
+		<label for="tel">Teléfono Celular:</label>
+		<input type="tel" name="tel" required placeholder="232315232425" tabindex="3"><br>
+		<label for="fecha_nac">Fecha Nacimiento:</label>
+		<input type="date" name="fecha_nac" tabindex="4"><br>
+<<<<<<< HEAD
+	</fieldset>
+	<fieldset>
+		<label for="matricula">Matricula Medico:</label><br>
+		<input type="number" name="matricula" ><br>
+		<label for="fecha_turno">Fecha Turno:</label><br>
+		<input type="date" name="fecha_turno" required tabindex="6"><br>
+		<label for="hora_turno">Hora Turno:</label><br>
+=======
+		
+	</fieldset>
+	<fieldset class="pawCard turnos">
+		<label for="fecha_turno">Fecha Turno:</label>
+		<input type="date" name="fecha_turno" required tabindex="6">
+		<label for="hora_turno">Hora Turno:</label>
+>>>>>>> 9553b3f18b8f5f97d4e983622287bde5a585309f
+		<input type="time" name="hora_turno" required tabindex="7">
+	</fieldset>
+	<fieldset class="pawCard subirArchivos">
+		<label for="estudio">Subir estudio:</label>
+		<input type="file" accept="image/jpeg" name="archivosubido">
+	</fieldset>
+	<section class="pawCard cargaDeEstudio">
+		<input type="file" accept="image/jpeg" name="archivosubidoDD">
+		<p>Arrastre su imagen adentro de la caja</p>
+	</section>
+	<input type="submit" value="Solicitar">
+	<input type="reset" value="Limpiar">
+	
+</form>
+{% endblock %}
