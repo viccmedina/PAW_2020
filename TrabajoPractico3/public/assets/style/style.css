@@ -152,25 +152,31 @@ footer>ul a{
     margin-right: 0.5rem;
 }
 a[href="https://www.instagram.com"]{
-    background: url("/assets/imagenes/LogoIg.webp") center no-repeat;
+    background: url("/assets/imagenes/instagramwhite.svg") center no-repeat;
     color: transparent;
     display: inline-block;
     background-size: contain;
 }
 
 a[href="https://www.facebook.com"]{
-    background: url("/assets/imagenes/LogoFb.svg") center no-repeat;
+    background: url("/assets/imagenes/facebookwhite.svg") center no-repeat;
     color: transparent;
     display: inline-block;
     background-size: contain;
 }
 
 a[href="https://www.whatsapp.com"]{
-    background: url("/assets/imagenes/LogoWpp.svg") center no-repeat;
+    background: url("/assets/imagenes/whatsappwhite.svg") center no-repeat;
     color: transparent;
     display: inline-block;
     background-size: contain;
 }
+
+.buttonNav:hover{
+    background-color: var(--turquesa-50);
+
+}
+
 
 .pawCard{
 
