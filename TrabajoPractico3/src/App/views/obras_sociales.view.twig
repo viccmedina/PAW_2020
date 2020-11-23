@@ -16,12 +16,12 @@
   </header>
 
   <form action="/obras_sociales.html" method="get" name="FormularioObrasSociales" rel="search">
-    <fieldset>
+    <fieldset class="pawCard">
       <legend>Obra Social</legend>
       <label for="obra_social">Indique su obra social:</label>
       <input list="obras_sociales" name="obra_social" id="obra_social" autocomplete="off" autofocus required>
     </fieldset>
-    <fieldset>
+    <fieldset class="pawCard">
       <legend>Especialidad</legend>
       <label for="especialidad">Indique la especialidad que esta buscando:</label>
       <input list="especialidades" name="especialidad" id="especialidad" autocomplete="off">
@@ -29,7 +29,7 @@
     <input type="submit" value="Buscar">
   </form>
 
-  <datalist id="obras_sociales">
+  <datalist id="obras_sociales" >
     <option value="Osde">
     <option value="Arcor Salud">
     <option value="Medife">
