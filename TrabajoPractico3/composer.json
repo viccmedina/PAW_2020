@@ -37,7 +37,8 @@
     "filp/whoops": "~2",
     "monolog/monolog": "^2.1",
     "vlucas/phpdotenv": "^5.2",
-    "twig/twig": "3.0"
+    "twig/twig": "3.0",
+    "robmorgan/phinx": "^0.12.4"
   },
   "autoload": {
     "psr-4": {

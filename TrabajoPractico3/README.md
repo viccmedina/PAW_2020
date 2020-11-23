@@ -11,4 +11,5 @@ La idea de el proyecto es pasar de STATIC a DINAMIC.
 * ejecutar "composer update"
 * Editar el .env con los valores deseados.
 * Ejecutar migrations: phinx migrate -e development
+*    '->en Windows: vendor\bin\phinx.bat migrate
 * Ejecutar php -S localhost:8000 -t public

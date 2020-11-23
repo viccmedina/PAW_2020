@@ -4,7 +4,9 @@ namespace Paw\App\Controllers;
 
 use DateTime;
 use Paw\App\Models\turno;
+use Paw\App\Models\Medico;
 use Paw\Core\Controller;
+use Paw\Core\Database\QueryBuilder;
 
 class TwigTurnoController extends TurnoController{
 
@@ -26,10 +28,17 @@ class TwigTurnoController extends TurnoController{
 
 
     public function nuevo_turno($procesado = false, $hayErrores = false, $errores=null){ //le paso estos valores a nuevo_truno pq si no no se pueden usar en la vista.
+        
+        global $connection, $log;
         $titulo = "Nuevo Turno";
         $descripcion = "Pagina para solicitar turnos del sitio";
         $menu = $this->menu;
-        $this->twigLoader('nuevo_turno.view.twig', compact("menu", "titulo", "procesado", "hayErrores", "errores"));
+        $aux = new Medico();
+        $qb = new QueryBuilder($connection,$log);
+        $aux->setQueryBuilder($qb);
+        $medicos = $aux->getAll();
+        $json = turno::getJson();
+        $this->twigLoader('nuevo_turno.view.twig', compact("menu", "titulo", "procesado", "hayErrores", "errores", "medicos", "json"));
     }
 
 

@@ -41,14 +41,17 @@ class turno extends Model{
         global $connection,$log;
         $qb = new QueryBuilder($connection,$log);
         $columns = array();
-        array_push($columns,'titulo','descripcion','socio','medico');
+        $valores = array();
+        
+        array_push($columns,'dia','hora','socio','medico');
+        array_push($valores,$this->date, $this->hora_turno, $this->email, 1);
         $valor = array();
         //array_push($valor,$this->apenomb,$this->email, $this->socio,$this->medico);
         $soc = $qb->selectSocio($this->email);
         
         $medic = $qb->selectMedico($this->matricula);
-        
-
+        $qb->insert($this->table,$columns,$valores);
+        $log->debug($this->date. $this->hora_turno. $this->email. $this->matricula);
         //array_push($valor,$this->apenomb,$this->email,$soc[0], $medic[0]);
         // $columns = ['1' => 'apenomb','2' => 'email','3' => 'socio','4'=> 'medico'];
         // $valor = ['1' => $this->apenomb,'2' => $this->email,'3' => $this->socio,'4'=> $this->medico];  
@@ -233,7 +236,23 @@ class turno extends Model{
     }
 
 
-
+    public static function getJson() {
+        global $connection, $log;
+        $json = "{ 'especialistas': [";
+        $aux = new medico();
+        $qb = new QueryBuilder($connection,$log);
+        $aux->setQueryBuilder($qb);
+        $medicos = $aux->getAll();
+        foreach ($medicos as $medico) {
+            $json .= "{ \"matricula\": \"{$medico->fields['matricula']}\" }, ";
+        }
+        
+        // "matricula": "3737",
+        // "nombre": "Tekito",
+        // "apellido": "Lakarie",
+        $json .= "]}";
+        return $json;
+    }
 
 
 

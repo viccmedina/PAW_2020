@@ -44,12 +44,19 @@
 		<input type="date" name="fecha_nac" tabindex="4"><br>
 	</fieldset>
 	<fieldset>
-		<label for="matricula">Matricula Medico:</label><br>
-		<input type="number" name="matricula" ><br>
+		<label for="matricula">Medico:</label><br>
+		<select name="matricula">
+			{% for medico in medicos %}
+				<option value='{{medico.fields.matricula}}'> {{medico.fields.nombre}} </option> 
+			{% else %}
+				<option value=""> No hay médicos disponibles </option>
+			{% endfor %}
+		</select>
+		<input type="hidden" name="matricula" ><br>
 		<label for="fecha_turno">Fecha Turno:</label><br>
 		<input type="date" name="fecha_turno" required tabindex="6"><br>
 		<label for="hora_turno">Hora Turno:</label><br>
-		<input type="time" name="hora_turno" required tabindex="7">
+		<input type="time"  min="8:00" max="18:00" step="1800" name="hora_turno" required tabindex="7">
 	</fieldset>
 	<fieldset>
 		<label for="estudio">Subir estudio:</label>
@@ -60,6 +67,12 @@
 	</section>
 	<input type="submit" value="Solicitar">
 	<input type="reset" value="Limpiar">
-	
 </form>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+    let fieldset = document.querySelector("label[for = 'fecha_turno']").parentElement;
+    let calendario = new  PawCalendario(fieldset);
+    calendario.setListaTurnosConJson({{ json | raw}});
+})
+</script>
 {% endblock %}
