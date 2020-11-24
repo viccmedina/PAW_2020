@@ -6,6 +6,9 @@
 aside{
     text-align: center;
 }
+input[type="submit"]{
+    width: 5rem;
+}
 
 form>label{
     margin-left: 9vw;
@@ -58,7 +61,7 @@ section>h2{
           margin-top: 1rem;
     }
     main{
-        height: 4vh;
+        height: 15vh;
     }
 
     section>article{
