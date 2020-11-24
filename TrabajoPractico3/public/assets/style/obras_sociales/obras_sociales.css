@@ -5,6 +5,8 @@
 
 input[type="submit"]{ /* Reubico el button de "Buscar" */
     float: right;
+    width: 20vw;
+    margin-bottom: 2rem;
 }
 
 fieldset{
@@ -54,6 +56,9 @@ aside img{
         grid-template-rows: 10% 30% 50% 10% ;
     }
 
+    main{
+        height: 77vh;
+    }
     main>header{
         grid-area: header;
     }
