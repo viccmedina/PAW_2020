@@ -244,8 +244,73 @@ class turno extends Model{
         $aux->setQueryBuilder($qb);
         $medicos = $aux->getAll();
         foreach ($medicos as $medico) {
-            $json .= "{ \"matricula\": \"{$medico->fields['matricula']}\" }, ";
+            $json .= "{ \"matricula\": \"{$medico->fields['matricula']}\",";
+            $json .= " \"nombre\": \"{$medico->fields['nombre']}\", ";
+            $json .= "\"apellido\": \"Lakarie\",
+            \"diasQueAtiende\": [
+                \"Lunes\",
+                \"Martes\",
+                \"Jueves\"
+            ],
+            \"horarioInicio\": {
+                \"horas\": 9,
+                \"minutos\": 0
+            },
+            \"horarioFinalizacion\": {
+                \"horas\": 12,
+                \"minutos\": 0
+            },
+            \"duracionTurno\": 20,
+            \"turnosTomados\": [
+                {
+                    \"dia\": \"Lunes\",
+                    \"horas\": 9,
+                    \"minutos\": 0
+                },
+                {
+                    \"dia\": \"Lunes\",
+                    \"horas\": 9,
+                    \"minutos\": 20
+                },
+                {
+                    \"dia\": \"Martes\",
+                    \"horas\": 10,
+                    \"minutos\": 0
+                },
+                {
+                    \"dia\": \"Martes\",
+                    \"horas\": 10,
+                    \"minutos\": 40
+                },
+                {
+                    \"dia\": \"Martes\",
+                    \"horas\": 11,
+                    \"minutos\": 20
+                },
+                {
+                    \"dia\": \"Jueves\",
+                    \"horas\": 9,
+                    \"minutos\": 0
+                },
+                {
+                    \"dia\": \"Jueves\",
+                    \"horas\": 9,
+                    \"minutos\": 20
+                },
+                {
+                    \"dia\": \"Jueves\",
+                    \"horas\": 10,
+                    \"minutos\": 40
+                },
+                {
+                    \"dia\": \"Jueves\",
+                    \"horas\": 11,
+                    \"minutos\": 40
+                }
+            ]
+        },";
         }
+        $json  = substr($json, 0, strlen($json) - 1); # sin la ultima coma
         
         // "matricula": "3737",
         // "nombre": "Tekito",
