@@ -42,6 +42,14 @@ class Medico extends Model {
 
     }
 
+    public function getDias() {
+        return $this->queryBuilder->selectDiaPorMedico($this->fields['matricula']);
+    }
+
+    public function getTurnosTomados() {
+        return $this->queryBuilder->selectTurnos($this->fields['id']);
+    }
+
 }
 
 ?>

@@ -44,14 +44,14 @@
 		<input type="date" name="fecha_nac" tabindex="4"><br>
 	</fieldset>
 	<fieldset>
-		<label for="matricula">Medico:</label><br>
+		{#<label for="matricula">Medico:</label><br>
 		<select name="matricula">
 			{% for medico in medicos %}
 				<option value='{{medico.fields.matricula}}'> {{medico.fields.nombre}} </option> 
 			{% else %}
 				<option value=""> No hay médicos disponibles </option>
 			{% endfor %}
-		</select>
+		</select> #}
 		<input type="hidden" name="matricula" ><br>
 		<label for="fecha_turno">Fecha Turno:</label><br>
 		<input type="date" name="fecha_turno" required tabindex="6"><br>
@@ -69,10 +69,10 @@
 	<input type="reset" value="Limpiar">
 </form>
 <script>
-document.addEventListener("DOMContentLoaded",()=>{
-    let fieldset = document.querySelector("label[for = 'fecha_turno']").parentElement;
-    let calendario = new  PawCalendario(fieldset);
-    calendario.setListaTurnosConJson({{ json | raw}});
-})
+	document.addEventListener("DOMContentLoaded",()=>{
+		let fieldset = document.querySelector("label[for = 'fecha_turno']").parentElement;
+		let calendario = new  PawCalendario(fieldset);
+		calendario.setListaTurnosConJson({{ json | raw}});
+	})
 </script>
 {% endblock %}

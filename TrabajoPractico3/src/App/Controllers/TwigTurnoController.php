@@ -47,18 +47,19 @@ class TwigTurnoController extends TurnoController{
 
     public function nuevo_turno_proccess(){
 
-       global $request;
+       global $request, $log;
 
        d($_POST);
-
+       
+       $valoresDelSelect = explode(",", $request->get('nombreMedico'));
        $apenomb= $request->get('apenomb') ;
-       $email = $request->get('email');+
+       $email = $request->get('email');
        $tel = $request->get('tel');
        $fecha_nac = $request->get('fecha_nac');
-       $fecha_turno = $request->get('fecha_turno');
+       $fecha_turno = $request->get('inputDia');
        //$edad= $request->get('edad');
-       $hora_turno = $request->get('hora_turno');
-       $matricula = $request->get('matricula');
+       $hora_turno = $request->get('inputHora');
+       $matricula = $request->get('nombreMedico');
 
 
 
@@ -68,13 +69,14 @@ class TwigTurnoController extends TurnoController{
         $validacionTurno->setApenomb($request->get('apenomb'));
         $validacionTurno->setEmail($request->get('email'));
         $validacionTurno->setTel($request->get('tel'));
-        $validacionTurno->setDate($request->get('fecha_turno'));
+        //$validacionTurno->setDate($request->get('fecha_turno'));
         //$validacionTurno->setEdad($request->get('edad'));
-        $validacionTurno->setHoraTurno($request->get('hora_turno'));
-        $validacionTurno->setMatricula($request->get('matricula'));
+        $validacionTurno->setHoraTurno($request->get('inputHora'));
+        $validacionTurno->setMinuto($request->get('inputMinutos'));
+        $validacionTurno->setDate($request->get('inputDia'));
+        //$validacionTurno->setMatricula($request->get('matricula'));
+        $validacionTurno->setMatricula($valoresDelSelect[2]);
 
-
-        $validacionTurno->insert();
 
 
 
@@ -92,15 +94,15 @@ class TwigTurnoController extends TurnoController{
             $errores['matricula'] = "La matricula es requerida en este formulario";
             $hayErrores=true;
         }
-        if ($validacionTurno->validarMatricula($matricula) == false ){
-            $errores['matricula'] = "La matricula ingresada es incorrecta";
-            $hayErrores=true;
-        }
+        //if ($validacionTurno->validarMatricula($matricula) == false ){
+        //    $errores['matricula'] = "La matricula ingresada es incorrecta";
+        //    $hayErrores=true;
+        //}
 
-        if ($validacionTurno->validarSocioMail($email) == false ){
-            $errores['socio'] = "El socio ingresado es incorrecto";
-            $hayErrores=true;
-        }
+       // if ($validacionTurno->validarSocioMail($email) == false ){
+        //    $errores['socio'] = "El socio ingresado es incorrecto";
+        //    $hayErrores=true;
+        //}
 
 
         if($apenomb== null){
@@ -113,32 +115,37 @@ class TwigTurnoController extends TurnoController{
         }
 
 
-        $is_tel = preg_match("#[0-9]+#", $tel); //no me esta tomando la expresion regular del numero de telefono
+        $is_tel = preg_match("#[0-9]+#", $tel);
         if ($is_tel == false){
             $errores['tel']= "el telefono ingresado es incorrecto";
             $hayErrores=true;
         }
 
-        if ($this->validateDate($fecha_nac) ==false ){
-            $errores['fecha_nac'] = "La fecha ingresada no es una fecha correcta";
-            $hayErrores=true;
-        }
+        // if ($this->validateDate($fecha_nac) ==false ){
+        //     $errores['fecha_nac'] = "La fecha ingresada no es una fecha correcta";
+        //     $hayErrores=true;
+        // }
 
-        if ($this->validateDate($fecha_turno) == false){
-            $errores['date'] = "la fecha de turno ingresada no es una fecha correcta";
-            $hayErrores=true;
-        }
+        //if ($this->validateDate($fecha_turno) == false){
+        //    $errores['date'] = "la fecha de turno ingresada no es una fecha correcta";
+        //    $hayErrores=true;
+        //}
 
+        if ($hayErrores) {
+            $log->debug("No se insertó el turno");
+        } else {
+            $validacionTurno->insert();
+        }
 
         // if (is_numeric($edad)==false){
         //     $errores['edad'] = "la edad ingresada no es valida";
         //     $hayErrores=true;
         // }
 
-        if ($this->validateDate($hora_turno,'H:i') == false){ //puede que la h tenga que ir en mayuscula
-            $errores['hora_turno'] = "la hora ingresada no es valida";
-            $hayErrores=true;
-        }
+        // if ($this->validateDate($hora_turno,'H:i') == false){ //puede que la h tenga que ir en mayuscula
+        //     $errores['hora_turno'] = "la hora ingresada no es valida";
+        //     $hayErrores=true;
+        // }
 
 
         //funcion para determinar si es una imagen
@@ -150,9 +157,6 @@ class TwigTurnoController extends TurnoController{
         //     }
         // }
 
-
-
-        // cuando paso a hacer esto estoy asignando a formulario todos los datos que llegaron por la vista.
         $this->nuevo_turno(true,$hayErrores,$errores);
 
     }

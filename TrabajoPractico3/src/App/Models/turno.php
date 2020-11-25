@@ -24,6 +24,7 @@ class turno extends Model{
     protected $fecha_nac;
     protected $date;
     protected $hora_turno;
+    protected $minuto;
 
     public $idMed;
     public $idSoc;
@@ -43,8 +44,8 @@ class turno extends Model{
         $columns = array();
         $valores = array();
         
-        array_push($columns,'dia','hora','socio','medico');
-        array_push($valores,$this->date, $this->hora_turno, $this->email, 1);
+        array_push($columns,'dia','hora', 'minuto','socio','medico');
+        array_push($valores,$this->date, $this->hora_turno, $this->minuto, $this->email, $this->matricula);
         $valor = array();
         //array_push($valor,$this->apenomb,$this->email, $this->socio,$this->medico);
         $soc = $qb->selectSocio($this->email);
@@ -235,6 +236,10 @@ class turno extends Model{
 
     }
 
+    public function setMinuto($minuto) {
+        $this->minuto = $minuto;
+    }
+
 
     public static function getJson() {
         global $connection, $log;
@@ -244,70 +249,71 @@ class turno extends Model{
         $aux->setQueryBuilder($qb);
         $medicos = $aux->getAll();
         foreach ($medicos as $medico) {
+            $medico->setQueryBuilder($qb);
             $json .= "{ \"matricula\": \"{$medico->fields['matricula']}\",";
             $json .= " \"nombre\": \"{$medico->fields['nombre']}\", ";
-            $json .= "\"apellido\": \"Lakarie\",
-            \"diasQueAtiende\": [
-                \"Lunes\",
-                \"Martes\",
-                \"Jueves\"
-            ],
+            $json .= "\"apellido\": \"{$medico->fields['apellido']}\", 
+            \"diasQueAtiende\": [";
+            foreach ($medico->getDias() as $dia) {
+                $json .= "\"{$dia['dia']}\",";
+            }
+            $json  = substr($json, 0, strlen($json) - 1); # sin la ultima coma
+
+                // \"Lunes\",
+                // \"Martes\",
+                // \"Jueves\"
+            $json .= "],
             \"horarioInicio\": {
-                \"horas\": 9,
+                \"horas\": {$medico->fields['horaInicio']},
                 \"minutos\": 0
             },
             \"horarioFinalizacion\": {
-                \"horas\": 12,
+                \"horas\": {$medico->fields['horaFin']},
                 \"minutos\": 0
             },
-            \"duracionTurno\": 20,
-            \"turnosTomados\": [
-                {
-                    \"dia\": \"Lunes\",
-                    \"horas\": 9,
-                    \"minutos\": 0
-                },
-                {
-                    \"dia\": \"Lunes\",
-                    \"horas\": 9,
-                    \"minutos\": 20
-                },
-                {
-                    \"dia\": \"Martes\",
-                    \"horas\": 10,
-                    \"minutos\": 0
-                },
-                {
-                    \"dia\": \"Martes\",
-                    \"horas\": 10,
-                    \"minutos\": 40
-                },
-                {
-                    \"dia\": \"Martes\",
-                    \"horas\": 11,
-                    \"minutos\": 20
-                },
-                {
-                    \"dia\": \"Jueves\",
-                    \"horas\": 9,
-                    \"minutos\": 0
-                },
-                {
-                    \"dia\": \"Jueves\",
-                    \"horas\": 9,
-                    \"minutos\": 20
-                },
-                {
-                    \"dia\": \"Jueves\",
-                    \"horas\": 10,
-                    \"minutos\": 40
-                },
-                {
-                    \"dia\": \"Jueves\",
-                    \"horas\": 11,
-                    \"minutos\": 40
-                }
-            ]
+            \"duracionTurno\": 60,
+            \"turnosTomados\": [";
+            $conTurnos = false;
+            foreach ($medico->getTurnosTomados() as $dia) {
+                $json .= "\"dia\": \"{$dia['dia']}\",";
+                $json .= "\"horas\": \"{$dia['hora']}\",";
+                $json .= "\"minutos\": \"{$dia['minuto']}\"";
+                $conTurnos = true;
+            }
+            if ($conTurnos) {
+                $json  = substr($json, 0, strlen($json) - 1); # sin la ultima coma
+            }
+                // {
+                //     \"dia\": \"Lunes\",
+                //     \"horas\": 9,
+                //     \"minutos\": 0
+                // },
+                // {
+                //     \"dia\": \"Martes\",
+                //     \"horas\": 10,
+                //     \"minutos\": 0
+                // },
+                // {
+                //     \"dia\": \"Martes\",
+                //     \"horas\": 11,
+                //     \"minutos\": 0
+                // },
+                // {
+                //     \"dia\": \"Jueves\",
+                //     \"horas\": 9,
+                //     \"minutos\": 0
+                // },
+                // {
+                //     \"dia\": \"Jueves\",
+                //     \"horas\": 10,
+                //     \"minutos\": 0
+                // },
+                // {
+                //     \"dia\": \"Jueves\",
+                //     \"horas\": 11,
+                //     \"minutos\": 0
+                // }
+            $json .=" ]
         },";
         }
         $json  = substr($json, 0, strlen($json) - 1); # sin la ultima coma

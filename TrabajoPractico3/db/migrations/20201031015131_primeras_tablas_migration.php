@@ -63,20 +63,32 @@ final class PrimerasTablasMigration extends AbstractMigration
 
       $tableMedico = $this->table("medico");
       $tableMedico->addColumn('nombre', 'string', ['limit'=>60])
+                  ->addColumn('apellido', 'string', ['limit'=>60])
                   ->addColumn('email', 'string', ['null'=>true])
                   ->addColumn('matricula', 'integer')
                   ->addColumn('especialidad', 'integer')
+                  ->addColumn('horaInicio', 'integer')
+                  ->addColumn('horaFin', 'integer')
                   ->addForeignKey('especialidad','especialidad','id')
                   ->create();
+      $tableDias = $this->table("dia");
+      $tableDias->addColumn('nombre','string')
+                ->create();
+      $tableDiaMedico = $this->table("diaMedicos");
+      $tableDiaMedico->addColumn('dia','string')
+                     ->addColumn('matricula','integer')
+                     ->create();
 
 
       $tableTurno = $this->table('turno');
       $tableTurno->addColumn('dia','string')
-                  ->addColumn('hora','string')
+                  ->addColumn('hora','integer')
+                  ->addColumn('minuto','integer')
                   ->addColumn('socio','string')
                   ->addColumn('medico','integer')
                   ->addForeignKey('medico','medico','id')
                   ->create();
+        
         // execute()
         $this->execute('DELETE FROM turno');
         $this->execute('DELETE FROM socio');
@@ -104,20 +116,41 @@ final class PrimerasTablasMigration extends AbstractMigration
         $rows = [
             [
               'id'    => 1,
-              'nombre'  => 'carlitos calin',
+              'nombre'  => 'carlitos',
+              'apellido'  => 'carlin',
               'email'  => 'carlitos@gmail.com',
               'matricula'  => 1,
+              'horaInicio'  => 9,
+              'horaFin'  => 18,
               'especialidad'  => 1            ],
             [
                 'id'    => 10,
-                'nombre'  => 'pepe gonzales',
+                'nombre'  => 'pepe',
+                'apellido'  => 'gonzales',
                 'email'  => 'pepito@gmail.com',
                 'matricula'  => 10,
+                'horaInicio'  => 9,
+                'horaFin'  => 18,
                 'especialidad'  => 10  
             ]
         ];
 
         $this->table('medico')->insert($rows)->save();
+        $this->table('dia')->insert([
+            ["id" => 1, "nombre" => "Lunes"],
+            ["id" => 2, "nombre" => "Martes"],
+            ["id" => 3, "nombre" => "Jueves"],
+        ])->save();
+
+        $this->table('diamedicos')->insert([
+          ["id" => 1, "dia" => "Lunes", "matricula" => 1],
+          ["id" => 2, "dia" => "Martes", "matricula" => 1],
+          ["id" => 3, "dia" => "Jueves", "matricula" => 1],
+          ["id" => 4, "dia" => "Lunes", "matricula" => 10],
+          ["id" => 5, "dia" => "Martes", "matricula" => 10],
+          ["id" => 6, "dia" => "Jueves", "matricula" => 10],
+      ])->save();
+
     }
 
     /**

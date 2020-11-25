@@ -510,9 +510,8 @@ class PawCalendario {
     }
 
     setListaTurnosConJson(json) {
-        alert(json)
         this.listaTurnos = json
-        alert(this.listaTurnos)
+        console.log(this.listaTurnos)
         this.generarSelect()
         this.contenedor = this.generarContenedor()
         this.generarButton()

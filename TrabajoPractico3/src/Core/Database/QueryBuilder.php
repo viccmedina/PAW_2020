@@ -36,6 +36,28 @@ class QueryBuilder{
     }
 
 
+    public function selectDiaPorMedico ($matricula){
+        
+        $query = "SELECT * FROM diamedicos WHERE matricula=:medico";
+        $sentencia = $this->pdo->prepare($query);
+
+        $sentencia->bindValue(":medico",$matricula);
+        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+        $sentencia->execute();
+        return $sentencia->fetchAll();
+
+    }
+
+    public function selectTurnos($idMedico) {
+        $query = "SELECT * FROM turno WHERE id=:medico";
+        $sentencia = $this->pdo->prepare($query);
+
+        $sentencia->bindValue(":medico",$idMedico);
+        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+        $sentencia->execute();
+        return $sentencia->fetchAll();
+    }
+
     public function selectSocio ($param){
 
         $where = "email=$param";
