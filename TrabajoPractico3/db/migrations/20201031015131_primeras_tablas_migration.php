@@ -142,7 +142,7 @@ final class PrimerasTablasMigration extends AbstractMigration
             ["id" => 3, "nombre" => "Jueves"],
         ])->save();
 
-        $this->table('diamedicos')->insert([
+        $this->table('diaMedicos')->insert([
           ["id" => 1, "dia" => "Lunes", "matricula" => 1],
           ["id" => 2, "dia" => "Martes", "matricula" => 1],
           ["id" => 3, "dia" => "Jueves", "matricula" => 1],
