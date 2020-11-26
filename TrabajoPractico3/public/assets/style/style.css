@@ -50,6 +50,8 @@
 
     --border-color: var(--turquesa-100);
     --color-letras: var(--turquesa-150);
+
+    --logo-and-header-height: calc(var(--main-header-margin-top) + var(--main-header-padding)*2 + var(--main-header-text-size) + var(--margin)/2 + 9vh);
 }
 
 a{

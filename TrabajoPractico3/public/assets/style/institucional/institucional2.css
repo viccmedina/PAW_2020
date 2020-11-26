@@ -1,7 +1,7 @@
 
 .aside{
     text-align: center;
-    padding: 1rem;
+    /*padding: 1rem;*/
     margin-top: 0.3rem;
     margin-bottom: 0.3rem;
     background-color: var(--body-header-color);
@@ -38,17 +38,18 @@ section a img{
 
 
     body>aside{
+        position: absolute;
+        top: 17.5vh;
         display: inline-block;
-        width: 12vw;
-        height: 71vh;
+        width: 17vw;
+        height: 90vh;
         margin: 1.2rem 0.6rem;
     }
 
     .contenidoPag{
-        position: absolute;
         display: inline-block;
         margin-left: 20vw;
-        width: 80rem;
+        width: 80vw;
     }
 
 
