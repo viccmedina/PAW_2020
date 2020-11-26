@@ -4,7 +4,7 @@ namespace Paw\App\Controllers;
 
 use DateTime;
 use Paw\App\Models\turno;
-use Paw\App\Models\Medico;
+use Paw\App\Models\medico;
 use Paw\Core\Controller;
 use Paw\Core\Database\QueryBuilder;
 
