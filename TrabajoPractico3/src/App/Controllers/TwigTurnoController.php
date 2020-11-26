@@ -19,10 +19,15 @@ class TwigTurnoController extends TurnoController{
     }
 
     public function turnos(){
+        global $connection, $log;
         $titulo = "Turnos";
         $descripcion = "Pagina para consultar turnos del sitio";
         $menu = $this->menu;
-        $this->twigLoader('turnos.view.twig', compact("menu", "titulo"));
+        $turno = new turno();
+        $qb = new QueryBuilder($connection,$log);
+        $turno->setQueryBuilder($qb);
+        $turnos = $turno->getAll();
+        $this->twigLoader('turnos.view.twig', compact("menu", "titulo", "turnos"));
     }
 
 

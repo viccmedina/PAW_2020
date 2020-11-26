@@ -16,61 +16,47 @@
       </header>
       <section class="pawCard">
         <header>
-          <button type="button">Fecha</button> 
+          {# <button type="button">Fecha</button> 
           <button type="button">Médico</button> 
-          <button type="button">Etc</button> 
+          <button type="button">Etc</button>  #}
           <h2><a href="/nuevo_turno" title="">Nuevo Turno</a></h2>
         </header>
         <ol class="pawCard">
-          <li>
-            <details>
-              <summary>
-                <strong><time datetime="2008-02-14 20:00">Fecha Turno</time></strong>
-                Nombre médico
-              </summary>
-              <div>
-                <p>Nombre médico</p>
-                <time datetime="2008-02-14 20:00">Fecha Turno</time>
-                <img src="/assets/imagenes/medico.jpg" alt="Foto del médico" width="120" height="100"> 
-                <p>Numero consultorio</p>
-                <p>Preparaciónes previas</p>
-                <ul>
-                  <li>Ayuno</li>
-                  <li>Carnet Obra Social</li>
-                </ul>
+            {% for turno in turnos %} 
+              <li>
+                <details>
+                  <summary>
+                    <strong><time datetime="2008-02-14 20:00">Fecha Turno</time></strong>
+                    Nombre médico
+                  </summary>
+                  <div>
+                    <p>{{ turno.medico }}.</p>
+                    <p>Dia: {{ turno.dia }}.</p>
+                    <p>Horario: {{ turno.hora }}:{{turno.minuto}} horas.</p>
+                    <img src="/assets/imagenes/medico.jpg" alt="Foto del médico" width="120" height="100"> 
+                    <p>Recordatorios</p>
+                    <ul>
+                      <li>Traer barbijo y alcohol</li>
+                    </ul>
 
-                <p>Recordatorios</p>
-                <ul>
-                  <li>Traer barbijo y alcohol</li>
-                </ul>
-              </div>
-            </details>
-          </li>
+                    {# <p>Nombre médico</p>
+                    <time datetime="2008-02-14 20:00">Fecha Turno</time>
+                    <img src="/assets/imagenes/medico.jpg" alt="Foto del médico" width="120" height="100"> 
+                    <p>Numero consultorio</p>
+                    <p>Preparaciónes previas</p>
+                    <ul>
+                      <li>Ayuno</li>
+                      <li>Carnet Obra Social</li>
+                    </ul>
 
-          <li>
-            <details>
-              <summary>
-                <strong><time datetime="2008-02-14 20:00">Fecha Turno</time></strong>
-                Nombre médico
-              </summary>
-              <div>
-                <p>Nombre médico</p>
-                <time datetime="2008-02-14 20:00">Fecha Turno</time>
-                <img src="/assets/imagenes/medico.jpg" alt="Foto del médico" width="120" height="100"> 
-                <p>Numero consultorio</p>
-                <p>Preparaciónes previas</p>
-                <ul>
-                  <li>Ayuno</li>
-                  <li>Carnet Obra Social</li>
-                </ul>
-
-                <p>Recordatorios</p>
-                <ul>
-                  <li>Traer barbijo y alcohol</li>
-                </ul>
-              </div>
-            </details>
-          </li>
+                    <p>Recordatorios</p>
+                    <ul>
+                      <li>Traer barbijo y alcohol</li>
+                    </ul>#}
+                  </div>
+                </details> 
+              </li>
+            {% endfor %}
         </ol>
       </section>
 {% endblock %}

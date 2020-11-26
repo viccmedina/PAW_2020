@@ -58,6 +58,15 @@ class QueryBuilder{
         return $sentencia->fetchAll();
     }
 
+    public function getAllTurnos() {
+        $query = "SELECT T.*, CONCAT(M.nombre, ' ', M.apellido) as medico FROM turno T JOIN medico M ON T.medico=M.id";
+        $sentencia = $this->pdo->prepare($query);
+
+        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+        $sentencia->execute();
+        return $sentencia->fetchAll();
+    }
+
     public function selectSocio ($param){
 
         $where = "email=$param";

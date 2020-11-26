@@ -17,14 +17,15 @@ class turno extends Model{
     public $table = 'turno';
 
 
-    protected $apenomb;
-    protected $email ;
-    protected $matricula;
-    protected $tel;
-    protected $fecha_nac;
-    protected $date;
-    protected $hora_turno;
-    protected $minuto;
+    public $apenomb;
+    public $email ;
+    public $matricula;
+    public $tel;
+    public $fecha_nac;
+    public $hora;
+    public $hora_turno;
+    public $minuto;
+    public $medico;
 
     public $idMed;
     public $idSoc;
@@ -37,6 +38,11 @@ class turno extends Model{
         return $this->apenomb;
     }
 
+    public function getAll() {
+        global $connection,$log;
+        $qb = new QueryBuilder($connection,$log);
+        return $qb->getAllTurnos();
+    }
 
     public function insert(){
         global $connection,$log;
@@ -177,11 +183,11 @@ class turno extends Model{
     }
 
     /**
-     * @param mixed $date
+     * @param mixed $hora
      */
-    public function setDate($date): void
+    public function setDate($hora): void
     {
-        $this->date = $date;
+        $this->date = $hora;
     }
 
 
@@ -230,6 +236,7 @@ class turno extends Model{
     public function setHoraTurno($hora_turno): void
     {
         $this->hora_turno = $hora_turno;
+        $this->hora = $hora_turno;
     }
 
     public function validarHoraTurno(){
@@ -275,9 +282,9 @@ class turno extends Model{
             \"turnosTomados\": [";
             $conTurnos = false;
             foreach ($medico->getTurnosTomados() as $dia) {
-                $json .= "\"dia\": \"{$dia['dia']}\",";
+                $json .= "{\"dia\": \"{$dia['dia']}\",";
                 $json .= "\"horas\": \"{$dia['hora']}\",";
-                $json .= "\"minutos\": \"{$dia['minuto']}\"";
+                $json .= "\"minutos\": \"{$dia['minuto']}\"},";
                 $conTurnos = true;
             }
             if ($conTurnos) {
