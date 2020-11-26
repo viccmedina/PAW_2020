@@ -200,5 +200,12 @@ a[href="https://www.whatsapp.com"]{
 @media (min-width: 1000px){
     :root{
         font-size: 15px; /* Font size si es desktop */
-    }    
+    }
+    aside{
+        background-image: url("/assets/imagenes/AsideDesktop2.jpg");
+        color: transparent;
+        background-size:cover;
+        background-repeat: no-repeat;
+
+    }
 }
