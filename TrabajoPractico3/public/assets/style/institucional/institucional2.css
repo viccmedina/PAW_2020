@@ -1,0 +1,56 @@
+
+.aside{
+    text-align: center;
+    /*padding: 1rem;*/
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    background-color: var(--body-header-color);
+}
+
+.contenidoPag{
+    margin-left: 1vw;
+}
+
+.titulo{
+    margin-bottom: 1.1rem;
+}
+
+
+
+section a img{
+    width: 80vw;
+    height: 5vh;
+    display: flex;
+    padding: 1rem;
+
+}
+
+.descripcionImg{
+    text-align: center;
+}
+
+.tituloDir{
+    margin-left: 1rem;
+}
+
+
+@media (min-width: 1100px) {
+
+
+    body>aside{
+        position: absolute;
+        top: 17.5vh;
+        display: inline-block;
+        width: 17vw;
+        height: 90vh;
+        margin: 1.2rem 0.6rem;
+    }
+
+    .contenidoPag{
+        display: inline-block;
+        margin-left: 20vw;
+        width: 80vw;
+    }
+
+
+}

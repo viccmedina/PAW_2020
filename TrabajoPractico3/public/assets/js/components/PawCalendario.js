@@ -288,13 +288,13 @@ class PawCalendario {
             ]
         };
 
-        this.generarSelect();
-        
-        this.contenedor = this.generarContenedor();
-
-        this.generarButton();
-
-        this.generarInputsHidden(document.querySelector(".pawBotonCalendario").parentElement);
+        //this.generarSelect();
+        //
+        //this.contenedor = this.generarContenedor();
+//
+        //this.generarButton();
+//
+        //this.generarInputsHidden(document.querySelector(".pawBotonCalendario").parentElement);
     }
     
     generarTabla(diasQueAtiende, horarioInicio, horarioFin, duracionTurno){
@@ -508,6 +508,16 @@ class PawCalendario {
             });
         }
     }
+
+    setListaTurnosConJson(json) {
+        this.listaTurnos = json
+        console.log(this.listaTurnos)
+        this.generarSelect()
+        this.contenedor = this.generarContenedor()
+        this.generarButton()
+        this.generarInputsHidden(document.querySelector(".pawBotonCalendario").parentElement)
+    }
+
 }
 
 

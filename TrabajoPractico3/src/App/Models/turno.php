@@ -17,13 +17,15 @@ class turno extends Model{
     public $table = 'turno';
 
 
-    protected $apenomb;
-    protected $email ;
-    protected $matricula;
-    protected $tel;
-    protected $fecha_nac;
-    protected $date;
-    protected $hora_turno;
+    public $apenomb;
+    public $email ;
+    public $matricula;
+    public $tel;
+    public $fecha_nac;
+    public $hora;
+    public $hora_turno;
+    public $minuto;
+    public $medico;
 
     public $idMed;
     public $idSoc;
@@ -36,19 +38,27 @@ class turno extends Model{
         return $this->apenomb;
     }
 
+    public function getAll() {
+        global $connection,$log;
+        $qb = new QueryBuilder($connection,$log);
+        return $qb->getAllTurnos();
+    }
 
     public function insert(){
         global $connection,$log;
         $qb = new QueryBuilder($connection,$log);
         $columns = array();
-        array_push($columns,'titulo','descripcion','socio','medico');
+        $valores = array();
+        
+        array_push($columns,'dia','hora', 'minuto','socio','medico');
+        array_push($valores,$this->date, $this->hora_turno, $this->minuto, $this->email, $this->matricula);
         $valor = array();
         //array_push($valor,$this->apenomb,$this->email, $this->socio,$this->medico);
         $soc = $qb->selectSocio($this->email);
         
         $medic = $qb->selectMedico($this->matricula);
-        
-
+        $qb->insert($this->table,$columns,$valores);
+        $log->debug($this->date. $this->hora_turno. $this->email. $this->matricula);
         //array_push($valor,$this->apenomb,$this->email,$soc[0], $medic[0]);
         // $columns = ['1' => 'apenomb','2' => 'email','3' => 'socio','4'=> 'medico'];
         // $valor = ['1' => $this->apenomb,'2' => $this->email,'3' => $this->socio,'4'=> $this->medico];  
@@ -173,11 +183,11 @@ class turno extends Model{
     }
 
     /**
-     * @param mixed $date
+     * @param mixed $hora
      */
-    public function setDate($date): void
+    public function setDate($hora): void
     {
-        $this->date = $date;
+        $this->date = $hora;
     }
 
 
@@ -226,14 +236,101 @@ class turno extends Model{
     public function setHoraTurno($hora_turno): void
     {
         $this->hora_turno = $hora_turno;
+        $this->hora = $hora_turno;
     }
 
     public function validarHoraTurno(){
 
     }
 
+    public function setMinuto($minuto) {
+        $this->minuto = $minuto;
+    }
 
 
+    public static function getJson() {
+        global $connection, $log;
+        $json = "{ 'especialistas': [";
+        $aux = new medico();
+        $qb = new QueryBuilder($connection,$log);
+        $aux->setQueryBuilder($qb);
+        $medicos = $aux->getAll();
+        foreach ($medicos as $medico) {
+            $medico->setQueryBuilder($qb);
+            $json .= "{ \"matricula\": \"{$medico->fields['matricula']}\",";
+            $json .= " \"nombre\": \"{$medico->fields['nombre']}\", ";
+            $json .= "\"apellido\": \"{$medico->fields['apellido']}\", 
+            \"diasQueAtiende\": [";
+            foreach ($medico->getDias() as $dia) {
+                $json .= "\"{$dia['dia']}\",";
+            }
+            $json  = substr($json, 0, strlen($json) - 1); # sin la ultima coma
+
+                // \"Lunes\",
+                // \"Martes\",
+                // \"Jueves\"
+            $json .= "],
+            \"horarioInicio\": {
+                \"horas\": {$medico->fields['horaInicio']},
+                \"minutos\": 0
+            },
+            \"horarioFinalizacion\": {
+                \"horas\": {$medico->fields['horaFin']},
+                \"minutos\": 0
+            },
+            \"duracionTurno\": 60,
+            \"turnosTomados\": [";
+            $conTurnos = false;
+            foreach ($medico->getTurnosTomados() as $dia) {
+                $json .= "{\"dia\": \"{$dia['dia']}\",";
+                $json .= "\"horas\": \"{$dia['hora']}\",";
+                $json .= "\"minutos\": \"{$dia['minuto']}\"},";
+                $conTurnos = true;
+            }
+            if ($conTurnos) {
+                $json  = substr($json, 0, strlen($json) - 1); # sin la ultima coma
+            }
+                // {
+                //     \"dia\": \"Lunes\",
+                //     \"horas\": 9,
+                //     \"minutos\": 0
+                // },
+                // {
+                //     \"dia\": \"Martes\",
+                //     \"horas\": 10,
+                //     \"minutos\": 0
+                // },
+                // {
+                //     \"dia\": \"Martes\",
+                //     \"horas\": 11,
+                //     \"minutos\": 0
+                // },
+                // {
+                //     \"dia\": \"Jueves\",
+                //     \"horas\": 9,
+                //     \"minutos\": 0
+                // },
+                // {
+                //     \"dia\": \"Jueves\",
+                //     \"horas\": 10,
+                //     \"minutos\": 0
+                // },
+                // {
+                //     \"dia\": \"Jueves\",
+                //     \"horas\": 11,
+                //     \"minutos\": 0
+                // }
+            $json .=" ]
+        },";
+        }
+        $json  = substr($json, 0, strlen($json) - 1); # sin la ultima coma
+        
+        // "matricula": "3737",
+        // "nombre": "Tekito",
+        // "apellido": "Lakarie",
+        $json .= "]}";
+        return $json;
+    }
 
 
 
