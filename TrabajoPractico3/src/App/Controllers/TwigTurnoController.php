@@ -40,10 +40,10 @@ class TwigTurnoController extends TurnoController{
 
        global $request;
 
-       d($_POST);
+       ($_POST);
 
        $apenomb= $request->get('apenomb') ;
-       $email = $request->get('email');+
+       $email = $request->get('email');
        $tel = $request->get('tel');
        $fecha_nac = $request->get('fecha_nac');
        $fecha_turno = $request->get('fecha_turno');
@@ -64,8 +64,13 @@ class TwigTurnoController extends TurnoController{
         $validacionTurno->setHoraTurno($request->get('hora_turno'));
         $validacionTurno->setMatricula($request->get('matricula'));
 
+        if($fecha_nac != ""){
+            $validacionTurno->insert();
+        }else{
+            $errores['fecha_nac'] = "La fecha de nacimiento es invalida";
+            $hayErrores=true;
+        }
 
-        $validacionTurno->insert();
 
 
 
