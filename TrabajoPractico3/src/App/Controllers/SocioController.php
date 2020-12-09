@@ -26,7 +26,6 @@ class SocioController extends Controller{
 
     public function get(){
 
-        global $request;
         $socioId = $request->get('id');
 
         $socio = $this->model->get($socioId);

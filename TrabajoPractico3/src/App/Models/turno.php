@@ -39,30 +39,21 @@ class turno extends Model{
     }
 
     public function getAll() {
-        global $connection,$log;
-        $qb = new QueryBuilder($connection,$log);
-        return $qb->getAllTurnos();
+        return $this->queryBuilder->getAllTurnos();
     }
 
     public function insert(){
-        global $connection,$log;
-        $qb = new QueryBuilder($connection,$log);
         $columns = array();
         $valores = array();
         
         array_push($columns,'dia','hora', 'minuto','socio','medico');
         array_push($valores,$this->date, $this->hora_turno, $this->minuto, $this->email, $this->matricula);
         $valor = array();
-        //array_push($valor,$this->apenomb,$this->email, $this->socio,$this->medico);
-        $soc = $qb->selectSocio($this->email);
+        $soc = $this->queryBuilder->selectSocio($this->email);
         
-        $medic = $qb->selectMedico($this->matricula);
-        $qb->insert($this->table,$columns,$valores);
-        $log->debug($this->date. $this->hora_turno. $this->email. $this->matricula);
-        //array_push($valor,$this->apenomb,$this->email,$soc[0], $medic[0]);
-        // $columns = ['1' => 'apenomb','2' => 'email','3' => 'socio','4'=> 'medico'];
-        // $valor = ['1' => $this->apenomb,'2' => $this->email,'3' => $this->socio,'4'=> $this->medico];  
-        //$qb->insert($this->table,$columns,$valor);
+        $medic = $this->queryBuilder->selectMedico($this->matricula);
+        $this->queryBuilder->insert($this->table,$columns,$valores);
+        $this->logger->debug($this->date. $this->hora_turno. $this->email. $this->matricula);
 
     }
 
@@ -87,9 +78,7 @@ class turno extends Model{
     }
 
     public function validarMatricula($matricula){
-        global $connection,$log;
-        $qb = new QueryBuilder($connection,$log);
-        $validar = $qb->validarMatricula($matricula);
+        $validar = $this->queryBuilder->validarMatricula($matricula);
         if (empty($validar)){
             return false;
         }else{
@@ -98,9 +87,7 @@ class turno extends Model{
     }
 
     public function validarSocioMail($mail){
-        global $connection,$log;
-        $qb = new QueryBuilder($connection,$log);
-        $validarsoc = $qb->validarMatricula($mail);
+        $validarsoc = $this->queryBuilder->validarMatricula($mail);
         
         if (empty($validarsoc)){
             return false;
@@ -248,11 +235,10 @@ class turno extends Model{
     }
 
 
-    public static function getJson() {
-        global $connection, $log;
+    public static function getJson($connection, $logger) {
         $json = "{ 'especialistas': [";
+        $qb = new QueryBuilder($connection, $logger);
         $aux = new medico();
-        $qb = new QueryBuilder($connection,$log);
         $aux->setQueryBuilder($qb);
         $medicos = $aux->getAll();
         foreach ($medicos as $medico) {
@@ -261,11 +247,14 @@ class turno extends Model{
             $json .= " \"nombre\": \"{$medico->fields['nombre']}\", ";
             $json .= "\"apellido\": \"{$medico->fields['apellido']}\", 
             \"diasQueAtiende\": [";
+            $flag = false;
             foreach ($medico->getDias() as $dia) {
                 $json .= "\"{$dia['dia']}\",";
+                $flag = true;
             }
-            $json  = substr($json, 0, strlen($json) - 1); # sin la ultima coma
-
+            if ($flag){
+                $json  = substr($json, 0, strlen($json) - 1); # sin la ultima coma
+            }
                 // \"Lunes\",
                 // \"Martes\",
                 // \"Jueves\"

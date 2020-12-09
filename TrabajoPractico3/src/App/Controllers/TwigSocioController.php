@@ -7,16 +7,9 @@ use Paw\Core\Controller;
 
 use Paw\App\Models\socioCollection;
 
-class TwigSocioController extends SocioController{
+class TwigSocioController extends TwigController {
 
     public ?string $modelname = socioCollection::class;
-    
-    private function twigLoader($file, $array) {
-        $loader = new \Twig\Loader\FilesystemLoader( __DIR__ . '/../views');
-        $twig = new \Twig\Environment($loader, array('auto_reload' => true));
-        echo $twig->render($file, $array);
-    }
-
 
     public function index(){
 
@@ -29,7 +22,6 @@ class TwigSocioController extends SocioController{
 
     public function get(){
 
-        global $request;
         $socioId = $request->get('id');
 
         $socio = $this->model->get($socioId);

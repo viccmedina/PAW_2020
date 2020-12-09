@@ -32,7 +32,6 @@ class TurnoController extends Controller{
 
 
     public function nuevo_turno_proccess(){
-       global $request;
 
        var_dump($request);
        die;

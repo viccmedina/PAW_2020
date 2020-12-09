@@ -55,6 +55,8 @@ $request = new Request;
 $router = new Router;
 
 $router->setLogger($log);
+$router->setConnection($connection);
+$router->setRequest($request);
 $router->get('/','TwigPageController@index');
 $router->get('/turnos','TwigTurnoController@turnos');
 $router->get('/nuevo_turno','TwigTurnoController@nuevo_turno');

@@ -5,8 +5,16 @@ namespace Paw\Core;
 
 use Paw\Core\Model;
 use Paw\Core\Database\QueryBuilder;
+use Paw\Core\Traits\loggable;
+use Paw\Core\Traits\connectable;
+use Paw\Core\Traits\tRequest;
 
 class Controller{
+
+
+    use loggable;
+    use connectable;
+    use tRequest;
 
     public string $viewDir;
 
@@ -72,7 +80,5 @@ class Controller{
     public function setModel(Model $model){
         $this->model =$model;
     }
-
-
-
+ 
 }

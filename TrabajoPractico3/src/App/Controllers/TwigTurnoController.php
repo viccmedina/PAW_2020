@@ -8,24 +8,16 @@ use Paw\App\Models\medico;
 use Paw\Core\Controller;
 use Paw\Core\Database\QueryBuilder;
 
-class TwigTurnoController extends TurnoController{
-
-
-
-    private function twigLoader($file, $array) {
-        $loader = new \Twig\Loader\FilesystemLoader( __DIR__ . '/../views');
-        $twig = new \Twig\Environment($loader, array('auto_reload' => true));
-        echo $twig->render($file, $array);
-    }
+class TwigTurnoController extends TwigController {
 
     public function turnos(){
-        global $connection, $log;
         $titulo = "Turnos";
         $descripcion = "Pagina para consultar turnos del sitio";
         $menu = $this->menu;
         $turno = new turno();
-        $qb = new QueryBuilder($connection,$log);
-        $turno->setQueryBuilder($qb);
+        $turno->setLogger($this->logger);
+        $turno->setConnection($this->connection);
+        $turno->init();
         $turnos = $turno->getAll();
         $this->twigLoader('turnos.view.twig', compact("menu", "titulo", "turnos"));
     }
@@ -34,15 +26,15 @@ class TwigTurnoController extends TurnoController{
 
     public function nuevo_turno($procesado = false, $hayErrores = false, $errores=null){ //le paso estos valores a nuevo_truno pq si no no se pueden usar en la vista.
         
-        global $connection, $log;
         $titulo = "Nuevo Turno";
         $descripcion = "Pagina para solicitar turnos del sitio";
         $menu = $this->menu;
         $aux = new Medico();
-        $qb = new QueryBuilder($connection,$log);
-        $aux->setQueryBuilder($qb);
+        $aux->setLogger($this->logger);
+        $aux->setConnection($this->connection);
+        $aux->init();
         $medicos = $aux->getAll();
-        $json = turno::getJson();
+        $json = turno::getJson($this->connection, $this->logger);
         $this->twigLoader('nuevo_turno.view.twig', compact("menu", "titulo", "procesado", "hayErrores", "errores", "medicos", "json"));
     }
 
@@ -52,10 +44,8 @@ class TwigTurnoController extends TurnoController{
 
     public function nuevo_turno_proccess(){
 
-       global $request, $log;
-
        d($_POST);
-       
+       $request = $this->request;
        $valoresDelSelect = explode(",", $request->get('nombreMedico'));
        $apenomb= $request->get('apenomb') ;
        $email = $request->get('email');
@@ -71,6 +61,9 @@ class TwigTurnoController extends TurnoController{
         //aca trato de hacer lo que dijo tomi, poner las validaciones en el modelo.
         //deberia tener cada if en una funcion de validacion? seria como estar repartiendo todos los if.
         $validacionTurno = new turno();
+        $validacionTurno->setLogger($this->logger);
+        $validacionTurno->setConnection($this->connection);
+        $validacionTurno->init();
         $validacionTurno->setApenomb($request->get('apenomb'));
         $validacionTurno->setEmail($request->get('email'));
         $validacionTurno->setTel($request->get('tel'));

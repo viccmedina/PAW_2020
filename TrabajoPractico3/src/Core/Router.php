@@ -7,11 +7,15 @@ use Paw\Core\Request;
 use http\Encoding\Stream\Debrotli;
 use Paw\Core\Exceptions\RouteNotFoundException;
 use Paw\Core\Traits\loggable;
+use Paw\Core\Traits\connectable;
+use Paw\Core\Traits\tRequest;
 
 class Router{
 
 
     use loggable; //cuando esta aca adentro php lo interpreta como un trait router va a incorporar todas las propiedades de este.
+    use connectable;
+    use tRequest;
 
     public array $routes = [
         "GET" =>[],
@@ -59,6 +63,9 @@ class Router{
 
         $controller_name = "Paw\\App\\Controllers\\{$controller}";
         $objController = new $controller_name;
+        $objController->setLogger($this->logger);
+        $objController->setConnection($this->connection);
+        $objController->setRequest($this->request);
         $objController->$method();
 
     }

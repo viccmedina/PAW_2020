@@ -6,13 +6,20 @@ namespace Paw\Core;
 use Paw\Core\Database\QueryBuilder;
 
 use Paw\Core\Traits\loggable;
+use Paw\Core\Traits\connectable;
+use Exception;
 
 class Model{
     use loggable;
+    use connectable;
 
     private $table;
     private $id;
-    private $queryBuilder;
+    public $queryBuilder;
+
+    public function init() {
+        $this->queryBuilder = new QueryBuilder($this->connection,$this->logger);
+    }
 
     public function setQueryBuilder(QueryBuilder  $qb){
         $this->queryBuilder = $qb;
